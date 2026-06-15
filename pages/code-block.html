@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Block — Component Galerisi</title>
+
+    <link rel="stylesheet" href="../assets/vendor/css/prism-vscode_dark.min.css">
+    <link rel="stylesheet" href="../assets/css/tokens.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+
+    <link rel="stylesheet" href="../components/c-theme-toggle/c-theme-toggle.css">
+    <link rel="stylesheet" href="../components/c-navbar/c-navbar.css">
+    <link rel="stylesheet" href="../components/c-sidebar/c-sidebar.css">
+    <link rel="stylesheet" href="../components/c-breadcrumb/c-breadcrumb.css">
+    <link rel="stylesheet" href="../components/c-code-block/c-code-block.css">
+    <link rel="stylesheet" href="../components/c-callout/c-callout.css">
+    <link rel="stylesheet" href="../components/c-pagination-nav/c-pagination-nav.css">
+</head>
+
+<body>
+
+    <c-navbar brand="Component Galerisi" home="../index.html" github-url="#"></c-navbar>
+    <c-sidebar active="code-block" base="./"></c-sidebar>
+
+    <main class="page">
+        <div class="page-inner">
+            <c-breadcrumb items="Component Galerisi|../index.html>Code Block"></c-breadcrumb>
+
+            <h1>Code Block</h1>
+            <p>
+                Sözdizimi vurgulamalı (syntax highlight) ve kopyala butonlu kod bloğu.
+                Vurgulama için <a href="https://prismjs.com/" target="_blank" rel="noopener">Prism.js</a> kullanılır.
+            </p>
+
+            <h2>Örnek</h2>
+            <c-code-block lang="javascript">function topla(a, b) {
+    return a + b;
+}
+
+console.log(topla(2, 3));</c-code-block>
+
+            <h2>Kullanım</h2>
+            <c-code-block lang="markup">&lt;c-code-block lang="javascript"&gt;
+function topla(a, b) {
+    return a + b;
+}
+&lt;/c-code-block&gt;</c-code-block>
+
+            <c-callout variant="warning" title="İçerik = textContent">
+                Bileşenin içine yazılan kod, <code>textContent</code> olarak okunur ve
+                <code>&lt;pre&gt;&lt;code&gt;</code> içine yerleştirilir. Bu nedenle <code>&lt;</code> ve
+                <code>&gt;</code> karakterlerini <code>&amp;lt;</code> / <code>&amp;gt;</code> olarak
+                yazmaya gerek yoktur — HTML olarak değil düz metin olarak işlenir.
+            </c-callout>
+
+            <h2>Diğer diller</h2>
+
+            <c-code-block lang="css">.c-card {
+    border: 1px solid var(--c-border);
+    border-radius: var(--c-radius-md);
+}</c-code-block>
+
+            <c-code-block lang="markup">&lt;div class="c-card"&gt;
+    &lt;p&gt;Merhaba&lt;/p&gt;
+&lt;/div&gt;</c-code-block>
+
+            <h2>Attribute'lar</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Attribute</th>
+                        <th>Açıklama</th>
+                        <th>Varsayılan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>lang</code></td>
+                        <td>
+                            Prism dil sınıfı (<code>language-{lang}</code>). Örn: <code>javascript</code>,
+                            <code>css</code>, <code>markup</code>, <code>json</code>, <code>php</code>.
+                        </td>
+                        <td><code>markup</code></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>Kopyala butonu</h2>
+            <p>
+                Sağ üst köşedeki kopyala butonu, fare ile üzerine gelindiğinde görünür ve
+                <code>navigator.clipboard</code> API'sini kullanarak kod içeriğini panoya kopyalar.
+                Kopyalama sonrası buton kısa süreliğine "Kopyalandı" metnine döner.
+            </p>
+
+            <c-pagination-nav prev-href="callout.html" prev-label="Callout" next-href="card.html"
+                next-label="Card"></c-pagination-nav>
+        </div>
+    </main>
+
+    <script src="../assets/vendor/js/prism.min.js"></script>
+    <script src="../components/c-theme-toggle/c-theme-toggle.js"></script>
+    <script src="../components/c-navbar/c-navbar.js"></script>
+    <script src="../components/c-sidebar/c-sidebar.js"></script>
+    <script src="../components/c-breadcrumb/c-breadcrumb.js"></script>
+    <script src="../components/c-code-block/c-code-block.js"></script>
+    <script src="../components/c-callout/c-callout.js"></script>
+    <script src="../components/c-pagination-nav/c-pagination-nav.js"></script>
+</body>
+
+</html>

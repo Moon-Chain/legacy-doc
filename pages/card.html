@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card — Component Galerisi</title>
+
+    <link rel="stylesheet" href="../assets/vendor/css/prism-vscode_dark.min.css">
+    <link rel="stylesheet" href="../assets/css/tokens.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+
+    <link rel="stylesheet" href="../components/c-theme-toggle/c-theme-toggle.css">
+    <link rel="stylesheet" href="../components/c-navbar/c-navbar.css">
+    <link rel="stylesheet" href="../components/c-sidebar/c-sidebar.css">
+    <link rel="stylesheet" href="../components/c-breadcrumb/c-breadcrumb.css">
+    <link rel="stylesheet" href="../components/c-code-block/c-code-block.css">
+    <link rel="stylesheet" href="../components/c-callout/c-callout.css">
+    <link rel="stylesheet" href="../components/c-card/c-card.css">
+    <link rel="stylesheet" href="../components/c-badge/c-badge.css">
+    <link rel="stylesheet" href="../components/c-pagination-nav/c-pagination-nav.css">
+</head>
+
+<body>
+
+    <c-navbar brand="Component Galerisi" home="../index.html" github-url="#"></c-navbar>
+    <c-sidebar active="card" base="./"></c-sidebar>
+
+    <main class="page">
+        <div class="page-inner">
+            <c-breadcrumb items="Component Galerisi|../index.html>Card"></c-breadcrumb>
+
+            <h1>Card</h1>
+            <p>
+                Başlık (header), gövde (body) ve footer alanlarına sahip içerik kartı. Header ve footer
+                opsiyoneldir; <code>slot="header"</code> / <code>slot="footer"</code> attribute'u taşımayan
+                tüm doğrudan çocuklar otomatik olarak gövdeye dahil edilir.
+            </p>
+
+            <h2>Örnek — Header + Body + Footer</h2>
+            <c-card>
+                <div slot="header">Kart Başlığı</div>
+                <p>Bu kartın gövde içeriğidir. İçine herhangi bir HTML veya başka component'ler
+                    (örn. <code>&lt;c-badge&gt;</code>, <code>&lt;c-code-block&gt;</code>) eklenebilir.</p>
+                <div slot="footer"><a href="#">Daha fazla bilgi &rarr;</a></div>
+            </c-card>
+
+            <h2>Kullanım</h2>
+            <c-code-block lang="markup">&lt;c-card&gt;
+    &lt;div slot="header"&gt;Kart Başlığı&lt;/div&gt;
+    &lt;p&gt;Gövde içeriği...&lt;/p&gt;
+    &lt;div slot="footer"&gt;&lt;a href="#"&gt;Daha fazla bilgi &rarr;&lt;/a&gt;&lt;/div&gt;
+&lt;/c-card&gt;</c-code-block>
+
+            <h2>Örnek — Sadece gövde</h2>
+            <c-card>
+                <p>Header veya footer belirtilmezse, kart sadece gövdeden oluşur.</p>
+                <c-badge variant="info">Basit</c-badge>
+            </c-card>
+
+            <c-code-block lang="markup">&lt;c-card&gt;
+    &lt;p&gt;Header veya footer belirtilmezse, kart sadece gövdeden oluşur.&lt;/p&gt;
+    &lt;c-badge variant="info"&gt;Basit&lt;/c-badge&gt;
+&lt;/c-card&gt;</c-code-block>
+
+            <h2>Örnek — Kart içinde kod bloğu</h2>
+            <c-card>
+                <div slot="header">API isteği</div>
+                <c-code-block lang="javascript">fetch('/api/users')
+    .then(res => res.json())
+    .then(data => console.log(data));</c-code-block>
+            </c-card>
+
+            <c-callout variant="info" title="Node taşıma">
+                <code>&lt;c-card&gt;</code> içine yerleştirilen child element'ler (örn.
+                <code>&lt;c-code-block&gt;</code>) <code>innerHTML</code> ile yeniden yazılmaz, doğrudan
+                DOM node'u olarak taşınır. Böylece iç içe geçmiş component'lerin kendi
+                event listener'ları ve durumu korunur.
+            </c-callout>
+
+            <h2>Slot'lar</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Slot</th>
+                        <th>Açıklama</th>
+                        <th>Zorunlu mu?</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>slot="header"</code></td>
+                        <td>Kartın üst kısmında, ayrı bir bölüm olarak gösterilir</td>
+                        <td>Hayır</td>
+                    </tr>
+                    <tr>
+                        <td>(slot yok)</td>
+                        <td>Kartın gövdesi — header/footer dışındaki tüm çocuklar</td>
+                        <td>Evet</td>
+                    </tr>
+                    <tr>
+                        <td><code>slot="footer"</code></td>
+                        <td>Kartın alt kısmında, ayrı bir bölüm olarak gösterilir</td>
+                        <td>Hayır</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <c-pagination-nav prev-href="code-block.html" prev-label="Code Block" next-href="badge.html"
+                next-label="Badge"></c-pagination-nav>
+        </div>
+    </main>
+
+    <script src="../assets/vendor/js/prism.min.js"></script>
+    <script src="../components/c-theme-toggle/c-theme-toggle.js"></script>
+    <script src="../components/c-navbar/c-navbar.js"></script>
+    <script src="../components/c-sidebar/c-sidebar.js"></script>
+    <script src="../components/c-breadcrumb/c-breadcrumb.js"></script>
+    <script src="../components/c-code-block/c-code-block.js"></script>
+    <script src="../components/c-callout/c-callout.js"></script>
+    <script src="../components/c-card/c-card.js"></script>
+    <script src="../components/c-badge/c-badge.js"></script>
+    <script src="../components/c-pagination-nav/c-pagination-nav.js"></script>
+</body>
+
+</html>

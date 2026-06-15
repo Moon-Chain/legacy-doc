@@ -1,0 +1,54 @@
+/* c-toc: sayfa içi "İçindekiler" (scroll-spy ile aktif başlık takibi) */
+
+.c-toc {
+    position: sticky;
+    top: calc(var(--c-navbar-height) + var(--c-space-3));
+    max-height: calc(100vh - var(--c-navbar-height) - var(--c-space-5));
+    overflow-y: auto;
+    padding: var(--c-space-2) var(--c-space-3);
+    border-left: 1px solid var(--c-border);
+    font-size: 0.875rem;
+}
+
+.c-toc__title {
+    font-weight: 600;
+    margin-bottom: var(--c-space-2);
+    color: var(--c-text-muted);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+}
+
+.c-toc__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.c-toc__item {
+    margin: 0.125rem 0;
+}
+
+.c-toc__item--sub {
+    padding-left: var(--c-space-3);
+}
+
+.c-toc__link {
+    color: var(--c-text-muted);
+}
+
+.c-toc__link:hover {
+    color: var(--c-text);
+    text-decoration: none;
+}
+
+.c-toc__link--active {
+    color: var(--c-link);
+    font-weight: 600;
+}
+
+@media only screen and (max-width: 992px) {
+    c-toc {
+        display: none;
+    }
+}

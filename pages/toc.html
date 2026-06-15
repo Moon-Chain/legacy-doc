@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İçindekiler (TOC) — Component Galerisi</title>
+
+    <link rel="stylesheet" href="../assets/vendor/css/prism-vscode_dark.min.css">
+    <link rel="stylesheet" href="../assets/css/tokens.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+
+    <link rel="stylesheet" href="../components/c-theme-toggle/c-theme-toggle.css">
+    <link rel="stylesheet" href="../components/c-navbar/c-navbar.css">
+    <link rel="stylesheet" href="../components/c-sidebar/c-sidebar.css">
+    <link rel="stylesheet" href="../components/c-breadcrumb/c-breadcrumb.css">
+    <link rel="stylesheet" href="../components/c-code-block/c-code-block.css">
+    <link rel="stylesheet" href="../components/c-callout/c-callout.css">
+    <link rel="stylesheet" href="../components/c-toc/c-toc.css">
+    <link rel="stylesheet" href="../components/c-pagination-nav/c-pagination-nav.css">
+</head>
+
+<body>
+
+    <c-navbar brand="Component Galerisi" home="../index.html" github-url="#"></c-navbar>
+    <c-sidebar active="toc" base="./"></c-sidebar>
+
+    <main class="page page--with-toc">
+        <div class="page-inner">
+            <div class="c-toc-content">
+                <c-breadcrumb items="Component Galerisi|../index.html>İçindekiler (TOC)"></c-breadcrumb>
+
+                <h1>İçindekiler (TOC)</h1>
+                <p>
+                    Sayfa içeriğindeki <code>h2</code> ve <code>h3</code> başlıklarını tarayıp sağda
+                    sticky bir "İçindekiler" menüsü oluşturur. Bu sayfanın sağındaki menü,
+                    <code>&lt;c-toc&gt;</code>'un canlı bir örneğidir — kaydırırken aktif başlık otomatik
+                    vurgulanır (scroll-spy).
+                </p>
+
+                <h2>Kullanım</h2>
+                <c-code-block lang="markup">&lt;div class="c-toc-content"&gt;
+    &lt;h1&gt;Sayfa Başlığı&lt;/h1&gt;
+    &lt;h2&gt;Bölüm 1&lt;/h2&gt;
+    ...
+    &lt;h2&gt;Bölüm 2&lt;/h2&gt;
+    &lt;h3&gt;Alt bölüm&lt;/h3&gt;
+    ...
+&lt;/div&gt;
+&lt;c-toc target=".page-inner"&gt;&lt;/c-toc&gt;</c-code-block>
+
+                <h2>İki kolonlu yerleşim</h2>
+                <p>
+                    Bu component'in çalışması için sayfanın <code>&lt;main&gt;</code> etiketine
+                    <code>page page--with-toc</code> sınıfları eklenmelidir. Bu sınıf, <code>base.css</code>
+                    içindeki <code>.page--with-toc .page-inner</code> kuralıyla içeriği iki kolona böler:
+                    sol tarafta içerik, sağ tarafta <code>&lt;c-toc&gt;</code>.
+                </p>
+
+                <c-code-block lang="markup">&lt;main class="page page--with-toc"&gt;
+    &lt;div class="page-inner"&gt;
+        &lt;div class="c-toc-content"&gt;...&lt;/div&gt;
+        &lt;c-toc target=".page-inner"&gt;&lt;/c-toc&gt;
+    &lt;/div&gt;
+&lt;/main&gt;</c-code-block>
+
+                <h2>Alt başlıklar (h3)</h2>
+                <p>
+                    <code>h3</code> başlıkları, <code>c-toc__item--sub</code> sınıfıyla menüde girintili
+                    olarak gösterilir. Bu, içerik hiyerarşisini menüde de yansıtmaya yarar.
+                </p>
+
+                <h3>Örnek alt başlık</h3>
+                <p>
+                    Bu, bir <code>h3</code> başlığının menüde nasıl göründüğünü gösteren örnek bir
+                    alt bölümdür.
+                </p>
+
+                <c-callout variant="info" title="id otomatik atanır">
+                    Başlıklarda <code>id</code> attribute'u yoksa, <code>&lt;c-toc&gt;</code> başlık
+                    metninden otomatik bir <code>id</code> üretir (slugify). Menüdeki bağlantılar bu
+                    id'lere işaret eder.
+                </c-callout>
+
+                <h2>Mobil görünüm</h2>
+                <p>
+                    992px ve altındaki ekranlarda <code>&lt;c-toc&gt;</code> tamamen gizlenir ve içerik
+                    tek kolona döner.
+                </p>
+
+                <h2>Attribute'lar</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Attribute</th>
+                            <th>Açıklama</th>
+                            <th>Varsayılan</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>target</code></td>
+                            <td>Başlıkların (<code>h2</code>, <code>h3</code>) aranacağı container seçici
+                            </td>
+                            <td><code>.page-inner</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <c-pagination-nav prev-href="accordion.html" prev-label="Accordion"
+                    next-href="pagination-nav.html" next-label="Pagination Nav"></c-pagination-nav>
+            </div>
+
+            <c-toc target=".page-inner"></c-toc>
+        </div>
+    </main>
+
+    <script src="../assets/vendor/js/prism.min.js"></script>
+    <script src="../components/c-theme-toggle/c-theme-toggle.js"></script>
+    <script src="../components/c-navbar/c-navbar.js"></script>
+    <script src="../components/c-sidebar/c-sidebar.js"></script>
+    <script src="../components/c-breadcrumb/c-breadcrumb.js"></script>
+    <script src="../components/c-code-block/c-code-block.js"></script>
+    <script src="../components/c-callout/c-callout.js"></script>
+    <script src="../components/c-pagination-nav/c-pagination-nav.js"></script>
+    <script src="../components/c-toc/c-toc.js"></script>
+</body>
+
+</html>

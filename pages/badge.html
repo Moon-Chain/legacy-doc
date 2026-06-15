@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Badge — Component Galerisi</title>
+
+    <link rel="stylesheet" href="../assets/vendor/css/prism-vscode_dark.min.css">
+    <link rel="stylesheet" href="../assets/css/tokens.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+
+    <link rel="stylesheet" href="../components/c-theme-toggle/c-theme-toggle.css">
+    <link rel="stylesheet" href="../components/c-navbar/c-navbar.css">
+    <link rel="stylesheet" href="../components/c-sidebar/c-sidebar.css">
+    <link rel="stylesheet" href="../components/c-breadcrumb/c-breadcrumb.css">
+    <link rel="stylesheet" href="../components/c-code-block/c-code-block.css">
+    <link rel="stylesheet" href="../components/c-callout/c-callout.css">
+    <link rel="stylesheet" href="../components/c-badge/c-badge.css">
+    <link rel="stylesheet" href="../components/c-pagination-nav/c-pagination-nav.css">
+</head>
+
+<body>
+
+    <c-navbar brand="Component Galerisi" home="../index.html" github-url="#"></c-navbar>
+    <c-sidebar active="badge" base="./"></c-sidebar>
+
+    <main class="page">
+        <div class="page-inner">
+            <c-breadcrumb items="Component Galerisi|../index.html>Badge"></c-breadcrumb>
+
+            <h1>Badge</h1>
+            <p>
+                Küçük durum/etiket rozeti. HTTP metodlarını (GET/POST/PUT/PATCH/DELETE) renkli göstermek
+                için API dokümantasyonunda, ya da genel durum etiketleri için kullanılabilir.
+            </p>
+
+            <h2>HTTP metod varyantları</h2>
+            <p>
+                <c-badge variant="get">GET</c-badge>
+                <c-badge variant="post">POST</c-badge>
+                <c-badge variant="put">PUT</c-badge>
+                <c-badge variant="patch">PATCH</c-badge>
+                <c-badge variant="delete">DELETE</c-badge>
+            </p>
+
+            <c-code-block lang="markup">&lt;c-badge variant="get"&gt;GET&lt;/c-badge&gt;
+&lt;c-badge variant="post"&gt;POST&lt;/c-badge&gt;
+&lt;c-badge variant="put"&gt;PUT&lt;/c-badge&gt;
+&lt;c-badge variant="patch"&gt;PATCH&lt;/c-badge&gt;
+&lt;c-badge variant="delete"&gt;DELETE&lt;/c-badge&gt;</c-code-block>
+
+            <h2>Genel varyantlar</h2>
+            <p>
+                <c-badge variant="primary">Primary</c-badge>
+                <c-badge variant="secondary">Secondary</c-badge>
+                <c-badge variant="success">Success</c-badge>
+                <c-badge variant="danger">Danger</c-badge>
+                <c-badge variant="warning">Warning</c-badge>
+                <c-badge variant="info">Info</c-badge>
+                <c-badge variant="dark">Dark</c-badge>
+            </p>
+
+            <h2>Kullanım örneği — API endpoint listesi</h2>
+            <c-callout>
+                <p><c-badge variant="get">GET</c-badge> <code>/api/users</code> — Kullanıcı listesini döner.</p>
+                <p><c-badge variant="post">POST</c-badge> <code>/api/users</code> — Yeni kullanıcı oluşturur.</p>
+                <p><c-badge variant="delete">DELETE</c-badge> <code>/api/users/{id}</code> — Kullanıcıyı siler.</p>
+            </c-callout>
+
+            <h2>Attribute'lar</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Attribute</th>
+                        <th>Açıklama</th>
+                        <th>Değerler</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>variant</code></td>
+                        <td>Rozetin rengi</td>
+                        <td>
+                            <code>get | post | put | patch | delete | primary | secondary | success | danger |
+                                warning | info | dark</code>
+                            (varsayılan: <code>secondary</code>)
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <c-pagination-nav prev-href="card.html" prev-label="Card" next-href="alert.html"
+                next-label="Alert"></c-pagination-nav>
+        </div>
+    </main>
+
+    <script src="../assets/vendor/js/prism.min.js"></script>
+    <script src="../components/c-theme-toggle/c-theme-toggle.js"></script>
+    <script src="../components/c-navbar/c-navbar.js"></script>
+    <script src="../components/c-sidebar/c-sidebar.js"></script>
+    <script src="../components/c-breadcrumb/c-breadcrumb.js"></script>
+    <script src="../components/c-code-block/c-code-block.js"></script>
+    <script src="../components/c-callout/c-callout.js"></script>
+    <script src="../components/c-badge/c-badge.js"></script>
+    <script src="../components/c-pagination-nav/c-pagination-nav.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+/* c-card: başlık / içerik / footer alanlı kart */
+
+.c-card {
+    border: 1px solid var(--c-border);
+    border-radius: var(--c-radius);
+    background-color: var(--c-bg-elevated);
+    margin: var(--c-space-3) 0;
+    overflow: hidden;
+}
+
+.c-card__header {
+    padding: var(--c-space-3);
+    background-color: var(--c-bg-subtle);
+    border-bottom: 1px solid var(--c-border);
+    font-weight: 600;
+}
+
+.c-card__body {
+    padding: var(--c-space-3);
+}
+
+.c-card__body>*:last-child {
+    margin-bottom: 0;
+}
+
+.c-card__footer {
+    padding: var(--c-space-3);
+    background-color: var(--c-bg-subtle);
+    border-top: 1px solid var(--c-border);
+}

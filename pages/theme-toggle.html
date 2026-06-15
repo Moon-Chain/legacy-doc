@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theme Toggle — Component Galerisi</title>
+
+    <link rel="stylesheet" href="../assets/vendor/css/prism-vscode_dark.min.css">
+    <link rel="stylesheet" href="../assets/css/tokens.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+
+    <link rel="stylesheet" href="../components/c-theme-toggle/c-theme-toggle.css">
+    <link rel="stylesheet" href="../components/c-navbar/c-navbar.css">
+    <link rel="stylesheet" href="../components/c-sidebar/c-sidebar.css">
+    <link rel="stylesheet" href="../components/c-breadcrumb/c-breadcrumb.css">
+    <link rel="stylesheet" href="../components/c-code-block/c-code-block.css">
+    <link rel="stylesheet" href="../components/c-callout/c-callout.css">
+    <link rel="stylesheet" href="../components/c-pagination-nav/c-pagination-nav.css">
+</head>
+
+<body>
+
+    <c-navbar brand="Component Galerisi" home="../index.html" github-url="#"></c-navbar>
+    <c-sidebar active="theme-toggle" base="./"></c-sidebar>
+
+    <main class="page">
+        <div class="page-inner">
+            <c-breadcrumb items="Component Galerisi|../index.html>Theme Toggle"></c-breadcrumb>
+
+            <h1>Theme Toggle</h1>
+            <p>
+                Açık/koyu tema arasında geçiş yapan buton. Navbar'ın sağ üst köşesindeki
+                🌙 / ☀️ ikonu, <code>&lt;c-theme-toggle&gt;</code>'ın canlı bir örneğidir.
+                Tıkladığında <code>&lt;html&gt;</code> etiketine <code>data-theme="dark"</code> veya
+                <code>data-theme="light"</code> yazılır ve seçim <code>localStorage</code>'a kaydedilir.
+            </p>
+
+            <h2>Örnek</h2>
+            <p>Aşağıdaki buton, sayfanın herhangi bir yerine eklenebilecek bağımsız bir örnektir:</p>
+            <c-theme-toggle></c-theme-toggle>
+
+            <h2>Kullanım</h2>
+            <c-code-block lang="html">&lt;c-theme-toggle&gt;&lt;/c-theme-toggle&gt;</c-code-block>
+
+            <h2>Nasıl çalışır?</h2>
+            <c-code-block lang="javascript">// tokens.css'teki değişken seti, [data-theme="dark"] altında değişir
+document.documentElement.setAttribute('data-theme', 'dark');
+localStorage.setItem('c-theme', 'dark');</c-code-block>
+
+            <c-callout variant="info" title="Tema değişkenleri">
+                Tüm component'ler renklerini <code>tokens.css</code>'teki CSS değişkenlerinden
+                (<code>--c-bg</code>, <code>--c-text</code>, <code>--c-border</code> vb.) alır.
+                Bu yüzden tema değişimi tüm sayfaya otomatik yayılır — component'lerin kendi
+                CSS'inde ek bir işlem gerekmez.
+            </c-callout>
+
+            <c-pagination-nav prev-href="breadcrumb.html" prev-label="Breadcrumb" next-href="callout.html"
+                next-label="Callout"></c-pagination-nav>
+        </div>
+    </main>
+
+    <script src="../assets/vendor/js/prism.min.js"></script>
+    <script src="../components/c-theme-toggle/c-theme-toggle.js"></script>
+    <script src="../components/c-navbar/c-navbar.js"></script>
+    <script src="../components/c-sidebar/c-sidebar.js"></script>
+    <script src="../components/c-breadcrumb/c-breadcrumb.js"></script>
+    <script src="../components/c-code-block/c-code-block.js"></script>
+    <script src="../components/c-callout/c-callout.js"></script>
+    <script src="../components/c-pagination-nav/c-pagination-nav.js"></script>
+</body>
+
+</html>

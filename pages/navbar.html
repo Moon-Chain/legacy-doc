@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar — Component Galerisi</title>
+
+    <link rel="stylesheet" href="../assets/vendor/css/prism-vscode_dark.min.css">
+    <link rel="stylesheet" href="../assets/css/tokens.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+
+    <link rel="stylesheet" href="../components/c-theme-toggle/c-theme-toggle.css">
+    <link rel="stylesheet" href="../components/c-navbar/c-navbar.css">
+    <link rel="stylesheet" href="../components/c-sidebar/c-sidebar.css">
+    <link rel="stylesheet" href="../components/c-breadcrumb/c-breadcrumb.css">
+    <link rel="stylesheet" href="../components/c-code-block/c-code-block.css">
+    <link rel="stylesheet" href="../components/c-callout/c-callout.css">
+    <link rel="stylesheet" href="../components/c-pagination-nav/c-pagination-nav.css">
+</head>
+
+<body>
+
+    <c-navbar brand="Component Galerisi" home="../index.html" github-url="#"></c-navbar>
+    <c-sidebar active="navbar" base="./"></c-sidebar>
+
+    <main class="page">
+        <div class="page-inner">
+            <c-breadcrumb items="Component Galerisi|../index.html>Navbar"></c-breadcrumb>
+
+            <h1>Navbar</h1>
+            <p>
+                Sayfanın üstünde sabit duran gezinme çubuğu. Bu sayfanın en üstündeki çubuk,
+                <code>&lt;c-navbar&gt;</code>'ın canlı bir örneğidir: solda logo/başlık, sağda
+                tema anahtarı ve GitHub linki bulunur. 768px altındaki ekranlarda başlık gizlenir
+                ve sol tarafta sidebar'ı açıp kapatan bir hamburger butonu belirir.
+            </p>
+
+            <h2>Kullanım</h2>
+            <c-code-block lang="html">&lt;c-navbar
+    brand="Component Galerisi"
+    home="../index.html"
+    github-url="https://github.com/kullanici/repo"&gt;&lt;/c-navbar&gt;</c-code-block>
+
+            <c-callout variant="info" title="Bağımlılık">
+                <code>&lt;c-navbar&gt;</code>, kendi içinde bir <code>&lt;c-theme-toggle&gt;</code>
+                oluşturur. Bu yüzden sayfada <code>c-theme-toggle.js</code> ve
+                <code>c-theme-toggle.css</code> dosyalarının da yüklü olması gerekir.
+            </c-callout>
+
+            <h2>Attribute'lar</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Attribute</th>
+                        <th>Açıklama</th>
+                        <th>Varsayılan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>brand</code></td>
+                        <td>Logonun yanında gösterilen başlık metni</td>
+                        <td><code>Component Galerisi</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>home</code></td>
+                        <td>Logoya tıklayınca gidilecek link</td>
+                        <td><code>../index.html</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>github-url</code></td>
+                        <td>GitHub butonunun linki</td>
+                        <td><code>#</code></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>Mobil davranış</h2>
+            <p>
+                Hamburger butonu, <code>document</code> üzerinde <code>c-sidebar-toggle</code> custom
+                event'ini tetikler. <code>&lt;c-sidebar&gt;</code> bu event'i dinler ve kendini
+                <code>.c-sidebar--open</code> sınıfı ile açar/kapatır. Bu sayede iki component birbirinden
+                habersiz, gevşek bağlı (loosely coupled) çalışır.
+            </p>
+
+            <c-pagination-nav next-href="sidebar.html" next-label="Sidebar"></c-pagination-nav>
+        </div>
+    </main>
+
+    <script src="../assets/vendor/js/prism.min.js"></script>
+    <script src="../components/c-theme-toggle/c-theme-toggle.js"></script>
+    <script src="../components/c-navbar/c-navbar.js"></script>
+    <script src="../components/c-sidebar/c-sidebar.js"></script>
+    <script src="../components/c-breadcrumb/c-breadcrumb.js"></script>
+    <script src="../components/c-code-block/c-code-block.js"></script>
+    <script src="../components/c-callout/c-callout.js"></script>
+    <script src="../components/c-pagination-nav/c-pagination-nav.js"></script>
+</body>
+
+</html>

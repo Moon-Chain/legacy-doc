@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alert — Component Galerisi</title>
+
+    <link rel="stylesheet" href="../assets/vendor/css/prism-vscode_dark.min.css">
+    <link rel="stylesheet" href="../assets/css/tokens.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+
+    <link rel="stylesheet" href="../components/c-theme-toggle/c-theme-toggle.css">
+    <link rel="stylesheet" href="../components/c-navbar/c-navbar.css">
+    <link rel="stylesheet" href="../components/c-sidebar/c-sidebar.css">
+    <link rel="stylesheet" href="../components/c-breadcrumb/c-breadcrumb.css">
+    <link rel="stylesheet" href="../components/c-code-block/c-code-block.css">
+    <link rel="stylesheet" href="../components/c-callout/c-callout.css">
+    <link rel="stylesheet" href="../components/c-alert/c-alert.css">
+    <link rel="stylesheet" href="../components/c-pagination-nav/c-pagination-nav.css">
+</head>
+
+<body>
+
+    <c-navbar brand="Component Galerisi" home="../index.html" github-url="#"></c-navbar>
+    <c-sidebar active="alert" base="./"></c-sidebar>
+
+    <main class="page">
+        <div class="page-inner">
+            <c-breadcrumb items="Component Galerisi|../index.html>Alert"></c-breadcrumb>
+
+            <h1>Alert</h1>
+            <p>
+                Bildirim/uyarı kutusu. <code>&lt;c-callout&gt;</code>'a benzer ama
+                <code>dismissible</code> attribute'u ile kapatılabilir bir × butonu eklenebilir.
+            </p>
+
+            <h2>Varyantlar</h2>
+
+            <c-alert variant="info">Bu bir bilgi mesajıdır.</c-alert>
+            <c-alert variant="success">İşlem başarıyla tamamlandı!</c-alert>
+            <c-alert variant="warning">Bu işlem geri alınamaz, dikkatli olun.</c-alert>
+            <c-alert variant="danger">Bir hata oluştu, lütfen tekrar deneyin.</c-alert>
+            <c-alert variant="primary">Yeni bir güncelleme mevcut.</c-alert>
+
+            <h2>Kullanım</h2>
+            <c-code-block lang="markup">&lt;c-alert variant="success"&gt;İşlem başarıyla tamamlandı!&lt;/c-alert&gt;</c-code-block>
+
+            <h2>Kapatılabilir (dismissible)</h2>
+            <p><code>dismissible</code> attribute'u eklendiğinde sağ üst köşede bir × butonu belirir
+                ve tıklandığında alert tamamen DOM'dan kaldırılır.</p>
+
+            <c-alert variant="warning" dismissible>Bu uyarıyı kapatabilirsiniz — × butonuna tıklayın.</c-alert>
+
+            <c-code-block lang="markup">&lt;c-alert variant="warning" dismissible&gt;
+    Bu uyarıyı kapatabilirsiniz — × butonuna tıklayın.
+&lt;/c-alert&gt;</c-code-block>
+
+            <h2>Attribute'lar</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Attribute</th>
+                        <th>Açıklama</th>
+                        <th>Değerler</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>variant</code></td>
+                        <td>Alert'in renk teması</td>
+                        <td><code>info | success | warning | danger | primary</code> (varsayılan:
+                            <code>info</code>)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>dismissible</code></td>
+                        <td>Varsa, kapatma (×) butonu gösterilir</td>
+                        <td>boolean attribute</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <c-pagination-nav prev-href="badge.html" prev-label="Badge" next-href="tabs.html"
+                next-label="Tabs"></c-pagination-nav>
+        </div>
+    </main>
+
+    <script src="../assets/vendor/js/prism.min.js"></script>
+    <script src="../components/c-theme-toggle/c-theme-toggle.js"></script>
+    <script src="../components/c-navbar/c-navbar.js"></script>
+    <script src="../components/c-sidebar/c-sidebar.js"></script>
+    <script src="../components/c-breadcrumb/c-breadcrumb.js"></script>
+    <script src="../components/c-code-block/c-code-block.js"></script>
+    <script src="../components/c-callout/c-callout.js"></script>
+    <script src="../components/c-alert/c-alert.js"></script>
+    <script src="../components/c-pagination-nav/c-pagination-nav.js"></script>
+</body>
+
+</html>

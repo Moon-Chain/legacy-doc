@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breadcrumb — Component Galerisi</title>
+
+    <link rel="stylesheet" href="../assets/vendor/css/prism-vscode_dark.min.css">
+    <link rel="stylesheet" href="../assets/css/tokens.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+
+    <link rel="stylesheet" href="../components/c-theme-toggle/c-theme-toggle.css">
+    <link rel="stylesheet" href="../components/c-navbar/c-navbar.css">
+    <link rel="stylesheet" href="../components/c-sidebar/c-sidebar.css">
+    <link rel="stylesheet" href="../components/c-breadcrumb/c-breadcrumb.css">
+    <link rel="stylesheet" href="../components/c-code-block/c-code-block.css">
+    <link rel="stylesheet" href="../components/c-card/c-card.css">
+    <link rel="stylesheet" href="../components/c-pagination-nav/c-pagination-nav.css">
+</head>
+
+<body>
+
+    <c-navbar brand="Component Galerisi" home="../index.html" github-url="#"></c-navbar>
+    <c-sidebar active="breadcrumb" base="./"></c-sidebar>
+
+    <main class="page">
+        <div class="page-inner">
+            <c-breadcrumb items="Component Galerisi|../index.html>Breadcrumb"></c-breadcrumb>
+
+            <h1>Breadcrumb</h1>
+            <p>
+                Sayfanın konumunu gösteren "kırıntı" navigasyonu. Bu sayfanın başlığının üstündeki
+                <code>Component Galerisi / Breadcrumb</code> satırı, <code>&lt;c-breadcrumb&gt;</code>'ın
+                canlı bir örneğidir.
+            </p>
+
+            <h2>Örnekler</h2>
+
+            <c-card>
+                <div slot="header">İki adım</div>
+                <c-breadcrumb items="Component Galerisi|../index.html>Breadcrumb"></c-breadcrumb>
+                <c-code-block lang="html">&lt;c-breadcrumb items="Component Galerisi|../index.html&gt;Breadcrumb"&gt;&lt;/c-breadcrumb&gt;</c-code-block>
+            </c-card>
+
+            <c-card>
+                <div slot="header">Üç adım</div>
+                <c-breadcrumb items="Component Galerisi|../index.html>API Dokümantasyonu|index.html>Kullanıcılar">
+                </c-breadcrumb>
+                <c-code-block lang="html">&lt;c-breadcrumb items="Component Galerisi|../index.html&gt;API Dokümantasyonu|index.html&gt;Kullanıcılar"&gt;&lt;/c-breadcrumb&gt;</c-code-block>
+            </c-card>
+
+            <h2>items formatı</h2>
+            <p>
+                <code>items</code> attribute'u, <code>&gt;</code> karakteri ile ayrılmış adımlardan oluşur.
+                Her adım <code>Etiket</code> veya <code>Etiket|href</code> şeklinde yazılır. <code>href</code>
+                verilmeyen son adım, aktif/güncel sayfa olarak (link olmadan) gösterilir.
+            </p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Attribute</th>
+                        <th>Açıklama</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>items</code></td>
+                        <td><code>Etiket|href&gt;Etiket|href&gt;Aktif Etiket</code> formatında adım listesi</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <c-pagination-nav prev-href="sidebar.html" prev-label="Sidebar" next-href="theme-toggle.html"
+                next-label="Theme Toggle"></c-pagination-nav>
+        </div>
+    </main>
+
+    <script src="../assets/vendor/js/prism.min.js"></script>
+    <script src="../components/c-theme-toggle/c-theme-toggle.js"></script>
+    <script src="../components/c-navbar/c-navbar.js"></script>
+    <script src="../components/c-sidebar/c-sidebar.js"></script>
+    <script src="../components/c-breadcrumb/c-breadcrumb.js"></script>
+    <script src="../components/c-code-block/c-code-block.js"></script>
+    <script src="../components/c-card/c-card.js"></script>
+    <script src="../components/c-pagination-nav/c-pagination-nav.js"></script>
+</body>
+
+</html>

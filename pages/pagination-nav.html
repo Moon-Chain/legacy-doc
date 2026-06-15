@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagination Nav — Component Galerisi</title>
+
+    <link rel="stylesheet" href="../assets/vendor/css/prism-vscode_dark.min.css">
+    <link rel="stylesheet" href="../assets/css/tokens.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+
+    <link rel="stylesheet" href="../components/c-theme-toggle/c-theme-toggle.css">
+    <link rel="stylesheet" href="../components/c-navbar/c-navbar.css">
+    <link rel="stylesheet" href="../components/c-sidebar/c-sidebar.css">
+    <link rel="stylesheet" href="../components/c-breadcrumb/c-breadcrumb.css">
+    <link rel="stylesheet" href="../components/c-code-block/c-code-block.css">
+    <link rel="stylesheet" href="../components/c-callout/c-callout.css">
+    <link rel="stylesheet" href="../components/c-card/c-card.css">
+    <link rel="stylesheet" href="../components/c-pagination-nav/c-pagination-nav.css">
+</head>
+
+<body>
+
+    <c-navbar brand="Component Galerisi" home="../index.html" github-url="#"></c-navbar>
+    <c-sidebar active="pagination-nav" base="./"></c-sidebar>
+
+    <main class="page">
+        <div class="page-inner">
+            <c-breadcrumb items="Component Galerisi|../index.html>Pagination Nav"></c-breadcrumb>
+
+            <h1>Pagination Nav</h1>
+            <p>
+                Sayfa altında önceki/sonraki sayfaya geçiş bağlantıları gösteren gezinme bileşeni.
+                Bu sayfanın en altındaki "Önceki" / "Sonraki" linkleri, <code>&lt;c-pagination-nav&gt;</code>'ın
+                canlı bir örneğidir.
+            </p>
+
+            <h2>Örnek — Her ikisi de var</h2>
+            <c-card>
+                <c-pagination-nav prev-href="#" prev-label="Accordion" next-href="#"
+                    next-label="Search Box"></c-pagination-nav>
+            </c-card>
+
+            <c-code-block lang="markup">&lt;c-pagination-nav
+    prev-href="accordion.html" prev-label="Accordion"
+    next-href="search-box.html" next-label="Search Box"&gt;
+&lt;/c-pagination-nav&gt;</c-code-block>
+
+            <h2>Örnek — Sadece "Sonraki"</h2>
+            <c-card>
+                <c-pagination-nav next-href="#" next-label="Search Box"></c-pagination-nav>
+            </c-card>
+
+            <c-code-block lang="markup">&lt;c-pagination-nav next-href="search-box.html" next-label="Search Box"&gt;&lt;/c-pagination-nav&gt;</c-code-block>
+
+            <h2>Örnek — Sadece "Önceki"</h2>
+            <c-card>
+                <c-pagination-nav prev-href="#" prev-label="Accordion"></c-pagination-nav>
+            </c-card>
+
+            <c-code-block lang="markup">&lt;c-pagination-nav prev-href="accordion.html" prev-label="Accordion"&gt;&lt;/c-pagination-nav&gt;</c-code-block>
+
+            <c-callout variant="info" title="Boş taraf">
+                <code>prev-href</code> veya <code>next-href</code> verilmezse, o taraf boş bir
+                <code>&lt;span&gt;</code> olarak render edilir; böylece diğer taraftaki link
+                hizasını korur (örn. "Sonraki" linki her zaman sağda kalır).
+            </c-callout>
+
+            <h2>Attribute'lar</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Attribute</th>
+                        <th>Açıklama</th>
+                        <th>Varsayılan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>prev-href</code></td>
+                        <td>Önceki sayfanın bağlantısı</td>
+                        <td>—</td>
+                    </tr>
+                    <tr>
+                        <td><code>prev-label</code></td>
+                        <td>Önceki sayfanın etiketi</td>
+                        <td><code>Önceki</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>next-href</code></td>
+                        <td>Sonraki sayfanın bağlantısı</td>
+                        <td>—</td>
+                    </tr>
+                    <tr>
+                        <td><code>next-label</code></td>
+                        <td>Sonraki sayfanın etiketi</td>
+                        <td><code>Sonraki</code></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <c-pagination-nav prev-href="toc.html" prev-label="İçindekiler (TOC)" next-href="search-box.html"
+                next-label="Search Box"></c-pagination-nav>
+        </div>
+    </main>
+
+    <script src="../assets/vendor/js/prism.min.js"></script>
+    <script src="../components/c-theme-toggle/c-theme-toggle.js"></script>
+    <script src="../components/c-navbar/c-navbar.js"></script>
+    <script src="../components/c-sidebar/c-sidebar.js"></script>
+    <script src="../components/c-breadcrumb/c-breadcrumb.js"></script>
+    <script src="../components/c-code-block/c-code-block.js"></script>
+    <script src="../components/c-callout/c-callout.js"></script>
+    <script src="../components/c-card/c-card.js"></script>
+    <script src="../components/c-pagination-nav/c-pagination-nav.js"></script>
+</body>
+
+</html>

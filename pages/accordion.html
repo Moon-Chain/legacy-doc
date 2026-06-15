@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accordion — Component Galerisi</title>
+
+    <link rel="stylesheet" href="../assets/vendor/css/prism-vscode_dark.min.css">
+    <link rel="stylesheet" href="../assets/css/tokens.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+
+    <link rel="stylesheet" href="../components/c-theme-toggle/c-theme-toggle.css">
+    <link rel="stylesheet" href="../components/c-navbar/c-navbar.css">
+    <link rel="stylesheet" href="../components/c-sidebar/c-sidebar.css">
+    <link rel="stylesheet" href="../components/c-breadcrumb/c-breadcrumb.css">
+    <link rel="stylesheet" href="../components/c-code-block/c-code-block.css">
+    <link rel="stylesheet" href="../components/c-callout/c-callout.css">
+    <link rel="stylesheet" href="../components/c-accordion/c-accordion.css">
+    <link rel="stylesheet" href="../components/c-pagination-nav/c-pagination-nav.css">
+</head>
+
+<body>
+
+    <c-navbar brand="Component Galerisi" home="../index.html" github-url="#"></c-navbar>
+    <c-sidebar active="accordion" base="./"></c-sidebar>
+
+    <main class="page">
+        <div class="page-inner">
+            <c-breadcrumb items="Component Galerisi|../index.html>Accordion"></c-breadcrumb>
+
+            <h1>Accordion</h1>
+            <p>
+                Açılır/kapanır panel listesi. SSS bölümleri veya endpoint detayları gibi
+                içerikleri gruplamak için kullanılır. <code>open</code> attribute'u verilen
+                <code>&lt;c-accordion-item&gt;</code> başlangıçta açık gösterilir.
+            </p>
+
+            <h2>Örnek</h2>
+            <c-accordion>
+                <c-accordion-item title="Bu component nasıl çalışır?" open>
+                    <p>
+                        <code>&lt;c-accordion&gt;</code>, içindeki her <code>&lt;c-accordion-item&gt;</code>'ı
+                        tetikleyici (trigger) butonu ve panel haline getirir. Butona tıklandığında
+                        ilgili panel açılır/kapanır.
+                    </p>
+                </c-accordion-item>
+                <c-accordion-item title="Aynı anda birden fazla panel açık olabilir mi?">
+                    <p>
+                        Evet. Her panel kendi açık/kapalı durumunu bağımsız yönetir; bir panelin
+                        açılması diğerlerini kapatmaz.
+                    </p>
+                </c-accordion-item>
+                <c-accordion-item title="İçine kod bloğu koyabilir miyim?">
+                    <c-code-block lang="markup">&lt;c-accordion-item title="Örnek"&gt;
+    &lt;c-code-block lang="javascript"&gt;...&lt;/c-code-block&gt;
+&lt;/c-accordion-item&gt;</c-code-block>
+                </c-accordion-item>
+            </c-accordion>
+
+            <h2>Kullanım</h2>
+            <c-code-block lang="markup">&lt;c-accordion&gt;
+    &lt;c-accordion-item title="Soru 1" open&gt;Cevap 1...&lt;/c-accordion-item&gt;
+    &lt;c-accordion-item title="Soru 2"&gt;Cevap 2...&lt;/c-accordion-item&gt;
+&lt;/c-accordion&gt;</c-code-block>
+
+            <c-callout variant="info" title="DOM dönüşümü">
+                Bağlandığında her <code>&lt;c-accordion-item&gt;</code>, bir tetikleyici buton ve
+                panel içeren bir <code>&lt;div class="c-accordion__item"&gt;</code> ile
+                <code>replaceWith()</code> kullanılarak değiştirilir.
+            </c-callout>
+
+            <h2>c-accordion-item Attribute'ları</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Attribute</th>
+                        <th>Açıklama</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>title</code></td>
+                        <td>Tetikleyici butonda görünen metin (verilmezse "Başlık N")</td>
+                    </tr>
+                    <tr>
+                        <td><code>open</code></td>
+                        <td>Varsa, panel başlangıçta açık gösterilir (boolean attribute)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <c-pagination-nav prev-href="tabs.html" prev-label="Tabs" next-href="toc.html"
+                next-label="İçindekiler (TOC)"></c-pagination-nav>
+        </div>
+    </main>
+
+    <script src="../assets/vendor/js/prism.min.js"></script>
+    <script src="../components/c-theme-toggle/c-theme-toggle.js"></script>
+    <script src="../components/c-navbar/c-navbar.js"></script>
+    <script src="../components/c-sidebar/c-sidebar.js"></script>
+    <script src="../components/c-breadcrumb/c-breadcrumb.js"></script>
+    <script src="../components/c-code-block/c-code-block.js"></script>
+    <script src="../components/c-callout/c-callout.js"></script>
+    <script src="../components/c-accordion/c-accordion.js"></script>
+    <script src="../components/c-pagination-nav/c-pagination-nav.js"></script>
+</body>
+
+</html>

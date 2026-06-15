@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabs — Component Galerisi</title>
+
+    <link rel="stylesheet" href="../assets/vendor/css/prism-vscode_dark.min.css">
+    <link rel="stylesheet" href="../assets/css/tokens.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+
+    <link rel="stylesheet" href="../components/c-theme-toggle/c-theme-toggle.css">
+    <link rel="stylesheet" href="../components/c-navbar/c-navbar.css">
+    <link rel="stylesheet" href="../components/c-sidebar/c-sidebar.css">
+    <link rel="stylesheet" href="../components/c-breadcrumb/c-breadcrumb.css">
+    <link rel="stylesheet" href="../components/c-code-block/c-code-block.css">
+    <link rel="stylesheet" href="../components/c-callout/c-callout.css">
+    <link rel="stylesheet" href="../components/c-tabs/c-tabs.css">
+    <link rel="stylesheet" href="../components/c-pagination-nav/c-pagination-nav.css">
+</head>
+
+<body>
+
+    <c-navbar brand="Component Galerisi" home="../index.html" github-url="#"></c-navbar>
+    <c-sidebar active="tabs" base="./"></c-sidebar>
+
+    <main class="page">
+        <div class="page-inner">
+            <c-breadcrumb items="Component Galerisi|../index.html>Tabs"></c-breadcrumb>
+
+            <h1>Tabs</h1>
+            <p>
+                Sekmeli içerik. Her <code>&lt;c-tab title="..."&gt;</code> bir sekme başlığı ve
+                panel üretir. İlk sekme varsayılan olarak aktiftir.
+            </p>
+
+            <h2>Örnek</h2>
+            <c-tabs>
+                <c-tab title="Request">
+                    <c-code-block lang="javascript">fetch('/api/users', {
+    method: 'POST',
+    body: JSON.stringify({ name: 'Ada' })
+});</c-code-block>
+                </c-tab>
+                <c-tab title="Response">
+                    <c-code-block lang="json">{
+    "id": 1,
+    "name": "Ada"
+}</c-code-block>
+                </c-tab>
+                <c-tab title="Hata">
+                    <c-callout variant="danger" title="400 Bad Request">
+                        Gönderilen veri geçersiz.
+                    </c-callout>
+                </c-tab>
+            </c-tabs>
+
+            <h2>Kullanım</h2>
+            <c-code-block lang="markup">&lt;c-tabs&gt;
+    &lt;c-tab title="Request"&gt;
+        ...
+    &lt;/c-tab&gt;
+    &lt;c-tab title="Response"&gt;
+        ...
+    &lt;/c-tab&gt;
+&lt;/c-tabs&gt;</c-code-block>
+
+            <c-callout variant="info" title="İlk sekme aktif">
+                Sekmeler arasında en üstteki <code>&lt;c-tab&gt;</code> her zaman ilk açılışta
+                aktif gösterilir. Aktif sekmeyi değiştirmek için kullanıcı butona tıklamalıdır.
+            </c-callout>
+
+            <h2>c-tab Attribute'ları</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Attribute</th>
+                        <th>Açıklama</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>title</code></td>
+                        <td>Sekme başlığında görünen metin (verilmezse "Tab N")</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <c-pagination-nav prev-href="alert.html" prev-label="Alert" next-href="accordion.html"
+                next-label="Accordion"></c-pagination-nav>
+        </div>
+    </main>
+
+    <script src="../assets/vendor/js/prism.min.js"></script>
+    <script src="../components/c-theme-toggle/c-theme-toggle.js"></script>
+    <script src="../components/c-navbar/c-navbar.js"></script>
+    <script src="../components/c-sidebar/c-sidebar.js"></script>
+    <script src="../components/c-breadcrumb/c-breadcrumb.js"></script>
+    <script src="../components/c-code-block/c-code-block.js"></script>
+    <script src="../components/c-callout/c-callout.js"></script>
+    <script src="../components/c-tabs/c-tabs.js"></script>
+    <script src="../components/c-pagination-nav/c-pagination-nav.js"></script>
+</body>
+
+</html>

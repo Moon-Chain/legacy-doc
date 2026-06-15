@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Box — Component Galerisi</title>
+
+    <link rel="stylesheet" href="../assets/vendor/css/prism-vscode_dark.min.css">
+    <link rel="stylesheet" href="../assets/css/tokens.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+
+    <link rel="stylesheet" href="../components/c-theme-toggle/c-theme-toggle.css">
+    <link rel="stylesheet" href="../components/c-navbar/c-navbar.css">
+    <link rel="stylesheet" href="../components/c-sidebar/c-sidebar.css">
+    <link rel="stylesheet" href="../components/c-breadcrumb/c-breadcrumb.css">
+    <link rel="stylesheet" href="../components/c-code-block/c-code-block.css">
+    <link rel="stylesheet" href="../components/c-callout/c-callout.css">
+    <link rel="stylesheet" href="../components/c-badge/c-badge.css">
+    <link rel="stylesheet" href="../components/c-search-box/c-search-box.css">
+    <link rel="stylesheet" href="../components/c-pagination-nav/c-pagination-nav.css">
+</head>
+
+<body>
+
+    <c-navbar brand="Component Galerisi" home="../index.html" github-url="#"></c-navbar>
+    <c-sidebar active="search-box" base="./"></c-sidebar>
+
+    <main class="page">
+        <div class="page-inner">
+            <c-breadcrumb items="Component Galerisi|../index.html>Search Box"></c-breadcrumb>
+
+            <h1>Search Box</h1>
+            <p>
+                İstemci tarafında (client-side) filtreleme yapan arama kutusu. <code>target</code>
+                seçicisine uyan elementlerden, girilen kelimeyi metninde içermeyenler gizlenir.
+                Ana sayfadaki bileşen galerisi araması, <code>&lt;c-search-box&gt;</code>'ın canlı bir
+                örneğidir.
+            </p>
+
+            <h2>Örnek</h2>
+            <c-search-box target=".c-demo-list li" placeholder="Bileşen ara..."
+                empty-text="Eşleşen sonuç bulunamadı."></c-search-box>
+
+            <ul class="c-demo-list">
+                <li><c-badge variant="get">GET</c-badge> /api/users</li>
+                <li><c-badge variant="post">POST</c-badge> /api/users</li>
+                <li><c-badge variant="put">PUT</c-badge> /api/users/{id}</li>
+                <li><c-badge variant="patch">PATCH</c-badge> /api/users/{id}</li>
+                <li><c-badge variant="delete">DELETE</c-badge> /api/users/{id}</li>
+                <li><c-badge variant="get">GET</c-badge> /api/posts</li>
+                <li><c-badge variant="post">POST</c-badge> /api/posts</li>
+            </ul>
+
+            <h2>Kullanım</h2>
+            <c-code-block lang="markup">&lt;c-search-box
+    target=".c-demo-list li"
+    placeholder="Bileşen ara..."
+    empty-text="Eşleşen sonuç bulunamadı."&gt;
+&lt;/c-search-box&gt;
+
+&lt;ul class="c-demo-list"&gt;
+    &lt;li&gt;...&lt;/li&gt;
+    &lt;li&gt;...&lt;/li&gt;
+&lt;/ul&gt;</c-code-block>
+
+            <c-callout variant="info" title="Nasıl çalışır?">
+                Kullanıcı yazdıkça, <code>target</code> seçicisine uyan her element için
+                <code>textContent</code> küçük harfe çevrilip arama kelimesiyle karşılaştırılır.
+                Eşleşmeyenler <code>display: none</code> ile gizlenir. Hiçbir eşleşme yoksa
+                <code>empty-text</code> mesajı gösterilir.
+            </c-callout>
+
+            <h2>Attribute'lar</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Attribute</th>
+                        <th>Açıklama</th>
+                        <th>Varsayılan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>target</code></td>
+                        <td>Filtrelenecek elementlerin CSS seçicisi</td>
+                        <td>—</td>
+                    </tr>
+                    <tr>
+                        <td><code>placeholder</code></td>
+                        <td>Input placeholder metni</td>
+                        <td><code>Ara...</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>empty-text</code></td>
+                        <td>Hiç sonuç bulunamadığında gösterilecek mesaj</td>
+                        <td><code>Sonuç bulunamadı.</code></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <c-pagination-nav prev-href="pagination-nav.html" prev-label="Pagination Nav"></c-pagination-nav>
+        </div>
+    </main>
+
+    <script src="../assets/vendor/js/prism.min.js"></script>
+    <script src="../components/c-theme-toggle/c-theme-toggle.js"></script>
+    <script src="../components/c-navbar/c-navbar.js"></script>
+    <script src="../components/c-sidebar/c-sidebar.js"></script>
+    <script src="../components/c-breadcrumb/c-breadcrumb.js"></script>
+    <script src="../components/c-code-block/c-code-block.js"></script>
+    <script src="../components/c-callout/c-callout.js"></script>
+    <script src="../components/c-badge/c-badge.js"></script>
+    <script src="../components/c-search-box/c-search-box.js"></script>
+    <script src="../components/c-pagination-nav/c-pagination-nav.js"></script>
+</body>
+
+</html>

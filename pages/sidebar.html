@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sidebar — Component Galerisi</title>
+
+    <link rel="stylesheet" href="../assets/vendor/css/prism-vscode_dark.min.css">
+    <link rel="stylesheet" href="../assets/css/tokens.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+
+    <link rel="stylesheet" href="../components/c-theme-toggle/c-theme-toggle.css">
+    <link rel="stylesheet" href="../components/c-navbar/c-navbar.css">
+    <link rel="stylesheet" href="../components/c-sidebar/c-sidebar.css">
+    <link rel="stylesheet" href="../components/c-breadcrumb/c-breadcrumb.css">
+    <link rel="stylesheet" href="../components/c-code-block/c-code-block.css">
+    <link rel="stylesheet" href="../components/c-callout/c-callout.css">
+    <link rel="stylesheet" href="../components/c-pagination-nav/c-pagination-nav.css">
+</head>
+
+<body>
+
+    <c-navbar brand="Component Galerisi" home="../index.html" github-url="#"></c-navbar>
+    <c-sidebar active="sidebar" base="./"></c-sidebar>
+
+    <main class="page">
+        <div class="page-inner">
+            <c-breadcrumb items="Component Galerisi|../index.html>Sidebar"></c-breadcrumb>
+
+            <h1>Sidebar</h1>
+            <p>
+                Sayfanın solunda sabit duran gezinme menüsü. Bu sayfanın solundaki menü,
+                <code>&lt;c-sidebar&gt;</code>'ın canlı bir örneğidir: "Sidebar" linki şu anda
+                <code>c-sidebar__link--active</code> sınıfıyla vurgulanmış durumda. 768px altındaki
+                ekranlarda sidebar gizlenir ve navbar'daki hamburger butonuyla açılır/kapanır.
+            </p>
+
+            <h2>Kullanım</h2>
+            <c-code-block lang="html">&lt;c-sidebar
+    active="sidebar"
+    base="./"
+    home="../index.html"&gt;&lt;/c-sidebar&gt;</c-code-block>
+
+            <h2>Attribute'lar</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Attribute</th>
+                        <th>Açıklama</th>
+                        <th>Varsayılan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>active</code></td>
+                        <td>Aktif sayfanın id'si (örn. <code>callout</code>); o linki vurgular</td>
+                        <td><code>""</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>base</code></td>
+                        <td>
+                            Sayfa linklerinin önüne eklenecek yol. <code>pages/</code> klasöründen
+                            kullanılırken <code>"./"</code>, <code>index.html</code>'den
+                            kullanılırken <code>"pages/"</code> verilmelidir.
+                        </td>
+                        <td><code>./</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>home</code></td>
+                        <td>"Component Galerisi" başlığının linki</td>
+                        <td><code>../index.html</code></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>Yeni bir sayfa eklemek</h2>
+            <p>
+                Menüdeki bağlantı listesi, <code>c-sidebar.js</code> içindeki <code>NAV_GROUPS</code>
+                sabitinde tutulur. Yeni bir component sayfası eklediğinde, ilgili gruba
+                <code>{ id, label, file }</code> şeklinde bir satır eklemen yeterlidir — tüm sayfalardaki
+                sidebar otomatik güncellenir.
+            </p>
+
+            <c-code-block lang="javascript">{ id: 'tooltip', label: 'Tooltip', file: 'tooltip.html' }</c-code-block>
+
+            <c-callout variant="info" title="Mobil aç/kapat">
+                Sidebar, <code>document</code> üzerindeki <code>c-sidebar-toggle</code> event'ini dinler.
+                Bu event, <code>&lt;c-navbar&gt;</code>'daki hamburger butonu tarafından tetiklenir.
+            </c-callout>
+
+            <c-pagination-nav prev-href="navbar.html" prev-label="Navbar" next-href="breadcrumb.html"
+                next-label="Breadcrumb"></c-pagination-nav>
+        </div>
+    </main>
+
+    <script src="../assets/vendor/js/prism.min.js"></script>
+    <script src="../components/c-theme-toggle/c-theme-toggle.js"></script>
+    <script src="../components/c-navbar/c-navbar.js"></script>
+    <script src="../components/c-sidebar/c-sidebar.js"></script>
+    <script src="../components/c-breadcrumb/c-breadcrumb.js"></script>
+    <script src="../components/c-code-block/c-code-block.js"></script>
+    <script src="../components/c-callout/c-callout.js"></script>
+    <script src="../components/c-pagination-nav/c-pagination-nav.js"></script>
+</body>
+
+</html>
