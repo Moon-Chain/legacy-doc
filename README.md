@@ -1,3 +1,6 @@
+Efsane Dokümantasyon
+Ultra Basit, Ultra Hızlı, Vanilla JS + Modüler Mimari
+
 # Component Galerisi — Template
 
 Vanilla CSS + Web Components (Custom Elements) ile hazırlanmış, **fetch/include kullanmayan**,
