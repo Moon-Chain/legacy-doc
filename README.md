@@ -1,8 +1,22 @@
+<div align="center">
+
 # legacy-doc
 
-A zero-dependency documentation template built with vanilla JS and Web Components.
+**A zero-dependency documentation template built with vanilla JS and Web Components.**
 
 No server. No build step. Double-click `index.html` and it runs.
+
+<br>
+
+![Version](https://img.shields.io/badge/VERSION-1.0.0-2d333b?style=for-the-badge)
+![License](https://img.shields.io/badge/LICENSE-MIT-22c55e?style=for-the-badge)
+![JavaScript](https://img.shields.io/badge/JAVASCRIPT-ES6+-f7df1e?style=for-the-badge&logo=javascript&logoColor=black)
+![HTML5](https://img.shields.io/badge/HTML5-%E2%9C%93-e34f26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-%E2%9C%93-1572b6?style=for-the-badge&logo=css3&logoColor=white)
+![Dependencies](https://img.shields.io/badge/DEPENDENCIES-ZERO-00b894?style=for-the-badge)
+![By](https://img.shields.io/badge/BY-MOON--CHAIN-58a6ff?style=for-the-badge)
+
+</div>
 
 ---
 
