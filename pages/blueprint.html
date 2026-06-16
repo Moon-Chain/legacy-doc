@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blueprint — Component Galerisi</title>
+
+    <link rel="stylesheet" href="../assets/vendor/css/prism-vscode_dark.min.css">
+    <link rel="stylesheet" href="../assets/css/tokens.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+
+    <link rel="stylesheet" href="../components/c-theme-toggle/c-theme-toggle.css">
+    <link rel="stylesheet" href="../components/c-navbar/c-navbar.css">
+    <link rel="stylesheet" href="../components/c-sidebar/c-sidebar.css">
+    <link rel="stylesheet" href="../components/c-breadcrumb/c-breadcrumb.css">
+    <link rel="stylesheet" href="../components/c-code-block/c-code-block.css">
+    <link rel="stylesheet" href="../components/c-callout/c-callout.css">
+    <link rel="stylesheet" href="../components/c-blueprint/c-blueprint.css">
+    <link rel="stylesheet" href="../components/c-pagination-nav/c-pagination-nav.css">
+</head>
+
+<body>
+
+    <c-navbar brand="Component Galerisi" home="../index.html" github-url="#"></c-navbar>
+    <c-sidebar active="blueprint" base="./"></c-sidebar>
+
+    <main class="page">
+        <div class="page-inner">
+            <c-breadcrumb items="Component Galerisi|../index.html>Blueprint"></c-breadcrumb>
+
+            <h1>Blueprint</h1>
+            <p>
+                Düğüm (node) tabanlı, sürüklenebilir bağlantı diyagramı. Her bağlantı kartın
+                merkezinden değil, belirli <strong>port noktalarından</strong> çizilir.
+                Veritabanı şemaları, veri akışları ve mimari diyagramları için uygundur.
+            </p>
+
+            <h2>Örnek — Veritabanı Şeması</h2>
+            <p>
+                FK alanları solda <em>input</em>, PK alanları sağda <em>output</em> port olarak
+                gösterilir. Bağlantılar <code>companies.id → users.company_id</code> gibi
+                spesifik port noktalarından çizilir.
+            </p>
+
+            <c-blueprint>
+                <script type="application/json">
+                {
+                    "nodes": [
+                        {
+                            "id": "companies",
+                            "title": "companies",
+                            "x": 20, "y": 80,
+                            "color": "#9a7200",
+                            "ports": [
+                                { "id": "id",        "label": "id",        "dir": "out",  "type": "UUID",        "color": "#e6a800" },
+                                { "id": "name",      "label": "name",      "dir": "none", "type": "VARCHAR(200)" },
+                                { "id": "plan",      "label": "plan",      "dir": "none", "type": "VARCHAR(20)"  },
+                                { "id": "is_active", "label": "is_active", "dir": "none", "type": "BOOLEAN"      }
+                            ]
+                        },
+                        {
+                            "id": "users",
+                            "title": "users",
+                            "x": 290, "y": 30,
+                            "color": "#1456c8",
+                            "ports": [
+                                { "id": "company_id", "label": "company_id", "dir": "in",   "type": "UUID",        "color": "#e6a800" },
+                                { "id": "id",         "label": "id",         "dir": "out",  "type": "UUID",        "color": "#4488dd" },
+                                { "id": "name",       "label": "name",       "dir": "none", "type": "VARCHAR(100)" },
+                                { "id": "role",       "label": "role",       "dir": "none", "type": "VARCHAR(20)"  },
+                                { "id": "is_deleted", "label": "is_deleted", "dir": "none", "type": "BOOLEAN"      }
+                            ]
+                        },
+                        {
+                            "id": "attendance",
+                            "title": "attendance",
+                            "x": 560, "y": 20,
+                            "color": "#146c3a",
+                            "ports": [
+                                { "id": "company_id",    "label": "company_id",    "dir": "in",   "type": "UUID",       "color": "#e6a800" },
+                                { "id": "user_id",       "label": "user_id",       "dir": "in",   "type": "UUID",       "color": "#4488dd" },
+                                { "id": "id",            "label": "id",            "dir": "out",  "type": "UUID",       "color": "#44cc88" },
+                                { "id": "type",          "label": "type",          "dir": "none", "type": "in / out"    },
+                                { "id": "timestamp",     "label": "timestamp",     "dir": "none", "type": "TIMESTAMPTZ" },
+                                { "id": "is_remote",     "label": "is_remote",     "dir": "none", "type": "BOOLEAN"     }
+                            ]
+                        },
+                        {
+                            "id": "leave_requests",
+                            "title": "leave_requests",
+                            "x": 560, "y": 270,
+                            "color": "#b85a00",
+                            "ports": [
+                                { "id": "company_id", "label": "company_id", "dir": "in",   "type": "UUID",       "color": "#e6a800" },
+                                { "id": "user_id",    "label": "user_id",    "dir": "in",   "type": "UUID",       "color": "#4488dd" },
+                                { "id": "manager_id", "label": "manager_id", "dir": "in",   "type": "UUID",       "color": "#4488dd" },
+                                { "id": "id",         "label": "id",         "dir": "out",  "type": "UUID",       "color": "#ff9944" },
+                                { "id": "start_date", "label": "start_date", "dir": "none", "type": "DATE"        },
+                                { "id": "end_date",   "label": "end_date",   "dir": "none", "type": "DATE"        },
+                                { "id": "status",     "label": "status",     "dir": "none", "type": "VARCHAR(10)" }
+                            ]
+                        }
+                    ],
+                    "connections": [
+                        { "from": "companies.id", "to": "users.company_id",         "color": "#e6a800" },
+                        { "from": "companies.id", "to": "attendance.company_id",    "color": "#e6a800" },
+                        { "from": "companies.id", "to": "leave_requests.company_id","color": "#e6a800" },
+                        { "from": "users.id",     "to": "attendance.user_id",       "color": "#4488dd" },
+                        { "from": "users.id",     "to": "leave_requests.user_id",   "color": "#4488dd" },
+                        { "from": "users.id",     "to": "leave_requests.manager_id","color": "#4488dd" }
+                    ]
+                }
+                </script>
+            </c-blueprint>
+
+            <h2>Kullanım</h2>
+            <c-code-block lang="markup">&lt;c-blueprint&gt;
+    &lt;script type="application/json"&gt;
+    {
+        "nodes": [
+            {
+                "id": "users",
+                "title": "users",
+                "x": 20, "y": 40,
+                "color": "#1456c8",
+                "ports": [
+                    { "id": "company_id", "label": "company_id", "dir": "in",   "type": "UUID", "color": "#e6a800" },
+                    { "id": "id",         "label": "id",         "dir": "out",  "type": "UUID", "color": "#4488dd" },
+                    { "id": "name",       "label": "name",       "dir": "none", "type": "VARCHAR(100)" }
+                ]
+            }
+        ],
+        "connections": [
+            { "from": "companies.id", "to": "users.company_id", "color": "#e6a800" }
+        ]
+    }
+    &lt;/script&gt;
+&lt;/c-blueprint&gt;</c-code-block>
+
+            <h2>Node Özellikleri</h2>
+            <table>
+                <thead>
+                    <tr><th>Alan</th><th>Tür</th><th>Açıklama</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><code>id</code></td><td>string</td><td>Bağlantılarda referans için benzersiz kimlik</td></tr>
+                    <tr><td><code>title</code></td><td>string</td><td>Kartın başlık satırında gösterilen metin</td></tr>
+                    <tr><td><code>x</code> / <code>y</code></td><td>number</td><td>Başlangıç konumu (piksel, scene-local)</td></tr>
+                    <tr><td><code>color</code></td><td>string</td><td>Başlık arka plan rengi (CSS renk değeri)</td></tr>
+                    <tr><td><code>ports</code></td><td>Port[]</td><td>Aşağıdaki tabloya bakınız</td></tr>
+                </tbody>
+            </table>
+
+            <h2>Port Özellikleri</h2>
+            <table>
+                <thead>
+                    <tr><th>Alan</th><th>Tür</th><th>Açıklama</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><code>id</code></td><td>string</td><td>Bağlantı hedefi için <code>nodeId.portId</code> formatında kullanılır</td></tr>
+                    <tr><td><code>label</code></td><td>string</td><td>Port satırında gösterilen metin</td></tr>
+                    <tr><td><code>dir</code></td><td><code>"in"</code> | <code>"out"</code> | <code>"none"</code></td><td><code>in</code>: sol nokta, <code>out</code>: sağ nokta, <code>none</code>: yalnızca etiket</td></tr>
+                    <tr><td><code>type</code></td><td>string</td><td>Etiket yanında soluk yazıyla gösterilen tür bilgisi (opsiyonel)</td></tr>
+                    <tr><td><code>color</code></td><td>string</td><td>Port noktasının rengi; belirtilmezse node rengi kullanılır</td></tr>
+                </tbody>
+            </table>
+
+            <h2>Bağlantı (connection) Özellikleri</h2>
+            <table>
+                <thead>
+                    <tr><th>Alan</th><th>Tür</th><th>Açıklama</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><code>from</code></td><td>string</td><td>Kaynak port — <code>"nodeId.portId"</code> (dir: "out" olmalı)</td></tr>
+                    <tr><td><code>to</code></td><td>string</td><td>Hedef port — <code>"nodeId.portId"</code> (dir: "in" olmalı)</td></tr>
+                    <tr><td><code>color</code></td><td>string</td><td>Bezier eğrisinin rengi</td></tr>
+                </tbody>
+            </table>
+
+            <c-callout variant="info" title="Etkileşim">
+                Kartları sürükleyebilirsin — bağlantı eğrileri anlık güncellenir.
+                Boş alana tıklayıp sürükleyerek canvas'ı kaydır,
+                fare tekerleği ile zum yap. Sağ alt köşedeki <strong>↺</strong> butonu
+                tüm kartları başlangıç konumuna sıfırlar.
+            </c-callout>
+
+            <c-pagination-nav prev-href="search-box.html" prev-label="Search Box"></c-pagination-nav>
+        </div>
+    </main>
+
+    <script src="../assets/vendor/js/prism.min.js"></script>
+    <script src="../components/c-theme-toggle/c-theme-toggle.js"></script>
+    <script src="../components/c-navbar/c-navbar.js"></script>
+    <script src="../components/c-sidebar/c-sidebar.js"></script>
+    <script src="../components/c-breadcrumb/c-breadcrumb.js"></script>
+    <script src="../components/c-code-block/c-code-block.js"></script>
+    <script src="../components/c-callout/c-callout.js"></script>
+    <script src="../components/c-blueprint/c-blueprint.js"></script>
+    <script src="../components/c-pagination-nav/c-pagination-nav.js"></script>
+</body>
+
+</html>

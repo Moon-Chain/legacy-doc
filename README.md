@@ -1,141 +1,103 @@
-Efsane Dokümantasyon
-Ultra Basit, Ultra Hızlı, Vanilla JS + Modüler Mimari
+# legacy-doc
 
-# Component Galerisi — Template
+Vanilla JS + Web Components ile hazırlanmış, sıfır bağımlılıklı dokümantasyon şablonu.
 
-Vanilla CSS + Web Components (Custom Elements) ile hazırlanmış, **fetch/include kullanmayan**,
-her sayfası tek başına `file://` ile açılabilen bileşen dokümantasyon şablonu.
+Sunucu gerekmez. Build gerekmez. `index.html`'e çift tıkla, çalışır.
 
-## Çalıştırma
+---
 
-Herhangi bir sunucuya ihtiyaç yoktur. `index.html` veya `pages/*.html` dosyalarına çift tıklayıp
-doğrudan tarayıcıda açabilirsin.
+## Mimari
 
-## Klasör yapısı
+Her sayfa kendi kendine yeten bir HTML dosyasıdır. `fetch`, `include` ya da bundler yoktur; sadece ihtiyaç duyduğun `<link>` ve `<script>` etiketlerini sayfana eklersin, gerisini Web Components halleder.
+
+Bileşenler `class extends HTMLElement` ile tanımlanır, Shadow DOM kullanılmaz (light DOM). Tüm renkler `tokens.css` değişkenlerinden gelir; `data-theme="dark"` attribute'u değiştiğinde tema otomatik döner.
+
+Bileşenler arası iletişim `CustomEvent` ile `document` üzerinden yapılır.
+
+---
+
+## Yapı
 
 ```
-template/
-├── index.html              # Bileşen galerisi (ana sayfa)
-├── pages/                   # Her bileşen için ayrı demo sayfası
-│   ├── navbar.html
-│   ├── sidebar.html
-│   ├── breadcrumb.html
-│   ├── theme-toggle.html
-│   ├── callout.html
-│   ├── code-block.html
-│   ├── card.html
-│   ├── badge.html
-│   ├── alert.html
-│   ├── tabs.html
-│   ├── accordion.html
-│   ├── toc.html
-│   ├── pagination-nav.html
-│   └── search-box.html
-├── components/              # Her bileşenin kendi .js + .css dosyası
-│   ├── c-navbar/
-│   ├── c-sidebar/
-│   ├── c-breadcrumb/
-│   ├── c-theme-toggle/
-│   ├── c-callout/
-│   ├── c-code-block/
-│   ├── c-card/
-│   ├── c-badge/
-│   ├── c-alert/
-│   ├── c-tabs/
-│   ├── c-accordion/
-│   ├── c-toc/
-│   ├── c-pagination-nav/
-│   └── c-search-box/
+legacy-doc/
+├── index.html                   # Bileşen galerisi
+├── pages/                       # Her bileşen için demo sayfası
+├── components/                  # <c-*> bileşenleri (.js + .css)
 └── assets/
     ├── css/
-    │   ├── tokens.css       # Renk/boyut değişkenleri (açık + koyu tema)
-    │   └── base.css         # Reset, tipografi, .page / .page-inner / .c-grid düzenleri
-    ├── js/
-    │   └── app.js           # Genel amaçlı yardımcı kod (şu an boş)
+    │   ├── tokens.css           # CSS değişkenleri (tema, renk, spacing)
+    │   └── base.css             # Reset, tipografi, layout
+    ├── js/app.js
     └── vendor/
-        ├── css/prism-vscode_dark.min.css
-        └── js/prism.min.js  # c-code-block için syntax highlighting
+        └── js/prism.min.js      # Syntax highlight (c-code-block)
 ```
 
-## Mimari ilkeler
+---
 
-- **Her sayfa bağımsızdır.** Hiçbir HTML parçası `fetch`/`include` ile çekilmez. Her `pages/*.html`
-  dosyası kendi `<head>` ve `<body>` içinde sadece ihtiyaç duyduğu bileşenlerin `.css`/`.js`
-  dosyalarını referans alır.
-- **Bileşenler `class extends HTMLElement` ile tanımlanır** ve `customElements.define('c-xxx', ...)`
-  ile kayıt edilir. Shadow DOM kullanılmaz (light DOM) — böylece `tokens.css`/`base.css` tüm
-  bileşenlere otomatik uygulanır.
-- **Tema:** Tüm renkler `tokens.css`'teki CSS değişkenlerinden gelir. `<html data-theme="dark">`
-  ayarlandığında bu değişkenler değişir; `c-theme-toggle` bunu yönetir ve `localStorage`'a kaydeder.
-- **Bileşenler arası iletişim** `document` üzerinde `CustomEvent` ile yapılır (örn. `c-navbar`
-  hamburger butonuna tıklayınca `c-sidebar-toggle` event'i gönderir, `c-sidebar` bunu dinler).
-- **İç içe bileşenler** (örn. `c-card` içinde `c-code-block`) `innerHTML` string'i ile değil,
-  `Node.append(...Array.from(node.childNodes))` ile taşınır. Bu, zaten "upgrade" olmuş
-  custom element'lerin durumunu/event listener'larını korur.
+## Bileşenler
 
-## Yeni bir sayfaya bileşen eklemek
+| Bileşen | Açıklama |
+|---|---|
+| `c-navbar` | Üst çubuk — logo, başlık, tema, GitHub linki, mobil menü |
+| `c-sidebar` | Sol gezinme menüsü |
+| `c-breadcrumb` | Konum kırıntısı |
+| `c-theme-toggle` | Açık / koyu tema anahtarı |
+| `c-callout` | 7 varyantlı vurgu kutusu |
+| `c-code-block` | Syntax highlight + kopyala |
+| `c-card` | Header / body / footer slotlu kart |
+| `c-badge` | HTTP metod ve durum rozetleri |
+| `c-alert` | Kapatılabilir bildirim kutusu |
+| `c-tabs` / `c-tab` | Sekmeli içerik |
+| `c-accordion` / `c-accordion-item` | Açılır/kapanır panel |
+| `c-toc` | Otomatik içindekiler + scroll-spy |
+| `c-pagination-nav` | Önceki / sonraki sayfa linkleri |
+| `c-search-box` | Client-side filtre arama kutusu |
+| `c-blueprint` | Sürüklenebilir düğüm diyagramı — port-to-port bezier bağlantılar |
 
-1. Sayfanın `<head>`'ine bileşenin `.css` dosyasını ekle:
-   ```html
-   <link rel="stylesheet" href="../components/c-alert/c-alert.css">
-   ```
-2. Sayfanın `<body>` sonuna bileşenin `.js` dosyasını ekle:
-   ```html
-   <script src="../components/c-alert/c-alert.js"></script>
-   ```
-3. İçeriğe etiketi yerleştir:
-   ```html
-   <c-alert variant="success" dismissible>Kaydedildi!</c-alert>
-   ```
+---
 
-Bir bileşene ihtiyacın yoksa, sadece o `<link>`/`<script>` satırlarını silmen yeterlidir —
-diğer bileşenler bundan etkilenmez.
+## Kullanım
 
-## Yeni bir bileşen oluşturmak
+### Sayfaya bileşen eklemek
 
-1. `components/c-yeni-bilesen/` klasörü oluştur, içine `c-yeni-bilesen.css` ve `c-yeni-bilesen.js` ekle.
-2. `c-yeni-bilesen.js` içinde:
+```html
+<!-- <head> -->
+<link rel="stylesheet" href="../components/c-alert/c-alert.css">
+
+<!-- <body> sonu -->
+<script src="../components/c-alert/c-alert.js"></script>
+
+<!-- içerik -->
+<c-alert variant="success" dismissible>Kaydedildi.</c-alert>
+```
+
+İhtiyaç duymadığın bileşenin `<link>` ve `<script>` satırlarını sil. Diğer bileşenler etkilenmez.
+
+### Yeni bileşen oluşturmak
+
+1. `components/c-yeni/` klasörü aç, `c-yeni.css` ve `c-yeni.js` ekle.
+2. `c-yeni.js`:
    ```js
-   class CYeniBilesen extends HTMLElement {
-       connectedCallback() {
-           // this.innerHTML yerine, çocuk node'ları taşımak istiyorsan
-           // Array.from(this.childNodes) + append kullan.
-       }
+   class CYeni extends HTMLElement {
+       connectedCallback() { /* ... */ }
    }
-   customElements.define('c-yeni-bilesen', CYeniBilesen);
+   customElements.define('c-yeni', CYeni);
    ```
-3. Renk/boyut için `tokens.css`'teki değişkenleri kullan, hardcode değer yazma — böylece
-   koyu tema otomatik çalışır.
-4. Demo sayfası için `pages/yeni-bilesen.html` oluştur (mevcut sayfalardan birini şablon al).
+3. Renk/boyut için `tokens.css` değişkenlerini kullan, hardcode değer yazma.
+4. Demo için `pages/yeni.html` oluştur (mevcut bir sayfayı şablon al).
 
-## Yeni bir demo sayfası eklemek (sidebar'a kayıt)
+### Sidebar'a sayfa kayıt etmek
 
-Sol menüdeki bağlantı listesi `components/c-sidebar/c-sidebar.js` içindeki `NAV_GROUPS`
-sabitinde tutulur. Yeni sayfanı uygun gruba ekle:
+`components/c-sidebar/c-sidebar.js` içindeki `NAV_GROUPS` sabitine satır ekle:
 
 ```js
-{ id: 'yeni-bilesen', label: 'Yeni Bileşen', file: 'yeni-bilesen.html' }
+{ id: 'yeni', label: 'Yeni Bileşen', file: 'yeni.html' }
 ```
 
-Bu satırı eklediğinde, **tüm sayfalardaki** sidebar otomatik güncellenir (her sayfa aynı
-`c-sidebar.js` dosyasını kullanır). Yeni sayfanda `<c-sidebar active="yeni-bilesen" base="./">`
-yazarak ilgili linki vurgulat.
+Tüm sayfalardaki sidebar güncellenir; o sayfaya `<c-sidebar active="yeni" base="./">` yaz.
 
-## Bileşen listesi
+---
 
-| Bileşen | Açıklama | Demo |
-|---|---|---|
-| `c-navbar` | Logo, başlık, tema anahtarı, GitHub linki, mobil menü butonu | [pages/navbar.html](pages/navbar.html) |
-| `c-sidebar` | Sayfalar arası gezinme menüsü | [pages/sidebar.html](pages/sidebar.html) |
-| `c-breadcrumb` | Sayfa konumu "kırıntı" navigasyonu | [pages/breadcrumb.html](pages/breadcrumb.html) |
-| `c-theme-toggle` | Açık/koyu tema anahtarı | [pages/theme-toggle.html](pages/theme-toggle.html) |
-| `c-callout` | 7 varyantlı dikkat çekme kutusu | [pages/callout.html](pages/callout.html) |
-| `c-code-block` | Syntax highlight + kopyala butonu | [pages/code-block.html](pages/code-block.html) |
-| `c-card` | Header/body/footer slotlu kart | [pages/card.html](pages/card.html) |
-| `c-badge` | HTTP metod ve durum rozetleri | [pages/badge.html](pages/badge.html) |
-| `c-alert` | Kapatılabilir bildirim kutusu | [pages/alert.html](pages/alert.html) |
-| `c-tabs` / `c-tab` | Sekmeli içerik | [pages/tabs.html](pages/tabs.html) |
-| `c-accordion` / `c-accordion-item` | Açılır/kapanır panel listesi | [pages/accordion.html](pages/accordion.html) |
-| `c-toc` | Otomatik içindekiler + scroll-spy | [pages/toc.html](pages/toc.html) |
-| `c-pagination-nav` | Önceki/sonraki sayfa linkleri | [pages/pagination-nav.html](pages/pagination-nav.html) |
-| `c-search-box` | Client-side filtre arama kutusu | [pages/search-box.html](pages/search-box.html) |
+## Lisans
+
+MIT

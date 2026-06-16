@@ -44,6 +44,7 @@ const NAV_GROUPS = [
             { id: 'toc', label: 'İçindekiler (TOC)', file: 'toc.html' },
             { id: 'pagination-nav', label: 'Pagination Nav', file: 'pagination-nav.html' },
             { id: 'search-box', label: 'Search Box', file: 'search-box.html' },
+            { id: 'blueprint', label: 'Blueprint', file: 'blueprint.html' },
         ],
     },
 ];
