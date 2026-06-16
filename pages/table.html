@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table — Component Galerisi</title>
+
+    <link rel="stylesheet" href="../assets/vendor/css/prism-vscode_dark.min.css">
+    <link rel="stylesheet" href="../assets/css/tokens.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+
+    <link rel="stylesheet" href="../components/c-theme-toggle/c-theme-toggle.css">
+    <link rel="stylesheet" href="../components/c-navbar/c-navbar.css">
+    <link rel="stylesheet" href="../components/c-sidebar/c-sidebar.css">
+    <link rel="stylesheet" href="../components/c-breadcrumb/c-breadcrumb.css">
+    <link rel="stylesheet" href="../components/c-code-block/c-code-block.css">
+    <link rel="stylesheet" href="../components/c-table/c-table.css">
+    <link rel="stylesheet" href="../components/c-pagination-nav/c-pagination-nav.css">
+</head>
+
+<body>
+
+    <c-navbar brand="Component Galerisi" home="../index.html"></c-navbar>
+    <c-sidebar active="table" base="./"></c-sidebar>
+
+    <main class="page">
+        <div class="page-inner">
+            <c-breadcrumb items="Component Galerisi|../index.html>Table"></c-breadcrumb>
+
+            <h1>Table</h1>
+            <p>
+                Yatay kaydırma ve sıralama desteği olan stillendirilmiş veri tablosu.
+                Ham <code>&lt;table&gt;</code> elementi <code>&lt;c-table&gt;</code> ile sarılır.
+            </p>
+
+            <h2>Sıralanabilir Tablo</h2>
+            <p>
+                <code>sortable</code> attribute'u eklendiğinde tüm başlıklara tıklanarak
+                o sütuna göre artan/azalan sıralama yapılabilir.
+            </p>
+
+            <c-table sortable>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Bileşen</th>
+                            <th>Tür</th>
+                            <th>Sürüm</th>
+                            <th>Boyut (KB)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>c-callout</td><td>İçerik</td><td>1.0</td><td>2.1</td></tr>
+                        <tr><td>c-accordion</td><td>Etkileşimli</td><td>1.0</td><td>3.4</td></tr>
+                        <tr><td>c-blueprint</td><td>Etkileşimli</td><td>1.0</td><td>12.8</td></tr>
+                        <tr><td>c-badge</td><td>İçerik</td><td>1.0</td><td>0.8</td></tr>
+                        <tr><td>c-navbar</td><td>Layout</td><td>1.0</td><td>4.2</td></tr>
+                        <tr><td>c-table</td><td>İçerik</td><td>1.1</td><td>1.6</td></tr>
+                    </tbody>
+                </table>
+            </c-table>
+
+            <h2>Zebra Satırlar (striped)</h2>
+            <p><code>striped</code> attribute'u çift satırları hafifçe renklendirir.</p>
+
+            <c-table striped>
+                <table>
+                    <thead>
+                        <tr><th>Dil</th><th>Paradigma</th><th>Yıl</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>JavaScript</td><td>Multi-paradigm</td><td>1995</td></tr>
+                        <tr><td>Python</td><td>Multi-paradigm</td><td>1991</td></tr>
+                        <tr><td>Rust</td><td>Systems</td><td>2010</td></tr>
+                        <tr><td>Go</td><td>Concurrent</td><td>2009</td></tr>
+                        <tr><td>TypeScript</td><td>Multi-paradigm</td><td>2012</td></tr>
+                    </tbody>
+                </table>
+            </c-table>
+
+            <h2>İkisi Birlikte</h2>
+            <c-table sortable striped>
+                <table>
+                    <thead>
+                        <tr><th>Ülke</th><th>Başkent</th><th>Nüfus (M)</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Türkiye</td><td>Ankara</td><td>85.3</td></tr>
+                        <tr><td>Almanya</td><td>Berlin</td><td>84.1</td></tr>
+                        <tr><td>Fransa</td><td>Paris</td><td>68.4</td></tr>
+                        <tr><td>İtalya</td><td>Roma</td><td>58.9</td></tr>
+                        <tr><td>İspanya</td><td>Madrid</td><td>47.8</td></tr>
+                    </tbody>
+                </table>
+            </c-table>
+
+            <h2>Kod</h2>
+            <c-code-block lang="markup">&lt;c-table sortable striped&gt;
+    &lt;table&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;&lt;th&gt;Ad&lt;/th&gt;&lt;th&gt;Değer&lt;/th&gt;&lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &lt;tr&gt;&lt;td&gt;Alpha&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;/tr&gt;
+            &lt;tr&gt;&lt;td&gt;Beta&lt;/td&gt;&lt;td&gt;2&lt;/td&gt;&lt;/tr&gt;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/c-table&gt;</c-code-block>
+
+            <h2>Attribute'lar</h2>
+            <table>
+                <thead><tr><th>Attribute</th><th>Açıklama</th></tr></thead>
+                <tbody>
+                    <tr><td><code>sortable</code></td><td>Sütun başlıklarını tıklanabilir yapar</td></tr>
+                    <tr><td><code>striped</code></td><td>Zebra satır renklendirmesi ekler</td></tr>
+                </tbody>
+            </table>
+
+            <c-pagination-nav prev-href="comparison.html" prev-label="Comparison" next-href="method-signature.html" next-label="Method Signature"></c-pagination-nav>
+        </div>
+    </main>
+
+    <script src="../assets/vendor/js/prism.min.js"></script>
+    <script src="../assets/js/project.js"></script>
+    <script src="../components/c-theme-toggle/c-theme-toggle.js"></script>
+    <script src="../components/c-navbar/c-navbar.js"></script>
+    <script src="../components/c-sidebar/c-sidebar.js"></script>
+    <script src="../components/c-breadcrumb/c-breadcrumb.js"></script>
+    <script src="../components/c-code-block/c-code-block.js"></script>
+    <script src="../components/c-table/c-table.js"></script>
+    <script src="../components/c-pagination-nav/c-pagination-nav.js"></script>
+</body>
+
+</html>

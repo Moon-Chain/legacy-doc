@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparison — Component Galerisi</title>
+
+    <link rel="stylesheet" href="../assets/vendor/css/prism-vscode_dark.min.css">
+    <link rel="stylesheet" href="../assets/css/tokens.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+
+    <link rel="stylesheet" href="../components/c-theme-toggle/c-theme-toggle.css">
+    <link rel="stylesheet" href="../components/c-navbar/c-navbar.css">
+    <link rel="stylesheet" href="../components/c-sidebar/c-sidebar.css">
+    <link rel="stylesheet" href="../components/c-breadcrumb/c-breadcrumb.css">
+    <link rel="stylesheet" href="../components/c-code-block/c-code-block.css">
+    <link rel="stylesheet" href="../components/c-callout/c-callout.css">
+    <link rel="stylesheet" href="../components/c-comparison/c-comparison.css">
+    <link rel="stylesheet" href="../components/c-pagination-nav/c-pagination-nav.css">
+</head>
+
+<body>
+
+    <c-navbar brand="Component Galerisi" home="../index.html"></c-navbar>
+    <c-sidebar active="comparison" base="./"></c-sidebar>
+
+    <main class="page">
+        <div class="page-inner">
+            <c-breadcrumb items="Component Galerisi|../index.html>Comparison"></c-breadcrumb>
+
+            <h1>Comparison</h1>
+            <p>
+                Yan yana "Yap / Yapma" karşılaştırma panelleri. Design system ve API migration
+                dokümantasyonunda doğru ile yanlış kullanımı göstermek için kullanılır.
+            </p>
+
+            <h2>Temel Kullanım</h2>
+            <p>
+                <code>&lt;c-comparison&gt;</code> içine <code>&lt;c-dont&gt;</code> ve
+                <code>&lt;c-do&gt;</code> elementleri koyun. İçlerine istediğiniz HTML yazabilirsiniz.
+            </p>
+
+            <c-comparison>
+                <c-dont>
+                    <p>Renkleri hardcode olarak yazmayın:</p>
+                    <pre><code>color: #0d6efd;</code></pre>
+                </c-dont>
+                <c-do>
+                    <p>Her zaman CSS değişkeni kullanın:</p>
+                    <pre><code>color: var(--c-primary);</code></pre>
+                </c-do>
+            </c-comparison>
+
+            <h2>Özel Etiketler</h2>
+            <p><code>label</code> attribute'u ile panel başlıklarını özelleştirebilirsiniz.</p>
+
+            <c-comparison>
+                <c-dont label="Eski API">
+                    <p>Artık kullanılmayan yöntem:</p>
+                    <pre><code>getUser(id, callback)</code></pre>
+                </c-dont>
+                <c-do label="Yeni API">
+                    <p>Promise tabanlı yeni yöntem:</p>
+                    <pre><code>await getUser(id)</code></pre>
+                </c-do>
+            </c-comparison>
+
+            <h2>Kod</h2>
+            <c-code-block lang="markup">&lt;c-comparison&gt;
+    &lt;c-dont&gt;
+        &lt;p&gt;Renkleri hardcode yazmayın:&lt;/p&gt;
+        &lt;pre&gt;&lt;code&gt;color: #0d6efd;&lt;/code&gt;&lt;/pre&gt;
+    &lt;/c-dont&gt;
+    &lt;c-do&gt;
+        &lt;p&gt;CSS değişkeni kullanın:&lt;/p&gt;
+        &lt;pre&gt;&lt;code&gt;color: var(--c-primary);&lt;/code&gt;&lt;/pre&gt;
+    &lt;/c-do&gt;
+&lt;/c-comparison&gt;</c-code-block>
+
+            <h2>Attribute'lar</h2>
+            <table>
+                <thead>
+                    <tr><th>Element</th><th>Attribute</th><th>Açıklama</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><code>c-dont</code></td><td><code>label</code></td><td>Sol panel başlığı (varsayılan: "Yapma")</td></tr>
+                    <tr><td><code>c-do</code></td><td><code>label</code></td><td>Sağ panel başlığı (varsayılan: "Yap")</td></tr>
+                </tbody>
+            </table>
+
+            <c-pagination-nav prev-href="prop-table.html" prev-label="Prop Table" next-href="table.html" next-label="Table"></c-pagination-nav>
+        </div>
+    </main>
+
+    <script src="../assets/vendor/js/prism.min.js"></script>
+    <script src="../assets/js/project.js"></script>
+    <script src="../components/c-theme-toggle/c-theme-toggle.js"></script>
+    <script src="../components/c-navbar/c-navbar.js"></script>
+    <script src="../components/c-sidebar/c-sidebar.js"></script>
+    <script src="../components/c-breadcrumb/c-breadcrumb.js"></script>
+    <script src="../components/c-code-block/c-code-block.js"></script>
+    <script src="../components/c-callout/c-callout.js"></script>
+    <script src="../components/c-comparison/c-comparison.js"></script>
+    <script src="../components/c-pagination-nav/c-pagination-nav.js"></script>
+</body>
+
+</html>

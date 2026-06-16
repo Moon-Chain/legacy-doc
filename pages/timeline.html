@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timeline — Component Galerisi</title>
+
+    <link rel="stylesheet" href="../assets/vendor/css/prism-vscode_dark.min.css">
+    <link rel="stylesheet" href="../assets/css/tokens.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+
+    <link rel="stylesheet" href="../components/c-theme-toggle/c-theme-toggle.css">
+    <link rel="stylesheet" href="../components/c-navbar/c-navbar.css">
+    <link rel="stylesheet" href="../components/c-sidebar/c-sidebar.css">
+    <link rel="stylesheet" href="../components/c-breadcrumb/c-breadcrumb.css">
+    <link rel="stylesheet" href="../components/c-code-block/c-code-block.css">
+    <link rel="stylesheet" href="../components/c-timeline/c-timeline.css">
+    <link rel="stylesheet" href="../components/c-pagination-nav/c-pagination-nav.css">
+</head>
+
+<body>
+
+    <c-navbar brand="Component Galerisi" home="../index.html"></c-navbar>
+    <c-sidebar active="timeline" base="./"></c-sidebar>
+
+    <main class="page">
+        <div class="page-inner">
+            <c-breadcrumb items="Component Galerisi|../index.html>Timeline"></c-breadcrumb>
+
+            <h1>Timeline</h1>
+            <p>
+                Dikey zaman çizelgesi. Changelog, proje geçmişi veya sıralı süreç adımlarını
+                görsel olarak düzenlemek için kullanılır.
+            </p>
+
+            <h2>Changelog Örneği</h2>
+
+            <c-timeline>
+                <c-timeline-item date="2025-06" title="v1.1.0 — Yeni Bileşenler">
+                    <p>11 yeni bileşen eklendi: Prop Table, Comparison, Table, Method Signature, Timeline, Tooltip, Image Zoom, Heading Anchor, Feedback, Copy Button, Print Button.</p>
+                </c-timeline-item>
+                <c-timeline-item date="2025-03" title="v1.0.1 — Hata Düzeltmeleri">
+                    <p>Blueprint bileşeninde port bağlantı hesaplaması düzeltildi.</p>
+                    <p>Mobil görünümde sidebar kapatma davranışı iyileştirildi.</p>
+                </c-timeline-item>
+                <c-timeline-item date="2025-01" title="v1.0.0 — İlk Sürüm">
+                    <p>legacy-doc ilk kararlı sürümü yayınlandı. 15 temel bileşen, sıfır bağımlılık, file:// uyumlu.</p>
+                </c-timeline-item>
+            </c-timeline>
+
+            <h2>Sadece Başlık (Tarihsiz)</h2>
+            <p><code>date</code> attribute'u opsiyoneldir.</p>
+
+            <c-timeline>
+                <c-timeline-item title="Repo'yu Klonla">
+                    <p>Projeyi yerel ortamına indirin.</p>
+                </c-timeline-item>
+                <c-timeline-item title="index.html'i Aç">
+                    <p>Doğrudan tarayıcıda açın — sunucu gerekmez.</p>
+                </c-timeline-item>
+                <c-timeline-item title="Bileşen Ekle">
+                    <p>İstediğiniz <code>&lt;c-*&gt;</code> elementlerini sayfanıza koyun.</p>
+                </c-timeline-item>
+            </c-timeline>
+
+            <h2>Kod</h2>
+            <c-code-block lang="markup">&lt;c-timeline&gt;
+    &lt;c-timeline-item date="2025-06" title="v1.1.0 — Yeni Bileşenler"&gt;
+        &lt;p&gt;11 yeni bileşen eklendi.&lt;/p&gt;
+    &lt;/c-timeline-item&gt;
+    &lt;c-timeline-item date="2025-01" title="v1.0.0 — İlk Sürüm"&gt;
+        &lt;p&gt;İlk kararlı sürüm yayınlandı.&lt;/p&gt;
+    &lt;/c-timeline-item&gt;
+&lt;/c-timeline&gt;</c-code-block>
+
+            <h2>Attribute'lar</h2>
+            <table>
+                <thead><tr><th>Element</th><th>Attribute</th><th>Açıklama</th></tr></thead>
+                <tbody>
+                    <tr><td><code>c-timeline-item</code></td><td><code>date</code></td><td>Tarih/dönem etiketi (opsiyonel)</td></tr>
+                    <tr><td><code>c-timeline-item</code></td><td><code>title</code></td><td>Başlık metni (opsiyonel)</td></tr>
+                    <tr><td><code>c-timeline-item</code></td><td>innerHTML</td><td>Gövde içeriği — herhangi bir HTML</td></tr>
+                </tbody>
+            </table>
+
+            <c-pagination-nav prev-href="method-signature.html" prev-label="Method Signature" next-href="tooltip.html" next-label="Tooltip"></c-pagination-nav>
+        </div>
+    </main>
+
+    <script src="../assets/vendor/js/prism.min.js"></script>
+    <script src="../assets/js/project.js"></script>
+    <script src="../components/c-theme-toggle/c-theme-toggle.js"></script>
+    <script src="../components/c-navbar/c-navbar.js"></script>
+    <script src="../components/c-sidebar/c-sidebar.js"></script>
+    <script src="../components/c-breadcrumb/c-breadcrumb.js"></script>
+    <script src="../components/c-code-block/c-code-block.js"></script>
+    <script src="../components/c-timeline/c-timeline.js"></script>
+    <script src="../components/c-pagination-nav/c-pagination-nav.js"></script>
+</body>
+
+</html>

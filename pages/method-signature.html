@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Method Signature — Component Galerisi</title>
+
+    <link rel="stylesheet" href="../assets/vendor/css/prism-vscode_dark.min.css">
+    <link rel="stylesheet" href="../assets/css/tokens.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+
+    <link rel="stylesheet" href="../components/c-theme-toggle/c-theme-toggle.css">
+    <link rel="stylesheet" href="../components/c-navbar/c-navbar.css">
+    <link rel="stylesheet" href="../components/c-sidebar/c-sidebar.css">
+    <link rel="stylesheet" href="../components/c-breadcrumb/c-breadcrumb.css">
+    <link rel="stylesheet" href="../components/c-code-block/c-code-block.css">
+    <link rel="stylesheet" href="../components/c-method-signature/c-method-signature.css">
+    <link rel="stylesheet" href="../components/c-pagination-nav/c-pagination-nav.css">
+</head>
+
+<body>
+
+    <c-navbar brand="Component Galerisi" home="../index.html"></c-navbar>
+    <c-sidebar active="method-signature" base="./"></c-sidebar>
+
+    <main class="page">
+        <div class="page-inner">
+            <c-breadcrumb items="Component Galerisi|../index.html>Method Signature"></c-breadcrumb>
+
+            <h1>Method Signature</h1>
+            <p>
+                TypeScript stili fonksiyon/metod imzası gösterimi.
+                Fonksiyon adı, parametre adları/tipleri ve dönüş tipi renklendirilir.
+                API referans sayfalarında <code>&lt;c-api-endpoint&gt;</code> ile iyi bir ikili oluşturur.
+            </p>
+
+            <h2>Structured Mod</h2>
+            <p>
+                <code>name</code> ve <code>returns</code> attribute'ları ile <code>&lt;c-param&gt;</code>
+                elementleri kullanılır. <code>optional</code> attribute'u olan parametrelerin adına
+                otomatik <code>?</code> eklenir.
+            </p>
+
+            <c-method-signature name="getUserById" returns="Promise&lt;User&gt;">
+                <c-param name="id" type="string"></c-param>
+                <c-param name="options" type="RequestOptions" optional></c-param>
+            </c-method-signature>
+
+            <c-method-signature name="createElement" returns="HTMLElement">
+                <c-param name="tag" type="string"></c-param>
+                <c-param name="props" type="Record&lt;string, unknown&gt;" optional></c-param>
+                <c-param name="children" type="Node[]" optional></c-param>
+            </c-method-signature>
+
+            <h2>Düz Metin Modu</h2>
+            <p>
+                <code>name</code> attribute'u verilmezse içerik olduğu gibi mono fontla render edilir.
+                Mevcut imza stringlerini hızlıca göstermek için kullanışlıdır.
+            </p>
+
+            <c-method-signature>render(template: string, data?: object): string</c-method-signature>
+
+            <c-method-signature>dispose(): void</c-method-signature>
+
+            <h2>Kod</h2>
+            <c-code-block lang="markup">&lt;!-- Structured mod --&gt;
+&lt;c-method-signature name="getUserById" returns="Promise&lt;User&gt;"&gt;
+    &lt;c-param name="id" type="string"&gt;&lt;/c-param&gt;
+    &lt;c-param name="options" type="RequestOptions" optional&gt;&lt;/c-param&gt;
+&lt;/c-method-signature&gt;
+
+&lt;!-- Düz metin modu --&gt;
+&lt;c-method-signature&gt;render(template: string): string&lt;/c-method-signature&gt;</c-code-block>
+
+            <h2>Attribute'lar</h2>
+            <table>
+                <thead><tr><th>Attribute/Element</th><th>Açıklama</th></tr></thead>
+                <tbody>
+                    <tr><td><code>name</code></td><td>Fonksiyon adı (structured mod için gerekli)</td></tr>
+                    <tr><td><code>returns</code></td><td>Dönüş tipi (opsiyonel)</td></tr>
+                    <tr><td><code>c-param[name]</code></td><td>Parametre adı</td></tr>
+                    <tr><td><code>c-param[type]</code></td><td>Parametre tipi</td></tr>
+                    <tr><td><code>c-param[optional]</code></td><td>Opsiyonel parametre — ada <code>?</code> ekler</td></tr>
+                </tbody>
+            </table>
+
+            <c-pagination-nav prev-href="table.html" prev-label="Table" next-href="timeline.html" next-label="Timeline"></c-pagination-nav>
+        </div>
+    </main>
+
+    <script src="../assets/vendor/js/prism.min.js"></script>
+    <script src="../assets/js/project.js"></script>
+    <script src="../components/c-theme-toggle/c-theme-toggle.js"></script>
+    <script src="../components/c-navbar/c-navbar.js"></script>
+    <script src="../components/c-sidebar/c-sidebar.js"></script>
+    <script src="../components/c-breadcrumb/c-breadcrumb.js"></script>
+    <script src="../components/c-code-block/c-code-block.js"></script>
+    <script src="../components/c-method-signature/c-method-signature.js"></script>
+    <script src="../components/c-pagination-nav/c-pagination-nav.js"></script>
+</body>
+
+</html>

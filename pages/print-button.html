@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Print Button — Component Galerisi</title>
+
+    <link rel="stylesheet" href="../assets/vendor/css/prism-vscode_dark.min.css">
+    <link rel="stylesheet" href="../assets/css/tokens.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+
+    <link rel="stylesheet" href="../components/c-theme-toggle/c-theme-toggle.css">
+    <link rel="stylesheet" href="../components/c-navbar/c-navbar.css">
+    <link rel="stylesheet" href="../components/c-sidebar/c-sidebar.css">
+    <link rel="stylesheet" href="../components/c-breadcrumb/c-breadcrumb.css">
+    <link rel="stylesheet" href="../components/c-code-block/c-code-block.css">
+    <link rel="stylesheet" href="../components/c-callout/c-callout.css">
+    <link rel="stylesheet" href="../components/c-print-button/c-print-button.css">
+    <link rel="stylesheet" href="../components/c-pagination-nav/c-pagination-nav.css">
+</head>
+
+<body>
+
+    <c-navbar brand="Component Galerisi" home="../index.html"></c-navbar>
+    <c-sidebar active="print-button" base="./"></c-sidebar>
+
+    <main class="page">
+        <div class="page-inner">
+            <c-breadcrumb items="Component Galerisi|../index.html>Print Button"></c-breadcrumb>
+
+            <h1>Print Button</h1>
+            <p>
+                Sayfayı temiz print stilleriyle yazdıran buton.
+                Tıklandığında <code>window.print()</code> çağrılır;
+                tarayıcının yazdırma diyaloğu açılır.
+                Print modunda navbar, sidebar ve yardımcı elementler gizlenir,
+                içerik tam genişliğe çıkar.
+            </p>
+
+            <h2>Demo</h2>
+            <p>Aşağıdaki butona tıklayın — tarayıcı yazdırma diyaloğunu açar:</p>
+
+            <c-print-button></c-print-button>
+
+            <h2>Özel Etiket</h2>
+            <c-print-button label="PDF Olarak Kaydet"></c-print-button>
+
+            <h2>Print Stilleri</h2>
+            <p>
+                <code>c-print-button</code> bağlandığında sayfaya otomatik olarak bir
+                <code>&lt;style id="c-print-styles"&gt;</code> eklenir. Bu blok yalnızca
+                baskıda (<code>@media print</code>) etkindir; sayfanın görünümünü etkilemez.
+            </p>
+
+            <c-callout variant="info" title="Ne Gizlenir?">
+                <code>c-navbar</code>, <code>c-sidebar</code>, <code>c-pagination-nav</code>,
+                <code>c-feedback</code>, <code>c-print-button</code>, <code>c-search-box</code>
+                baskıda otomatik gizlenir. İçerik tam genişliğe çıkar ve
+                linkler yanına parantez içinde href değerini yazar.
+            </c-callout>
+
+            <h2>Kod</h2>
+            <c-code-block lang="markup">&lt;!-- Varsayılan --&gt;
+&lt;c-print-button&gt;&lt;/c-print-button&gt;
+
+&lt;!-- Özel etiket --&gt;
+&lt;c-print-button label="PDF Olarak Kaydet"&gt;&lt;/c-print-button&gt;</c-code-block>
+
+            <h2>Attribute'lar</h2>
+            <table>
+                <thead><tr><th>Attribute</th><th>Açıklama</th><th>Varsayılan</th></tr></thead>
+                <tbody>
+                    <tr><td><code>label</code></td><td>Buton etiketi</td><td>"Sayfayı Yazdır"</td></tr>
+                </tbody>
+            </table>
+
+            <c-pagination-nav prev-href="copy-button.html" prev-label="Copy Button"></c-pagination-nav>
+        </div>
+    </main>
+
+    <script src="../assets/vendor/js/prism.min.js"></script>
+    <script src="../assets/js/project.js"></script>
+    <script src="../components/c-theme-toggle/c-theme-toggle.js"></script>
+    <script src="../components/c-navbar/c-navbar.js"></script>
+    <script src="../components/c-sidebar/c-sidebar.js"></script>
+    <script src="../components/c-breadcrumb/c-breadcrumb.js"></script>
+    <script src="../components/c-code-block/c-code-block.js"></script>
+    <script src="../components/c-callout/c-callout.js"></script>
+    <script src="../components/c-print-button/c-print-button.js"></script>
+    <script src="../components/c-pagination-nav/c-pagination-nav.js"></script>
+</body>
+
+</html>

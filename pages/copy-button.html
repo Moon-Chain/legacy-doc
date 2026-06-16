@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copy Button — Component Galerisi</title>
+
+    <link rel="stylesheet" href="../assets/vendor/css/prism-vscode_dark.min.css">
+    <link rel="stylesheet" href="../assets/css/tokens.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+
+    <link rel="stylesheet" href="../components/c-theme-toggle/c-theme-toggle.css">
+    <link rel="stylesheet" href="../components/c-navbar/c-navbar.css">
+    <link rel="stylesheet" href="../components/c-sidebar/c-sidebar.css">
+    <link rel="stylesheet" href="../components/c-breadcrumb/c-breadcrumb.css">
+    <link rel="stylesheet" href="../components/c-code-block/c-code-block.css">
+    <link rel="stylesheet" href="../components/c-copy-button/c-copy-button.css">
+    <link rel="stylesheet" href="../components/c-pagination-nav/c-pagination-nav.css">
+</head>
+
+<body>
+
+    <c-navbar brand="Component Galerisi" home="../index.html"></c-navbar>
+    <c-sidebar active="copy-button" base="./"></c-sidebar>
+
+    <main class="page">
+        <div class="page-inner">
+            <c-breadcrumb items="Component Galerisi|../index.html>Copy Button"></c-breadcrumb>
+
+            <h1>Copy Button</h1>
+            <p>
+                Bağımsız kopyala butonu. <code>&lt;c-code-block&gt;</code> içindeki kopyala butonunun
+                standalone versiyonu. Herhangi bir metin veya element içeriğini panoya kopyalar.
+            </p>
+
+            <h2>Doğrudan Metin</h2>
+            <p>
+                <code>text</code> attribute'u ile kopyalanacak metin doğrudan verilir.
+                Butonun sağındaki örnekte tıklayın:
+            </p>
+
+            <div style="display:flex; align-items:center; gap:1rem; padding:1rem; background:var(--c-bg-subtle); border:1px solid var(--c-border); border-radius:var(--c-radius);">
+                <code id="install-cmd">npm install legacy-doc</code>
+                <c-copy-button text="npm install legacy-doc"></c-copy-button>
+            </div>
+
+            <h2>Element Hedefleme</h2>
+            <p>
+                <code>target</code> attribute'una CSS seçici verin; o elementin
+                <code>textContent</code>'i kopyalanır.
+            </p>
+
+            <div style="display:flex; align-items:center; gap:1rem; padding:1rem; background:var(--c-bg-subtle); border:1px solid var(--c-border); border-radius:var(--c-radius);">
+                <pre style="margin:0;flex:1;"><code id="snippet-target">const greet = name => `Merhaba, ${name}!`;</code></pre>
+                <c-copy-button target="#snippet-target" label="Kodu Kopyala"></c-copy-button>
+            </div>
+
+            <h2>Özel Etiket</h2>
+            <p><code>label</code> attribute'u ile buton metnini değiştirebilirsiniz:</p>
+
+            <div style="display:flex; gap:1rem; flex-wrap:wrap; padding:0.5rem 0;">
+                <c-copy-button text="git clone https://github.com/Moon-Chain/legacy-doc" label="URL'yi Kopyala"></c-copy-button>
+                <c-copy-button text="legacy-doc@1.0.0" label="Sürümü Kopyala"></c-copy-button>
+            </div>
+
+            <h2>Kod</h2>
+            <c-code-block lang="markup">&lt;!-- Doğrudan metin --&gt;
+&lt;c-copy-button text="npm install legacy-doc"&gt;&lt;/c-copy-button&gt;
+
+&lt;!-- Element hedefleme --&gt;
+&lt;code id="my-snippet"&gt;const x = 42;&lt;/code&gt;
+&lt;c-copy-button target="#my-snippet" label="Kodu Kopyala"&gt;&lt;/c-copy-button&gt;</c-code-block>
+
+            <h2>Attribute'lar</h2>
+            <table>
+                <thead><tr><th>Attribute</th><th>Açıklama</th><th>Varsayılan</th></tr></thead>
+                <tbody>
+                    <tr><td><code>text</code></td><td>Kopyalanacak metin (target yoksa kullanılır)</td><td>—</td></tr>
+                    <tr><td><code>target</code></td><td>CSS seçici; o elementin textContent kopyalanır</td><td>—</td></tr>
+                    <tr><td><code>label</code></td><td>Buton etiketi</td><td>"Kopyala"</td></tr>
+                </tbody>
+            </table>
+
+            <c-pagination-nav prev-href="feedback.html" prev-label="Feedback" next-href="print-button.html" next-label="Print Button"></c-pagination-nav>
+        </div>
+    </main>
+
+    <script src="../assets/vendor/js/prism.min.js"></script>
+    <script src="../assets/js/project.js"></script>
+    <script src="../components/c-theme-toggle/c-theme-toggle.js"></script>
+    <script src="../components/c-navbar/c-navbar.js"></script>
+    <script src="../components/c-sidebar/c-sidebar.js"></script>
+    <script src="../components/c-breadcrumb/c-breadcrumb.js"></script>
+    <script src="../components/c-code-block/c-code-block.js"></script>
+    <script src="../components/c-copy-button/c-copy-button.js"></script>
+    <script src="../components/c-pagination-nav/c-pagination-nav.js"></script>
+</body>
+
+</html>

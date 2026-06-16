@@ -1,0 +1,66 @@
+/* c-tooltip: hover açıklama balonu */
+
+.c-tooltip {
+    display: inline-block;
+    position: relative;
+}
+
+.c-tooltip__trigger {
+    cursor: help;
+    border-bottom: 1px dashed var(--c-text-muted);
+}
+
+.c-tooltip__tip {
+    position: absolute;
+    z-index: 200;
+    background-color: var(--c-dark);
+    color: #fff;
+    font-size: 0.8rem;
+    line-height: 1.4;
+    padding: 0.3rem 0.6rem;
+    border-radius: var(--c-radius-sm);
+    max-width: 220px;
+    white-space: normal;
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+}
+
+[data-theme="dark"] .c-tooltip__tip {
+    background-color: var(--c-bg-elevated);
+    border: 1px solid var(--c-border);
+    color: var(--c-text);
+}
+
+.c-tooltip:hover .c-tooltip__tip {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* top (varsayılan) */
+.c-tooltip--top .c-tooltip__tip {
+    bottom: calc(100% + 6px);
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* bottom */
+.c-tooltip--bottom .c-tooltip__tip {
+    top: calc(100% + 6px);
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* left */
+.c-tooltip--left .c-tooltip__tip {
+    right: calc(100% + 6px);
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* right */
+.c-tooltip--right .c-tooltip__tip {
+    left: calc(100% + 6px);
+    top: 50%;
+    transform: translateY(-50%);
+}

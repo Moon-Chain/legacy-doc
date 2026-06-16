@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heading Anchor — Component Galerisi</title>
+
+    <link rel="stylesheet" href="../assets/vendor/css/prism-vscode_dark.min.css">
+    <link rel="stylesheet" href="../assets/css/tokens.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+
+    <link rel="stylesheet" href="../components/c-theme-toggle/c-theme-toggle.css">
+    <link rel="stylesheet" href="../components/c-navbar/c-navbar.css">
+    <link rel="stylesheet" href="../components/c-sidebar/c-sidebar.css">
+    <link rel="stylesheet" href="../components/c-breadcrumb/c-breadcrumb.css">
+    <link rel="stylesheet" href="../components/c-code-block/c-code-block.css">
+    <link rel="stylesheet" href="../components/c-callout/c-callout.css">
+    <link rel="stylesheet" href="../components/c-heading-anchor/c-heading-anchor.css">
+    <link rel="stylesheet" href="../components/c-pagination-nav/c-pagination-nav.css">
+</head>
+
+<body>
+
+    <c-navbar brand="Component Galerisi" home="../index.html"></c-navbar>
+    <c-sidebar active="heading-anchor" base="./"></c-sidebar>
+
+    <main class="page">
+        <div class="page-inner">
+
+            <!-- c-heading-anchor bu sayfadaki tüm h2/h3/h4'e # linki ekler -->
+            <c-heading-anchor></c-heading-anchor>
+
+            <c-breadcrumb items="Component Galerisi|../index.html>Heading Anchor"></c-breadcrumb>
+
+            <h1>Heading Anchor</h1>
+            <p>
+                Sayfadaki tüm <code>h2</code>, <code>h3</code> ve <code>h4</code> başlıklarına
+                otomatik tıklanabilir # linki ekler. Fare üzerine gelince görünür hale gelir,
+                tıklandığında hash URL'yi panoya kopyalar ve tarayıcının URL çubuğunu günceller.
+            </p>
+
+            <c-callout variant="info">
+                Bu sayfadaki başlıkların üzerine gelin — sağlarında küçük bir # ikonu belirdi mi?
+                O ikona tıklarsanız URL panoya kopyalanır.
+            </c-callout>
+
+            <h2>Kullanım</h2>
+            <p>
+                Sayfanın herhangi bir yerine tek bir <code>&lt;c-heading-anchor&gt;&lt;/c-heading-anchor&gt;</code>
+                elementi ekleyin. Genellikle <code>.page-inner</code> içinde, içeriğin başında yer alır.
+            </p>
+            <p>Element kendisi görünmez; yalnızca başlıkları düzenler.</p>
+
+            <c-code-block lang="markup">&lt;!-- page-inner içine bir kez ekle --&gt;
+&lt;c-heading-anchor&gt;&lt;/c-heading-anchor&gt;
+
+&lt;h2&gt;Bu başlığa # linki otomatik eklenir&lt;/h2&gt;
+&lt;h3&gt;Bu başlığa da&lt;/h3&gt;</c-code-block>
+
+            <h2>ID Ataması</h2>
+            <p>
+                Başlığın zaten bir <code>id</code>'si varsa dokunulmaz.
+                Yoksa başlık metni Türkçe karakter normalizasyonu uygulanarak otomatik slug'a çevrilir.
+            </p>
+
+            <h3>Örnek Başlık Üçüncü Seviye</h3>
+            <p>Bu başlık da # linkine sahip — üzerine gelin.</p>
+
+            <h2>Tıklama Davranışı</h2>
+            <p>
+                # linkine tıklandığında üç şey olur:
+            </p>
+            <ul>
+                <li>URL, <code>#baslik-slug</code> parçasıyla güncellenir (sayfa yenilemeden)</li>
+                <li>Hash URL panoya kopyalanır</li>
+                <li># ikonu kısa süre yeşile döner — kopyalandığını gösterir</li>
+            </ul>
+
+            <h2>Kapsam</h2>
+            <p>
+                Yalnızca <code>.page-inner</code> içindeki başlıkları etkiler.
+                Navbar veya sidebar içindeki başlıklar etkilenmez.
+            </p>
+
+            <c-pagination-nav prev-href="image-zoom.html" prev-label="Image Zoom" next-href="feedback.html" next-label="Feedback"></c-pagination-nav>
+        </div>
+    </main>
+
+    <script src="../assets/vendor/js/prism.min.js"></script>
+    <script src="../assets/js/project.js"></script>
+    <script src="../components/c-theme-toggle/c-theme-toggle.js"></script>
+    <script src="../components/c-navbar/c-navbar.js"></script>
+    <script src="../components/c-sidebar/c-sidebar.js"></script>
+    <script src="../components/c-breadcrumb/c-breadcrumb.js"></script>
+    <script src="../components/c-code-block/c-code-block.js"></script>
+    <script src="../components/c-callout/c-callout.js"></script>
+    <script src="../components/c-heading-anchor/c-heading-anchor.js"></script>
+    <script src="../components/c-pagination-nav/c-pagination-nav.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tooltip — Component Galerisi</title>
+
+    <link rel="stylesheet" href="../assets/vendor/css/prism-vscode_dark.min.css">
+    <link rel="stylesheet" href="../assets/css/tokens.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+
+    <link rel="stylesheet" href="../components/c-theme-toggle/c-theme-toggle.css">
+    <link rel="stylesheet" href="../components/c-navbar/c-navbar.css">
+    <link rel="stylesheet" href="../components/c-sidebar/c-sidebar.css">
+    <link rel="stylesheet" href="../components/c-breadcrumb/c-breadcrumb.css">
+    <link rel="stylesheet" href="../components/c-code-block/c-code-block.css">
+    <link rel="stylesheet" href="../components/c-tooltip/c-tooltip.css">
+    <link rel="stylesheet" href="../components/c-pagination-nav/c-pagination-nav.css">
+</head>
+
+<body>
+
+    <c-navbar brand="Component Galerisi" home="../index.html"></c-navbar>
+    <c-sidebar active="tooltip" base="./"></c-sidebar>
+
+    <main class="page">
+        <div class="page-inner">
+            <c-breadcrumb items="Component Galerisi|../index.html>Tooltip"></c-breadcrumb>
+
+            <h1>Tooltip</h1>
+            <p>
+                Üzerine gelindiğinde kısa açıklama gösteren hover balonu.
+                Sayfayı kirletmeden inline notlar eklemek için idealdir.
+                Saf CSS ile çalışır — JS sadece yapıyı kurar.
+            </p>
+
+            <h2>Konumlar</h2>
+            <p>
+                Aşağıdaki örneklerin üzerine gelin.
+                <code>position</code> attribute'u ile balonun açılma yönü belirlenir.
+            </p>
+
+            <div style="display:flex; gap:2rem; flex-wrap:wrap; align-items:center; padding:2rem 0;">
+                <c-tooltip text="Varsayılan konum — yukarı açılır" position="top">Üst (varsayılan)</c-tooltip>
+                <c-tooltip text="Aşağıya doğru açılır" position="bottom">Alt</c-tooltip>
+                <c-tooltip text="Sola doğru açılır" position="left">Sol</c-tooltip>
+                <c-tooltip text="Sağa doğru açılır" position="right">Sağ</c-tooltip>
+            </div>
+
+            <h2>Paragraf İçinde Kullanım</h2>
+            <p>
+                Bu metin içinde
+                <c-tooltip text="Cascading Style Sheets — HTML elementlerini stillemek için kullanılan dil">CSS</c-tooltip>
+                ve
+                <c-tooltip text="Document Object Model — HTML belgesinin programatik arayüzü">DOM</c-tooltip>
+                gibi teknik terimler üzerine gelindiğinde açıklama görünür.
+            </p>
+
+            <h2>Kod</h2>
+            <c-code-block lang="markup">&lt;c-tooltip text="Açıklama metni" position="top"&gt;
+    Üzerine gelin
+&lt;/c-tooltip&gt;</c-code-block>
+
+            <h2>Attribute'lar</h2>
+            <table>
+                <thead><tr><th>Attribute</th><th>Açıklama</th><th>Değerler</th></tr></thead>
+                <tbody>
+                    <tr>
+                        <td><code>text</code></td>
+                        <td>Tooltip içeriği</td>
+                        <td>Herhangi bir metin</td>
+                    </tr>
+                    <tr>
+                        <td><code>position</code></td>
+                        <td>Balonun açılma yönü</td>
+                        <td><code>top</code> (varsayılan) | <code>bottom</code> | <code>left</code> | <code>right</code></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <c-pagination-nav prev-href="timeline.html" prev-label="Timeline" next-href="image-zoom.html" next-label="Image Zoom"></c-pagination-nav>
+        </div>
+    </main>
+
+    <script src="../assets/vendor/js/prism.min.js"></script>
+    <script src="../assets/js/project.js"></script>
+    <script src="../components/c-theme-toggle/c-theme-toggle.js"></script>
+    <script src="../components/c-navbar/c-navbar.js"></script>
+    <script src="../components/c-sidebar/c-sidebar.js"></script>
+    <script src="../components/c-breadcrumb/c-breadcrumb.js"></script>
+    <script src="../components/c-code-block/c-code-block.js"></script>
+    <script src="../components/c-tooltip/c-tooltip.js"></script>
+    <script src="../components/c-pagination-nav/c-pagination-nav.js"></script>
+</body>
+
+</html>

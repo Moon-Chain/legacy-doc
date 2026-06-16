@@ -34,6 +34,13 @@ const NAV_GROUPS = [
             { id: 'card', label: 'Card', file: 'card.html' },
             { id: 'badge', label: 'Badge', file: 'badge.html' },
             { id: 'alert', label: 'Alert', file: 'alert.html' },
+            { id: 'prop-table', label: 'Prop Table', file: 'prop-table.html' },
+            { id: 'comparison', label: 'Comparison', file: 'comparison.html' },
+            { id: 'table', label: 'Table', file: 'table.html' },
+            { id: 'method-signature', label: 'Method Signature', file: 'method-signature.html' },
+            { id: 'timeline', label: 'Timeline', file: 'timeline.html' },
+            { id: 'tooltip', label: 'Tooltip', file: 'tooltip.html' },
+            { id: 'image-zoom', label: 'Image Zoom', file: 'image-zoom.html' },
         ],
     },
     {
@@ -45,6 +52,15 @@ const NAV_GROUPS = [
             { id: 'pagination-nav', label: 'Pagination Nav', file: 'pagination-nav.html' },
             { id: 'search-box', label: 'Search Box', file: 'search-box.html' },
             { id: 'blueprint', label: 'Blueprint', file: 'blueprint.html' },
+            { id: 'heading-anchor', label: 'Heading Anchor', file: 'heading-anchor.html' },
+        ],
+    },
+    {
+        label: 'Yardımcı',
+        items: [
+            { id: 'feedback', label: 'Feedback', file: 'feedback.html' },
+            { id: 'copy-button', label: 'Copy Button', file: 'copy-button.html' },
+            { id: 'print-button', label: 'Print Button', file: 'print-button.html' },
         ],
     },
 ];
