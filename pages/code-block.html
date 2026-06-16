@@ -44,9 +44,7 @@ console.log(topla(2, 3));</c-code-block>
 
             <h2>Kullanım</h2>
             <c-code-block lang="markup">&lt;c-code-block lang="javascript"&gt;
-function topla(a, b) {
-    return a + b;
-}
+    // kod buraya
 &lt;/c-code-block&gt;</c-code-block>
 
             <c-callout variant="warning" title="İçerik = textContent">
@@ -59,8 +57,21 @@ function topla(a, b) {
             <h2>Diğer diller</h2>
 
             <c-code-block lang="css">.c-card {
+    display: flex;
+    gap: var(--c-space-3);
     border: 1px solid var(--c-border);
-    border-radius: var(--c-radius-md);
+    border-radius: var(--c-radius);
+    background: var(--c-bg-elevated);
+}</c-code-block>
+
+            <c-code-block lang="json">{
+    "id": 42,
+    "name": "Ada Lovelace",
+    "role": "admin",
+    "active": true,
+    "score": 98.6,
+    "tags": ["math", "computing"],
+    "meta": null
 }</c-code-block>
 
             <c-code-block lang="markup">&lt;div class="c-card"&gt;

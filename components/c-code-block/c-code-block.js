@@ -64,3 +64,38 @@ class CCodeBlock extends HTMLElement {
 }
 
 customElements.define('c-code-block', CCodeBlock);
+
+/* ── Prism dil ekleri — script yüklendiğinde bir kez çalışır ── */
+if (window.Prism) {
+    if (!Prism.languages.json) {
+        Prism.languages.json = {
+            property:    { pattern: /(^|[^\\])"(?:\\.|[^\\"\r\n])*"(?=\s*:)/, lookbehind: true, greedy: true },
+            string:      { pattern: /(^|[^\\])"(?:\\.|[^\\"\r\n])*"(?!\s*:)/, lookbehind: true, greedy: true },
+            number:      /-?\b\d+(?:\.\d+)?(?:e[+-]?\d+)?\b/i,
+            boolean:     /\b(?:true|false)\b/,
+            null:        { pattern: /\bnull\b/, alias: 'keyword' },
+            punctuation: /[{}[\],]/,
+            operator:    /:/,
+        };
+    }
+
+    if (!Prism.languages.css) {
+        Prism.languages.css = {
+            comment:     /\/\*[\s\S]*?\*\//,
+            atrule:      /@[\w-]+[^;{]*/,
+            selector:    { pattern: /[^{}\s][^{}]*(?=\s*\{)/, greedy: true },
+            string:      { pattern: /("|')(?:\\[\s\S]|(?!\1)[^\\\r\n])*\1/, greedy: true },
+            property:    /[-a-z][-a-z0-9]*(?=\s*:)/i,
+            important:   /!important\b/i,
+            function:    /[-a-z0-9]+(?=\()/i,
+            punctuation: /[(){};:,]/,
+        };
+    }
+
+    const tag = Prism.languages.markup?.tag;
+    if (tag?.addInlined) {
+        tag.addInlined('script',      'javascript');
+        tag.addInlined('style',       'css');
+        tag.addInlined('c-code-block','javascript');
+    }
+}
