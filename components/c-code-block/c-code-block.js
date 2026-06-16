@@ -17,6 +17,9 @@
 
 class CCodeBlock extends HTMLElement {
     connectedCallback() {
+        if (this._rendered) return;
+        this._rendered = true;
+
         const lang = this.getAttribute('lang') || 'markup';
         const code = this.textContent.trim();
 

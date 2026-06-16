@@ -1,103 +1,126 @@
 # legacy-doc
 
-Vanilla JS + Web Components ile hazırlanmış, sıfır bağımlılıklı dokümantasyon şablonu.
+A zero-dependency documentation template built with vanilla JS and Web Components.
 
-Sunucu gerekmez. Build gerekmez. `index.html`'e çift tıkla, çalışır.
-
----
-
-## Mimari
-
-Her sayfa kendi kendine yeten bir HTML dosyasıdır. `fetch`, `include` ya da bundler yoktur; sadece ihtiyaç duyduğun `<link>` ve `<script>` etiketlerini sayfana eklersin, gerisini Web Components halleder.
-
-Bileşenler `class extends HTMLElement` ile tanımlanır, Shadow DOM kullanılmaz (light DOM). Tüm renkler `tokens.css` değişkenlerinden gelir; `data-theme="dark"` attribute'u değiştiğinde tema otomatik döner.
-
-Bileşenler arası iletişim `CustomEvent` ile `document` üzerinden yapılır.
+No server. No build step. Double-click `index.html` and it runs.
 
 ---
 
-## Yapı
+## Features
+
+- **Zero dependencies** — no npm, no bundler, no framework
+- **Web Components** — every UI piece is a `<c-*>` custom element
+- **Light / dark theme** — CSS variables via `tokens.css`, toggled with a single attribute
+- **Syntax highlighting** — Prism.js with JSON, CSS, and embedded JS/CSS support
+- **Blueprint canvas** — draggable node graph with port-to-port bezier connections, pan, zoom, and fullscreen
+- **Scroll-spy sidebar** — auto-detects `h2` headings and highlights the active section while scrolling
+- **Works from `file://`** — no dev server required
+
+---
+
+## Components
+
+| Component | Description |
+|---|---|
+| `<c-navbar>` | Top bar — logo, brand, theme toggle, GitHub link, mobile hamburger |
+| `<c-sidebar>` | Collapsible navigation sidebar with scroll-spy sub-sections |
+| `<c-breadcrumb>` | Hierarchical path breadcrumb |
+| `<c-theme-toggle>` | Light / dark theme switch with `localStorage` persistence |
+| `<c-callout>` | Highlighted callout box — 7 color variants |
+| `<c-code-block>` | Syntax-highlighted code block with one-click copy |
+| `<c-card>` | Slotted card with header / body / footer regions |
+| `<c-badge>` | Compact HTTP method and status label badges |
+| `<c-alert>` | Dismissible notification box |
+| `<c-tabs>` / `<c-tab>` | Tabbed content panel |
+| `<c-accordion>` / `<c-accordion-item>` | Collapsible accordion |
+| `<c-toc>` | Auto-generated table of contents with scroll-spy |
+| `<c-pagination-nav>` | Previous / next page navigation links |
+| `<c-search-box>` | Client-side live-filter search box |
+| `<c-blueprint>` | Draggable node diagram with port-to-port bezier connections |
+
+---
+
+## Structure
 
 ```
 legacy-doc/
-├── index.html                   # Bileşen galerisi
-├── pages/                       # Her bileşen için demo sayfası
-├── components/                  # <c-*> bileşenleri (.js + .css)
+├── index.html                    # Component gallery
+├── pages/                        # One demo page per component
+├── components/                   # <c-*> Web Components (.js + .css pairs)
 └── assets/
     ├── css/
-    │   ├── tokens.css           # CSS değişkenleri (tema, renk, spacing)
-    │   └── base.css             # Reset, tipografi, layout
-    ├── js/app.js
+    │   ├── tokens.css            # CSS variables — color, spacing, radius, theme
+    │   └── base.css              # Reset, typography, page layout
+    ├── js/
+    │   └── project.js            # Project metadata (name, version, github URL)
     └── vendor/
-        └── js/prism.min.js      # Syntax highlight (c-code-block)
+        └── js/prism.min.js       # Bundled Prism for syntax highlighting
 ```
 
 ---
 
-## Bileşenler
+## Quick Start
 
-| Bileşen | Açıklama |
-|---|---|
-| `c-navbar` | Üst çubuk — logo, başlık, tema, GitHub linki, mobil menü |
-| `c-sidebar` | Sol gezinme menüsü |
-| `c-breadcrumb` | Konum kırıntısı |
-| `c-theme-toggle` | Açık / koyu tema anahtarı |
-| `c-callout` | 7 varyantlı vurgu kutusu |
-| `c-code-block` | Syntax highlight + kopyala |
-| `c-card` | Header / body / footer slotlu kart |
-| `c-badge` | HTTP metod ve durum rozetleri |
-| `c-alert` | Kapatılabilir bildirim kutusu |
-| `c-tabs` / `c-tab` | Sekmeli içerik |
-| `c-accordion` / `c-accordion-item` | Açılır/kapanır panel |
-| `c-toc` | Otomatik içindekiler + scroll-spy |
-| `c-pagination-nav` | Önceki / sonraki sayfa linkleri |
-| `c-search-box` | Client-side filtre arama kutusu |
-| `c-blueprint` | Sürüklenebilir düğüm diyagramı — port-to-port bezier bağlantılar |
-
----
-
-## Kullanım
-
-### Sayfaya bileşen eklemek
+Add a component to any page:
 
 ```html
 <!-- <head> -->
 <link rel="stylesheet" href="../components/c-alert/c-alert.css">
 
-<!-- <body> sonu -->
+<!-- before </body> -->
+<script src="../assets/js/project.js"></script>
 <script src="../components/c-alert/c-alert.js"></script>
 
-<!-- içerik -->
-<c-alert variant="success" dismissible>Kaydedildi.</c-alert>
+<!-- markup -->
+<c-alert variant="success" dismissible>Saved successfully.</c-alert>
 ```
 
-İhtiyaç duymadığın bileşenin `<link>` ve `<script>` satırlarını sil. Diğer bileşenler etkilenmez.
-
-### Yeni bileşen oluşturmak
-
-1. `components/c-yeni/` klasörü aç, `c-yeni.css` ve `c-yeni.js` ekle.
-2. `c-yeni.js`:
-   ```js
-   class CYeni extends HTMLElement {
-       connectedCallback() { /* ... */ }
-   }
-   customElements.define('c-yeni', CYeni);
-   ```
-3. Renk/boyut için `tokens.css` değişkenlerini kullan, hardcode değer yazma.
-4. Demo için `pages/yeni.html` oluştur (mevcut bir sayfayı şablon al).
-
-### Sidebar'a sayfa kayıt etmek
-
-`components/c-sidebar/c-sidebar.js` içindeki `NAV_GROUPS` sabitine satır ekle:
-
-```js
-{ id: 'yeni', label: 'Yeni Bileşen', file: 'yeni.html' }
-```
-
-Tüm sayfalardaki sidebar güncellenir; o sayfaya `<c-sidebar active="yeni" base="./">` yaz.
+Drop the `<link>` and `<script>` for any component you don't need — nothing else is affected.
 
 ---
 
-## Lisans
+## Adding a Component
 
-MIT
+1. Create `components/c-name/` with `c-name.css` and `c-name.js`.
+
+2. Define the element in `c-name.js`:
+
+   ```js
+   class CName extends HTMLElement {
+       connectedCallback() { /* render here */ }
+   }
+   customElements.define('c-name', CName);
+   ```
+
+3. Use variables from `tokens.css` for all colors and sizes — no hardcoded values.
+
+4. Create a demo page at `pages/name.html` (copy any existing page as a template).
+
+5. Register the page in `components/c-sidebar/c-sidebar.js` under `NAV_GROUPS`:
+
+   ```js
+   { id: 'name', label: 'Name', file: 'name.html' }
+   ```
+
+---
+
+## Project Config
+
+All project-level metadata lives in `assets/js/project.js`:
+
+```js
+window.PROJECT = {
+    name:    'legacy-doc',
+    version: '1.0.0',
+    brand:   'Component Galerisi',
+    github:  'https://github.com/Moon-Chain/legacy-doc',
+};
+```
+
+`<c-navbar>` and `<c-sidebar>` read from this object automatically — no attribute changes needed across pages when the version or URL changes.
+
+---
+
+## License
+
+MIT — © 2025 Moon-Chain

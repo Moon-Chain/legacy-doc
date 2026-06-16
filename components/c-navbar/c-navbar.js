@@ -16,9 +16,9 @@
 
 class CNavbar extends HTMLElement {
     connectedCallback() {
-        const brand = this.getAttribute('brand') || 'Component Galerisi';
-        const home = this.getAttribute('home') || '../index.html';
-        const githubUrl = this.getAttribute('github-url') || '#';
+        const brand     = this.getAttribute('brand')      || window.PROJECT?.brand  || 'Component Galerisi';
+        const home      = this.getAttribute('home')       || '../index.html';
+        const githubUrl = this.getAttribute('github-url') || window.PROJECT?.github || '#';
 
         this.innerHTML = `
             <header class="c-navbar">
