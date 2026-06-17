@@ -1,12 +1,8 @@
 <div align="center">
 
-# legacy-doc
+<img src="assets/img/github_banner.png" alt="legacy-doc banner" width="100%">
 
-**A zero-dependency documentation template built with vanilla JS and Web Components.**
-
-No server. No build step. Double-click `index.html` and it runs.
-
-<br>
+<br><br>
 
 ![Version](https://img.shields.io/badge/VERSION-1.5.0-2d333b?style=for-the-badge)
 ![Components](https://img.shields.io/badge/COMPONENTS-50-0d6efd?style=for-the-badge)
