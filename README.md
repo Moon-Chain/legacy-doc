@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/img/github_banner.png" alt="legacy-doc banner" width="100%">
+<img src="assets/img/github_banner.svg" alt="legacy-doc banner" width="100%">
 
 <br><br>
 

@@ -1,0 +1,300 @@
+<svg width="1200" height="300" viewBox="0 0 1200 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Background gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0d1117"/>
+      <stop offset="50%" stop-color="#0d1f2d"/>
+      <stop offset="100%" stop-color="#0d1117"/>
+    </linearGradient>
+
+    <!-- Logo glow -->
+    <radialGradient id="logoGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#1b4d6b" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#0d1117" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Center glow -->
+    <radialGradient id="centerGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#0e3a55" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#0d1117" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Card gradient -->
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#161b22"/>
+      <stop offset="100%" stop-color="#0d1117"/>
+    </linearGradient>
+
+    <!-- Blue accent gradient -->
+    <linearGradient id="blueAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#58a6ff"/>
+      <stop offset="100%" stop-color="#3d8bd4"/>
+    </linearGradient>
+
+    <!-- Drop shadow filter -->
+    <filter id="cardShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#58a6ff" flood-opacity="0.15"/>
+    </filter>
+
+    <!-- Glow filter for logo -->
+    <filter id="logoGlowFilter" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Clip for card text -->
+    <clipPath id="card1clip"><rect x="745" y="18" width="140" height="36" rx="6"/></clipPath>
+    <clipPath id="card2clip"><rect x="905" y="18" width="140" height="36" rx="6"/></clipPath>
+    <clipPath id="card3clip"><rect x="745" y="76" width="140" height="36" rx="6"/></clipPath>
+    <clipPath id="card4clip"><rect x="905" y="76" width="140" height="36" rx="6"/></clipPath>
+    <clipPath id="card5clip"><rect x="745" y="134" width="140" height="36" rx="6"/></clipPath>
+    <clipPath id="card6clip"><rect x="905" y="134" width="140" height="36" rx="6"/></clipPath>
+    <clipPath id="card7clip"><rect x="745" y="192" width="140" height="36" rx="6"/></clipPath>
+    <clipPath id="card8clip"><rect x="905" y="192" width="140" height="36" rx="6"/></clipPath>
+    <clipPath id="card9clip"><rect x="745" y="250" width="140" height="36" rx="6"/></clipPath>
+    <clipPath id="card10clip"><rect x="905" y="250" width="140" height="36" rx="6"/></clipPath>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="300" fill="url(#bgGrad)"/>
+
+  <!-- Grid lines -->
+  <g stroke="#21262d" stroke-width="1">
+    <line x1="0" y1="60" x2="1200" y2="60"/>
+    <line x1="0" y1="120" x2="1200" y2="120"/>
+    <line x1="0" y1="180" x2="1200" y2="180"/>
+    <line x1="0" y1="240" x2="1200" y2="240"/>
+    <line x1="150" y1="0" x2="150" y2="300"/>
+    <line x1="300" y1="0" x2="300" y2="300"/>
+    <line x1="450" y1="0" x2="450" y2="300"/>
+    <line x1="600" y1="0" x2="600" y2="300"/>
+    <line x1="730" y1="0" x2="730" y2="300"/>
+    <line x1="890" y1="0" x2="890" y2="300"/>
+    <line x1="1060" y1="0" x2="1060" y2="300"/>
+  </g>
+
+  <!-- Right panel backdrop glow -->
+  <rect x="730" y="0" width="470" height="300" fill="url(#centerGlow)" opacity="0.6"/>
+
+  <!-- Left glow behind logo -->
+  <circle cx="175" cy="150" r="140" fill="url(#logoGlow)"/>
+
+  <!-- Logo group — centered at x=175 y=150 -->
+  <g filter="url(#logoGlowFilter)" opacity="0.9">
+    <g transform="translate(115, 88) scale(7.5)">
+      <path d="M4.50005 1.34827L8.00005 3.34827L11.5 1.34827L15.4962 3.63177L14.5039 5.36826L11.5 3.65177L8.00005 5.65177L4.50005 3.65177L1.49618 5.36826L0.503906 3.63177L4.50005 1.34827Z" fill="#58a6ff"/>
+      <path d="M4.50005 10.3483L8.00005 12.3483L11.5 10.3483L15.4962 12.6318L14.5039 14.3683L11.5 12.6518L8.00005 14.6518L4.50005 12.6518L1.49618 14.3683L0.503906 12.6318L4.50005 10.3483Z" fill="#58a6ff"/>
+      <path d="M4.50005 5.84827L0.503906 8.13177L1.49618 9.86826L4.50005 8.15177L8.00005 10.1518L11.5 8.15177L14.5039 9.86826L15.4962 8.13177L11.5 5.84827L8.00005 7.84827L4.50005 5.84827Z" fill="#79c0ff"/>
+    </g>
+  </g>
+
+  <!-- Divider line left panel -->
+  <line x1="310" y1="20" x2="310" y2="280" stroke="#21262d" stroke-width="1"/>
+
+  <!-- ── TITLE AREA ── -->
+  <!-- "legacy-" in white, "doc" in blue -->
+  <text x="335" y="105" font-family="'Segoe UI', system-ui, sans-serif" font-size="46" font-weight="700" letter-spacing="-1">
+    <tspan fill="#e6edf3">legacy-</tspan><tspan fill="#58a6ff">doc</tspan>
+  </text>
+
+  <!-- Subtitle -->
+  <text x="335" y="138" fill="#8b949e" font-family="'Segoe UI', system-ui, sans-serif" font-size="16" font-weight="400">
+    Zero dependency documentation template
+  </text>
+  <text x="335" y="158" font-family="'Segoe UI', system-ui, sans-serif" font-size="16" font-weight="500">
+    <tspan fill="#8b949e">built with </tspan><tspan fill="#58a6ff">Web Components</tspan><tspan fill="#8b949e">.</tspan>
+  </text>
+
+  <!-- ── FEATURE PILLS ── -->
+  <!-- 50+ Components -->
+  <g transform="translate(335, 178)">
+    <rect width="130" height="32" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="12" y="21" fill="#8b949e" font-family="'Segoe UI', system-ui, sans-serif" font-size="13">
+      <tspan fill="#58a6ff" font-weight="600">50+</tspan><tspan fill="#8b949e"> Components</tspan>
+    </text>
+  </g>
+
+  <!-- Vanilla JS -->
+  <g transform="translate(475, 178)">
+    <rect width="98" height="32" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="12" y="21" fill="#8b949e" font-family="'Segoe UI', system-ui, sans-serif" font-size="13">
+      <tspan fill="#f7df1e" font-weight="600">JS</tspan><tspan fill="#8b949e"> ES6+</tspan>
+    </text>
+  </g>
+
+  <!-- Zero Deps -->
+  <g transform="translate(583, 178)">
+    <rect width="115" height="32" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="12" y="21" fill="#8b949e" font-family="'Segoe UI', system-ui, sans-serif" font-size="13">
+      <tspan fill="#22c55e" font-weight="600">Zero</tspan><tspan fill="#8b949e"> Deps</tspan>
+    </text>
+  </g>
+
+  <!-- Light/Dark -->
+  <g transform="translate(335, 220)">
+    <rect width="110" height="32" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="12" y="21" fill="#8b949e" font-family="'Segoe UI', system-ui, sans-serif" font-size="13">
+      <tspan fill="#e6edf3">☀️</tspan><tspan fill="#8b949e"> / </tspan><tspan fill="#8b949e">🌙 Theme</tspan>
+    </text>
+  </g>
+
+  <!-- file:// -->
+  <g transform="translate(455, 220)">
+    <rect width="142" height="32" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="12" y="21" font-family="'Segoe UI', system-ui, sans-serif" font-size="13">
+      <tspan fill="#58a6ff" font-weight="600">file://</tspan><tspan fill="#8b949e"> ready</tspan>
+    </text>
+  </g>
+
+  <!-- ── RIGHT PANEL — COMPONENT CARDS ── -->
+
+  <!-- Connection lines from center node (825, 150) -->
+  <g stroke="#58a6ff" stroke-width="1" opacity="0.35" stroke-dasharray="4 3">
+    <!-- top-left card -->
+    <line x1="825" y1="150" x2="818" y2="36"/>
+    <!-- top-right card -->
+    <line x1="825" y1="150" x2="978" y2="36"/>
+    <!-- mid-left -->
+    <line x1="825" y1="150" x2="818" y2="94"/>
+    <!-- mid-right -->
+    <line x1="825" y1="150" x2="978" y2="94"/>
+    <!-- center-left -->
+    <line x1="825" y1="150" x2="818" y2="152"/>
+    <!-- center-right -->
+    <line x1="825" y1="150" x2="978" y2="152"/>
+    <!-- lower-left -->
+    <line x1="825" y1="150" x2="818" y2="210"/>
+    <!-- lower-right -->
+    <line x1="825" y1="150" x2="978" y2="210"/>
+    <!-- bottom-left -->
+    <line x1="825" y1="150" x2="818" y2="268"/>
+    <!-- bottom-right -->
+    <line x1="825" y1="150" x2="978" y2="268"/>
+  </g>
+
+  <!-- Center node -->
+  <circle cx="825" cy="150" r="22" fill="#0d1f2d" stroke="#58a6ff" stroke-width="1.5" opacity="0.9"/>
+  <text x="825" y="145" fill="#58a6ff" font-family="monospace" font-size="11" text-anchor="middle">&lt;/&gt;</text>
+  <text x="825" y="159" fill="#58a6ff" font-family="monospace" font-size="9" text-anchor="middle">web</text>
+
+  <!-- ── COMPONENT CARDS — LEFT COLUMN ── -->
+
+  <!-- Card: c-navbar -->
+  <g filter="url(#cardShadow)">
+    <rect x="745" y="18" width="140" height="36" rx="6" fill="url(#cardGrad)" stroke="#30363d" stroke-width="1"/>
+    <rect x="745" y="18" width="3" height="36" rx="2" fill="#58a6ff"/>
+    <text x="758" y="32" font-family="monospace" font-size="11" fill="#8b949e">&lt;</text>
+    <text x="764" y="32" font-family="monospace" font-size="11" fill="#79c0ff">c-navbar</text>
+    <text x="764" y="32" font-family="monospace" font-size="11" fill="#8b949e" dx="52">&gt;</text>
+    <text x="758" y="46" font-family="'Segoe UI', sans-serif" font-size="10" fill="#484f58">Top navigation bar</text>
+  </g>
+
+  <!-- Card: c-sidebar -->
+  <g filter="url(#cardShadow)">
+    <rect x="745" y="76" width="140" height="36" rx="6" fill="url(#cardGrad)" stroke="#30363d" stroke-width="1"/>
+    <rect x="745" y="76" width="3" height="36" rx="2" fill="#d2a8ff"/>
+    <text x="758" y="90" font-family="monospace" font-size="11" fill="#8b949e">&lt;</text>
+    <text x="764" y="90" font-family="monospace" font-size="11" fill="#d2a8ff">c-sidebar</text>
+    <text x="764" y="90" font-family="monospace" font-size="11" fill="#8b949e" dx="54">&gt;</text>
+    <text x="758" y="104" font-family="'Segoe UI', sans-serif" font-size="10" fill="#484f58">Scroll-spy sidebar</text>
+  </g>
+
+  <!-- Card: c-code-block -->
+  <g filter="url(#cardShadow)">
+    <rect x="745" y="134" width="140" height="36" rx="6" fill="url(#cardGrad)" stroke="#30363d" stroke-width="1"/>
+    <rect x="745" y="134" width="3" height="36" rx="2" fill="#ffa657"/>
+    <text x="758" y="148" font-family="monospace" font-size="11" fill="#8b949e">&lt;</text>
+    <text x="764" y="148" font-family="monospace" font-size="11" fill="#ffa657">c-code-block</text>
+    <text x="764" y="148" font-family="monospace" font-size="11" fill="#8b949e" dx="73">&gt;</text>
+    <text x="758" y="162" font-family="'Segoe UI', sans-serif" font-size="10" fill="#484f58">Syntax highlight</text>
+  </g>
+
+  <!-- Card: c-blueprint -->
+  <g filter="url(#cardShadow)">
+    <rect x="745" y="192" width="140" height="36" rx="6" fill="url(#cardGrad)" stroke="#30363d" stroke-width="1"/>
+    <rect x="745" y="192" width="3" height="36" rx="2" fill="#3fb950"/>
+    <text x="758" y="206" font-family="monospace" font-size="11" fill="#8b949e">&lt;</text>
+    <text x="764" y="206" font-family="monospace" font-size="11" fill="#3fb950">c-blueprint</text>
+    <text x="764" y="206" font-family="monospace" font-size="11" fill="#8b949e" dx="64">&gt;</text>
+    <text x="758" y="220" font-family="'Segoe UI', sans-serif" font-size="10" fill="#484f58">Node graph canvas</text>
+  </g>
+
+  <!-- Card: c-command-palette -->
+  <g filter="url(#cardShadow)">
+    <rect x="745" y="250" width="140" height="36" rx="6" fill="url(#cardGrad)" stroke="#30363d" stroke-width="1"/>
+    <rect x="745" y="250" width="3" height="36" rx="2" fill="#58a6ff"/>
+    <text x="758" y="264" font-family="monospace" font-size="10" fill="#8b949e">&lt;</text>
+    <text x="764" y="264" font-family="monospace" font-size="10" fill="#79c0ff">c-command-palette</text>
+    <text x="758" y="278" font-family="'Segoe UI', sans-serif" font-size="10" fill="#484f58">Ctrl+K overlay</text>
+  </g>
+
+  <!-- ── COMPONENT CARDS — RIGHT COLUMN ── -->
+
+  <!-- Card: c-tabs -->
+  <g filter="url(#cardShadow)">
+    <rect x="905" y="18" width="140" height="36" rx="6" fill="url(#cardGrad)" stroke="#30363d" stroke-width="1"/>
+    <rect x="905" y="18" width="3" height="36" rx="2" fill="#79c0ff"/>
+    <text x="918" y="32" font-family="monospace" font-size="11" fill="#8b949e">&lt;</text>
+    <text x="924" y="32" font-family="monospace" font-size="11" fill="#79c0ff">c-tabs</text>
+    <text x="924" y="32" font-family="monospace" font-size="11" fill="#8b949e" dx="36">&gt;</text>
+    <text x="918" y="46" font-family="'Segoe UI', sans-serif" font-size="10" fill="#484f58">Tabbed panels</text>
+  </g>
+
+  <!-- Card: c-modal -->
+  <g filter="url(#cardShadow)">
+    <rect x="905" y="76" width="140" height="36" rx="6" fill="url(#cardGrad)" stroke="#30363d" stroke-width="1"/>
+    <rect x="905" y="76" width="3" height="36" rx="2" fill="#f78166"/>
+    <text x="918" y="90" font-family="monospace" font-size="11" fill="#8b949e">&lt;</text>
+    <text x="924" y="90" font-family="monospace" font-size="11" fill="#f78166">c-modal</text>
+    <text x="924" y="90" font-family="monospace" font-size="11" fill="#8b949e" dx="43">&gt;</text>
+    <text x="918" y="104" font-family="'Segoe UI', sans-serif" font-size="10" fill="#484f58">Overlay dialog</text>
+  </g>
+
+  <!-- Card: c-table -->
+  <g filter="url(#cardShadow)">
+    <rect x="905" y="134" width="140" height="36" rx="6" fill="url(#cardGrad)" stroke="#30363d" stroke-width="1"/>
+    <rect x="905" y="134" width="3" height="36" rx="2" fill="#ffa657"/>
+    <text x="918" y="148" font-family="monospace" font-size="11" fill="#8b949e">&lt;</text>
+    <text x="924" y="148" font-family="monospace" font-size="11" fill="#ffa657">c-table</text>
+    <text x="924" y="148" font-family="monospace" font-size="11" fill="#8b949e" dx="43">&gt;</text>
+    <text x="918" y="162" font-family="'Segoe UI', sans-serif" font-size="10" fill="#484f58">Sortable data table</text>
+  </g>
+
+  <!-- Card: c-live-demo -->
+  <g filter="url(#cardShadow)">
+    <rect x="905" y="192" width="140" height="36" rx="6" fill="url(#cardGrad)" stroke="#30363d" stroke-width="1"/>
+    <rect x="905" y="192" width="3" height="36" rx="2" fill="#3fb950"/>
+    <text x="918" y="206" font-family="monospace" font-size="11" fill="#8b949e">&lt;</text>
+    <text x="924" y="206" font-family="monospace" font-size="11" fill="#3fb950">c-live-demo</text>
+    <text x="924" y="206" font-family="monospace" font-size="11" fill="#8b949e" dx="65">&gt;</text>
+    <text x="918" y="220" font-family="'Segoe UI', sans-serif" font-size="10" fill="#484f58">Editable preview</text>
+  </g>
+
+  <!-- Card: c-toast -->
+  <g filter="url(#cardShadow)">
+    <rect x="905" y="250" width="140" height="36" rx="6" fill="url(#cardGrad)" stroke="#30363d" stroke-width="1"/>
+    <rect x="905" y="250" width="3" height="36" rx="2" fill="#d2a8ff"/>
+    <text x="918" y="264" font-family="monospace" font-size="11" fill="#8b949e">&lt;</text>
+    <text x="924" y="264" font-family="monospace" font-size="11" fill="#d2a8ff">c-toast</text>
+    <text x="924" y="264" font-family="monospace" font-size="11" fill="#8b949e" dx="40">&gt;</text>
+    <text x="918" y="278" font-family="'Segoe UI', sans-serif" font-size="10" fill="#484f58">Auto-dismiss notify</text>
+  </g>
+
+  <!-- Dot nodes at card connection points -->
+  <g fill="#58a6ff" opacity="0.7">
+    <circle cx="818" cy="36" r="3"/>
+    <circle cx="978" cy="36" r="3"/>
+    <circle cx="818" cy="94" r="3"/>
+    <circle cx="978" cy="94" r="3"/>
+    <circle cx="818" cy="152" r="3"/>
+    <circle cx="978" cy="152" r="3"/>
+    <circle cx="818" cy="210" r="3"/>
+    <circle cx="978" cy="210" r="3"/>
+    <circle cx="818" cy="268" r="3"/>
+    <circle cx="978" cy="268" r="3"/>
+  </g>
+
+</svg>
