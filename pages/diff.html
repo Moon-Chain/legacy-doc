@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diff View — Component Galerisi</title>
+
+    <link rel="stylesheet" href="../assets/vendor/css/prism-vscode_dark.min.css">
+    <link rel="stylesheet" href="../assets/css/tokens.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../components/c-button/c-button.css">
+
+    <link rel="stylesheet" href="../components/c-theme-toggle/c-theme-toggle.css">
+    <link rel="stylesheet" href="../components/c-navbar/c-navbar.css">
+    <link rel="stylesheet" href="../components/c-sidebar/c-sidebar.css">
+    <link rel="stylesheet" href="../components/c-breadcrumb/c-breadcrumb.css">
+    <link rel="stylesheet" href="../components/c-code-block/c-code-block.css">
+    <link rel="stylesheet" href="../components/c-diff/c-diff.css">
+    <link rel="stylesheet" href="../components/c-pagination-nav/c-pagination-nav.css">
+</head>
+
+<body>
+
+    <c-navbar brand="Component Galerisi" home="../index.html"></c-navbar>
+    <c-sidebar active="diff" base="./"></c-sidebar>
+
+    <main class="page">
+        <div class="page-inner">
+            <c-breadcrumb items="Component Galerisi|../index.html>Diff View"></c-breadcrumb>
+
+            <h1>Diff View</h1>
+            <p>
+                İki kod parçasını yan yana karşılaştıran satır bazlı fark görüntüleyici. Eklenen ve silinen
+                satırlar vurgulanır; bitişik değişiklikte kelime düzeyinde inline fark gösterilir.
+                Prism.js ile sözdizimi renklendirmesi desteklenir.
+            </p>
+
+            <h2>JavaScript</h2>
+
+            <c-diff lang="javascript" label-from="v1.js" label-to="v2.js">
+                <script type="text/plain" slot="from">function greet(name) {
+    var msg = 'Hello, ' + name + '!';
+    console.log(msg);
+    return msg;
+}</script>
+                <script type="text/plain" slot="to">function greet(name, greeting = 'Hello') {
+    const msg = `${greeting}, ${name}!`;
+    console.log(msg);
+    return msg;
+}</script>
+            </c-diff>
+
+            <h2>JSON</h2>
+
+            <c-diff lang="json" label-from="config.json" label-to="config.json">
+                <script type="text/plain" slot="from">{
+  "name": "my-app",
+  "version": "1.0.0",
+  "port": 3000,
+  "debug": true
+}</script>
+                <script type="text/plain" slot="to">{
+  "name": "my-app",
+  "version": "2.0.0",
+  "port": 8080,
+  "debug": false,
+  "logLevel": "warn"
+}</script>
+            </c-diff>
+
+            <h2>CSS</h2>
+
+            <c-diff lang="css" label-from="button.css" label-to="button.css">
+                <script type="text/plain" slot="from">.btn {
+    padding: 8px 16px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+}</script>
+                <script type="text/plain" slot="to">.btn {
+    padding: 0.5rem 1rem;
+    background: var(--c-accent);
+    color: #fff;
+    border: none;
+    border-radius: var(--c-radius);
+    transition: opacity 0.15s;
+}
+
+.btn:hover {
+    opacity: 0.85;
+}</script>
+            </c-diff>
+
+            <h2>Sadece Ekleme / Sadece Silme</h2>
+
+            <c-diff lang="javascript" label-from="önce" label-to="sonra">
+                <script type="text/plain" slot="from">const a = 1;
+const b = 2;
+const c = 3;</script>
+                <script type="text/plain" slot="to">const a = 1;
+const b = 2;
+const c = 3;
+const d = 4;
+const e = 5;</script>
+            </c-diff>
+
+            <h2>Kod</h2>
+
+            <c-code-block lang="html">&lt;c-diff lang="javascript" label-from="v1.js" label-to="v2.js"&gt;
+    &lt;script type="text/plain" slot="from"&gt;
+        // eski kod buraya
+    &lt;/script&gt;
+    &lt;script type="text/plain" slot="to"&gt;
+        // yeni kod buraya
+    &lt;/script&gt;
+&lt;/c-diff&gt;</c-code-block>
+
+            <h2>Attribute'lar</h2>
+            <table>
+                <thead><tr><th>Attribute</th><th>Tip</th><th>Varsayılan</th><th>Açıklama</th></tr></thead>
+                <tbody>
+                    <tr><td><code>lang</code></td><td>string</td><td><code>markup</code></td><td>Prism dil tanımlayıcısı (<code>javascript</code>, <code>json</code>, <code>css</code>, <code>typescript</code> vb.)</td></tr>
+                    <tr><td><code>label-from</code></td><td>string</td><td><code>before</code></td><td>Sol etiket (ör. dosya adı veya sürüm)</td></tr>
+                    <tr><td><code>label-to</code></td><td>string</td><td><code>after</code></td><td>Sağ etiket</td></tr>
+                </tbody>
+            </table>
+
+            <h2>Slot'lar</h2>
+            <table>
+                <thead><tr><th>Slot</th><th>Açıklama</th></tr></thead>
+                <tbody>
+                    <tr><td><code>from</code></td><td>Eski / kaynak kod. <code>&lt;script type="text/plain"&gt;</code> olarak verilmelidir.</td></tr>
+                    <tr><td><code>to</code></td><td>Yeni / hedef kod. <code>&lt;script type="text/plain"&gt;</code> olarak verilmelidir.</td></tr>
+                </tbody>
+            </table>
+
+            <c-pagination-nav prev-href="terminal.html" prev-label="Terminal" next-href="live-demo.html" next-label="Live Demo"></c-pagination-nav>
+        </div>
+    </main>
+
+    <script src="../assets/vendor/js/prism.min.js"></script>
+    <script src="../assets/vendor/js/prism-languages.min.js"></script>
+    <script src="../assets/js/project.js"></script>
+    <script src="../components/c-theme-toggle/c-theme-toggle.js"></script>
+    <script src="../components/c-navbar/c-navbar.js"></script>
+    <script src="../components/c-sidebar/c-sidebar.js"></script>
+    <script src="../components/c-breadcrumb/c-breadcrumb.js"></script>
+    <script src="../components/c-code-block/c-code-block.js"></script>
+    <script src="../components/c-diff/c-diff.js"></script>
+    <script src="../components/c-pagination-nav/c-pagination-nav.js"></script>
+</body>
+
+</html>

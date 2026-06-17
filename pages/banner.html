@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banner — Component Galerisi</title>
+
+    <link rel="stylesheet" href="../assets/vendor/css/prism-vscode_dark.min.css">
+    <link rel="stylesheet" href="../assets/css/tokens.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../components/c-button/c-button.css">
+
+    <link rel="stylesheet" href="../components/c-theme-toggle/c-theme-toggle.css">
+    <link rel="stylesheet" href="../components/c-navbar/c-navbar.css">
+    <link rel="stylesheet" href="../components/c-sidebar/c-sidebar.css">
+    <link rel="stylesheet" href="../components/c-breadcrumb/c-breadcrumb.css">
+    <link rel="stylesheet" href="../components/c-code-block/c-code-block.css">
+    <link rel="stylesheet" href="../components/c-banner/c-banner.css">
+    <link rel="stylesheet" href="../components/c-pagination-nav/c-pagination-nav.css">
+
+    <style>
+        .banner-demo-block {
+            border: 1px solid var(--c-border);
+            border-radius: var(--c-radius);
+            overflow: hidden;
+            margin: var(--c-space-3) 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <c-navbar brand="Component Galerisi" home="../index.html"></c-navbar>
+    <c-sidebar active="banner" base="./"></c-sidebar>
+
+    <main class="page">
+        <div class="page-inner">
+            <c-breadcrumb items="Component Galerisi|../index.html>Banner"></c-breadcrumb>
+
+            <h1>Banner</h1>
+            <p>
+                Sayfa üstü duyuru çubuğu. Deprecation uyarıları, beta etiketleri,
+                kırıcı değişiklik bildirimleri veya genel duyurular için kullanılır.
+                Kapatılabilir (<code>dismissible</code>) ve kalıcı kapatma hafızası
+                (<code>persist-key</code>) destekler.
+            </p>
+
+            <h2>Varyantlar</h2>
+
+            <div class="banner-demo-block">
+                <c-banner variant="info"    message="Bu dokümantasyon sitesi sürekli güncellenmektedir."></c-banner>
+                <c-banner variant="success" message="v2.0 yayınlandı! Tüm bileşenler güncellendi."></c-banner>
+                <c-banner variant="warning" message="Bu API gelecekte kaldırılacak. Yeni sürüme geçmenizi öneririz."></c-banner>
+                <c-banner variant="danger"  message="v3.0'da kırıcı değişiklikler yapıldı. Lütfen migration rehberini okuyun."></c-banner>
+                <c-banner variant="beta"    message="Bu bileşen beta aşamasındadır, API değişebilir."></c-banner>
+            </div>
+
+            <h2>Kapatılabilir (Dismissible)</h2>
+            <p>
+                <code>dismissible</code> attribute'u eklenince sağ köşede × butonu çıkar.
+                <code>persist-key</code> ile kapanma durumu <code>localStorage</code>'a kaydedilir;
+                sayfa yenilenince de kapalı kalır.
+            </p>
+
+            <div class="banner-demo-block">
+                <c-banner variant="warning" dismissible
+                    message="Bu API kaldırılacak. Lütfen yeni sürüme geçin."></c-banner>
+                <c-banner variant="beta" dismissible persist-key="demo-beta-notice"
+                    message="Beta: Bu banner kapatılırsa bir daha gösterilmez (localStorage)."></c-banner>
+            </div>
+
+            <h2>HTML İçerik</h2>
+            <p>Link veya <code>&lt;strong&gt;</code> gibi inline HTML, <code>message</code> yerine slot içeriği olarak da kullanılabilir.</p>
+
+            <div class="banner-demo-block">
+                <c-banner variant="danger" dismissible>
+                    <strong>Kırıcı Değişiklik:</strong>
+                    <code>v-model</code> API'si değişti.
+                    <a href="#">Migration rehberini incele &rarr;</a>
+                </c-banner>
+            </div>
+
+            <h2>Kod</h2>
+
+            <c-code-block lang="html">&lt;!-- Temel kullanım --&gt;
+&lt;c-banner variant="info" message="Genel duyuru metni."&gt;&lt;/c-banner&gt;
+
+&lt;!-- Kapatılabilir --&gt;
+&lt;c-banner variant="warning" dismissible
+    message="Bu API kaldırılacak."&gt;&lt;/c-banner&gt;
+
+&lt;!-- Kalıcı kapatma hafızası --&gt;
+&lt;c-banner variant="beta" dismissible persist-key="banner-v1"
+    message="Beta aşamasındadır."&gt;&lt;/c-banner&gt;
+
+&lt;!-- HTML içerik (slot) --&gt;
+&lt;c-banner variant="danger" dismissible&gt;
+    &lt;strong&gt;Kırıcı Değişiklik:&lt;/strong&gt;
+    &lt;a href="/migration"&gt;Rehber &amp;rarr;&lt;/a&gt;
+&lt;/c-banner&gt;</c-code-block>
+
+            <h2>Attribute'lar</h2>
+            <table>
+                <thead>
+                    <tr><th>Attribute</th><th>Tip</th><th>Varsayılan</th><th>Açıklama</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>variant</code></td>
+                        <td>string</td>
+                        <td><code>info</code></td>
+                        <td><code>info</code> | <code>warning</code> | <code>danger</code> | <code>success</code> | <code>beta</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>message</code></td>
+                        <td>string</td>
+                        <td>—</td>
+                        <td>Gösterilecek metin. Verilmezse element içeriği (slot) kullanılır; HTML destekler.</td>
+                    </tr>
+                    <tr>
+                        <td><code>dismissible</code></td>
+                        <td>boolean</td>
+                        <td><code>false</code></td>
+                        <td>Varlığı yeterli. Sağ köşede × butonu gösterir.</td>
+                    </tr>
+                    <tr>
+                        <td><code>persist-key</code></td>
+                        <td>string</td>
+                        <td>—</td>
+                        <td>
+                            <code>localStorage</code> key'i. Verilirse kapatma durumu kaydedilir;
+                            sayfa yenilenince banner tekrar gösterilmez.
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>Varyant Renkleri</h2>
+            <table>
+                <thead>
+                    <tr><th>Varyant</th><th>İkon</th><th>Kullanım amacı</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><code>info</code></td><td>ℹ</td><td>Genel bilgi / duyuru</td></tr>
+                    <tr><td><code>success</code></td><td>✓</td><td>Yeni sürüm / başarılı güncelleme</td></tr>
+                    <tr><td><code>warning</code></td><td>⚠</td><td>Deprecation / tavsiye</td></tr>
+                    <tr><td><code>danger</code></td><td>✕</td><td>Kırıcı değişiklik / kritik uyarı</td></tr>
+                    <tr><td><code>beta</code></td><td>β</td><td>Deneysel / kararsız API</td></tr>
+                </tbody>
+            </table>
+
+            <c-pagination-nav
+                prev-href="command-palette.html" prev-label="Command Palette"
+                next-href="color-swatch.html"    next-label="Color Swatch">
+            </c-pagination-nav>
+        </div>
+    </main>
+
+    <script src="../assets/vendor/js/prism.min.js"></script>
+    <script src="../assets/vendor/js/prism-languages.min.js"></script>
+    <script src="../assets/js/project.js"></script>
+    <script src="../components/c-theme-toggle/c-theme-toggle.js"></script>
+    <script src="../components/c-navbar/c-navbar.js"></script>
+    <script src="../components/c-sidebar/c-sidebar.js"></script>
+    <script src="../components/c-breadcrumb/c-breadcrumb.js"></script>
+    <script src="../components/c-code-block/c-code-block.js"></script>
+    <script src="../components/c-banner/c-banner.js"></script>
+    <script src="../components/c-pagination-nav/c-pagination-nav.js"></script>
+</body>
+
+</html>

@@ -42,7 +42,6 @@ img {
 /* Sadece satır içi kod (pre>code hariç - o stilini c-code-block'tan/Prism'den alır) */
 :not(pre)>code {
     background-color: var(--c-bg-subtle);
-    border: 1px solid var(--c-border);
     border-radius: var(--c-radius-sm);
     padding: 0.1rem 0.3rem;
     font-size: 0.875em;

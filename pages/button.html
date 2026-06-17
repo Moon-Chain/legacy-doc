@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button — Component Galerisi</title>
+
+    <link rel="stylesheet" href="../assets/vendor/css/prism-vscode_dark.min.css">
+    <link rel="stylesheet" href="../assets/css/tokens.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+
+    <link rel="stylesheet" href="../components/c-theme-toggle/c-theme-toggle.css">
+    <link rel="stylesheet" href="../components/c-navbar/c-navbar.css">
+    <link rel="stylesheet" href="../components/c-sidebar/c-sidebar.css">
+    <link rel="stylesheet" href="../components/c-breadcrumb/c-breadcrumb.css">
+    <link rel="stylesheet" href="../components/c-code-block/c-code-block.css">
+    <link rel="stylesheet" href="../components/c-button/c-button.css">
+    <link rel="stylesheet" href="../components/c-pagination-nav/c-pagination-nav.css">
+</head>
+
+<body>
+
+    <c-navbar brand="Component Galerisi" home="../index.html"></c-navbar>
+    <c-sidebar active="button" base="./"></c-sidebar>
+
+    <main class="page">
+        <div class="page-inner">
+            <c-breadcrumb items="Component Galerisi|../index.html>Button"></c-breadcrumb>
+
+            <h1>Button</h1>
+            <p>
+                Sadece CSS bileşeni. <code>.btn</code> sınıfı herhangi bir <code>&lt;button&gt;</code>,
+                <code>&lt;a&gt;</code> veya <code>&lt;input type="button"&gt;</code> üzerinde kullanılabilir.
+            </p>
+
+            <h2>Varyantlar</h2>
+
+            <div class="c-btn-swatch-grid">
+                <div class="c-btn-swatch">
+                    <button class="btn">Varsayılan</button>
+                    <span class="c-btn-swatch__label">Default</span>
+                    <code class="c-btn-swatch__class">.btn</code>
+                </div>
+                <div class="c-btn-swatch">
+                    <button class="btn btn--primary">Primary</button>
+                    <span class="c-btn-swatch__label">Primary</span>
+                    <code class="c-btn-swatch__class">.btn--primary</code>
+                </div>
+                <div class="c-btn-swatch">
+                    <button class="btn btn--secondary">Secondary</button>
+                    <span class="c-btn-swatch__label">Secondary</span>
+                    <code class="c-btn-swatch__class">.btn--secondary</code>
+                </div>
+                <div class="c-btn-swatch">
+                    <button class="btn btn--success">Success</button>
+                    <span class="c-btn-swatch__label">Success</span>
+                    <code class="c-btn-swatch__class">.btn--success</code>
+                </div>
+                <div class="c-btn-swatch">
+                    <button class="btn btn--danger">Danger</button>
+                    <span class="c-btn-swatch__label">Danger</span>
+                    <code class="c-btn-swatch__class">.btn--danger</code>
+                </div>
+                <div class="c-btn-swatch">
+                    <button class="btn btn--ghost">Ghost</button>
+                    <span class="c-btn-swatch__label">Ghost</span>
+                    <code class="c-btn-swatch__class">.btn--ghost</code>
+                </div>
+            </div>
+
+            <h2>Outline</h2>
+
+            <div class="c-btn-swatch-grid">
+                <div class="c-btn-swatch">
+                    <button class="btn btn--outline btn--primary">Primary</button>
+                    <span class="c-btn-swatch__label">Outline Primary</span>
+                    <code class="c-btn-swatch__class">.btn--outline.btn--primary</code>
+                </div>
+                <div class="c-btn-swatch">
+                    <button class="btn btn--outline btn--secondary">Secondary</button>
+                    <span class="c-btn-swatch__label">Outline Secondary</span>
+                    <code class="c-btn-swatch__class">.btn--outline.btn--secondary</code>
+                </div>
+                <div class="c-btn-swatch">
+                    <button class="btn btn--outline btn--success">Success</button>
+                    <span class="c-btn-swatch__label">Outline Success</span>
+                    <code class="c-btn-swatch__class">.btn--outline.btn--success</code>
+                </div>
+                <div class="c-btn-swatch">
+                    <button class="btn btn--outline btn--danger">Danger</button>
+                    <span class="c-btn-swatch__label">Outline Danger</span>
+                    <code class="c-btn-swatch__class">.btn--outline.btn--danger</code>
+                </div>
+            </div>
+
+            <h2>Boyutlar</h2>
+
+            <div class="c-btn-swatch-grid">
+                <div class="c-btn-swatch">
+                    <button class="btn btn--primary btn--sm">Küçük</button>
+                    <span class="c-btn-swatch__label">Small</span>
+                    <code class="c-btn-swatch__class">.btn--sm</code>
+                </div>
+                <div class="c-btn-swatch">
+                    <button class="btn btn--primary">Orta</button>
+                    <span class="c-btn-swatch__label">Medium (varsayılan)</span>
+                    <code class="c-btn-swatch__class">.btn</code>
+                </div>
+                <div class="c-btn-swatch">
+                    <button class="btn btn--primary btn--lg">Büyük</button>
+                    <span class="c-btn-swatch__label">Large</span>
+                    <code class="c-btn-swatch__class">.btn--lg</code>
+                </div>
+            </div>
+
+            <h2>Devre Dışı</h2>
+
+            <div class="c-btn-swatch-grid">
+                <div class="c-btn-swatch">
+                    <button class="btn" disabled>Varsayılan</button>
+                    <span class="c-btn-swatch__label">Default Disabled</span>
+                    <code class="c-btn-swatch__class">disabled</code>
+                </div>
+                <div class="c-btn-swatch">
+                    <button class="btn btn--primary" disabled>Primary</button>
+                    <span class="c-btn-swatch__label">Primary Disabled</span>
+                    <code class="c-btn-swatch__class">disabled</code>
+                </div>
+                <div class="c-btn-swatch">
+                    <button class="btn btn--danger" disabled>Danger</button>
+                    <span class="c-btn-swatch__label">Danger Disabled</span>
+                    <code class="c-btn-swatch__class">disabled</code>
+                </div>
+            </div>
+
+            <h2>Kod</h2>
+
+            <c-code-block lang="html">&lt;!-- Temel --&gt;
+&lt;button class="btn"&gt;Varsayılan&lt;/button&gt;
+
+&lt;!-- Varyantlar --&gt;
+&lt;button class="btn btn--primary"&gt;Primary&lt;/button&gt;
+&lt;button class="btn btn--danger"&gt;Danger&lt;/button&gt;
+&lt;button class="btn btn--ghost"&gt;Ghost&lt;/button&gt;
+
+&lt;!-- Outline --&gt;
+&lt;button class="btn btn--outline btn--primary"&gt;Outline Primary&lt;/button&gt;
+
+&lt;!-- Boyutlar --&gt;
+&lt;button class="btn btn--primary btn--sm"&gt;Küçük&lt;/button&gt;
+&lt;button class="btn btn--primary btn--lg"&gt;Büyük&lt;/button&gt;
+
+&lt;!-- Link olarak --&gt;
+&lt;a href="/..." class="btn btn--primary"&gt;Link&lt;/a&gt;
+
+&lt;!-- Devre dışı --&gt;
+&lt;button class="btn btn--primary" disabled&gt;Devre Dışı&lt;/button&gt;</c-code-block>
+
+            <h2>CSS Sınıfları</h2>
+            <table>
+                <thead><tr><th>Sınıf</th><th>Açıklama</th></tr></thead>
+                <tbody>
+                    <tr><td><code>btn</code></td><td>Temel düğme stili (zorunlu)</td></tr>
+                    <tr><td><code>btn--primary</code></td><td>Marka rengi, dolu arka plan</td></tr>
+                    <tr><td><code>btn--secondary</code></td><td>İkincil gri, dolu arka plan</td></tr>
+                    <tr><td><code>btn--success</code></td><td>Yeşil, başarı aksiyonu</td></tr>
+                    <tr><td><code>btn--danger</code></td><td>Kırmızı, yıkıcı aksiyonlar için</td></tr>
+                    <tr><td><code>btn--ghost</code></td><td>Şeffaf arka plan, kenarlıksız</td></tr>
+                    <tr><td><code>btn--outline</code></td><td>Şeffaf arka plan, kenarlıklı</td></tr>
+                    <tr><td><code>btn--sm</code></td><td>Küçük boyut</td></tr>
+                    <tr><td><code>btn--lg</code></td><td>Büyük boyut</td></tr>
+                </tbody>
+            </table>
+
+            <c-pagination-nav prev-href="callout.html" prev-label="Callout" next-href="card.html" next-label="Card"></c-pagination-nav>
+        </div>
+    </main>
+
+    <script src="../assets/vendor/js/prism.min.js"></script>
+    <script src="../assets/vendor/js/prism-languages.min.js"></script>
+    <script src="../assets/js/project.js"></script>
+    <script src="../components/c-theme-toggle/c-theme-toggle.js"></script>
+    <script src="../components/c-navbar/c-navbar.js"></script>
+    <script src="../components/c-sidebar/c-sidebar.js"></script>
+    <script src="../components/c-breadcrumb/c-breadcrumb.js"></script>
+    <script src="../components/c-code-block/c-code-block.js"></script>
+    <script src="../components/c-pagination-nav/c-pagination-nav.js"></script>
+</body>
+
+</html>

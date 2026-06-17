@@ -8,7 +8,7 @@ No server. No build step. Double-click `index.html` and it runs.
 
 <br>
 
-![Version](https://img.shields.io/badge/VERSION-1.3.3-2d333b?style=for-the-badge)
+![Version](https://img.shields.io/badge/VERSION-1.5.0-2d333b?style=for-the-badge)
 ![License](https://img.shields.io/badge/LICENSE-MIT-22c55e?style=for-the-badge)
 ![JavaScript](https://img.shields.io/badge/JAVASCRIPT-ES6+-f7df1e?style=for-the-badge&logo=javascript&logoColor=black)
 ![HTML5](https://img.shields.io/badge/HTML5-%E2%9C%93-e34f26?style=for-the-badge&logo=html5&logoColor=white)
@@ -125,7 +125,7 @@ All project-level metadata lives in `assets/js/project.js`:
 ```js
 window.PROJECT = {
     name:    'legacy-doc',
-    version: '1.3.3',
+    version: '1.5.0',
     brand:   'Component Galerisi',
     github:  'https://github.com/Moon-Chain/legacy-doc',
 };

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empty State — Component Galerisi</title>
+
+    <link rel="stylesheet" href="../assets/vendor/css/prism-vscode_dark.min.css">
+    <link rel="stylesheet" href="../assets/css/tokens.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../components/c-button/c-button.css">
+
+    <link rel="stylesheet" href="../components/c-theme-toggle/c-theme-toggle.css">
+    <link rel="stylesheet" href="../components/c-navbar/c-navbar.css">
+    <link rel="stylesheet" href="../components/c-sidebar/c-sidebar.css">
+    <link rel="stylesheet" href="../components/c-breadcrumb/c-breadcrumb.css">
+    <link rel="stylesheet" href="../components/c-code-block/c-code-block.css">
+    <link rel="stylesheet" href="../components/c-empty-state/c-empty-state.css">
+    <link rel="stylesheet" href="../components/c-pagination-nav/c-pagination-nav.css">
+
+    <style>
+        .empty-state-demo-box {
+            border: 1px solid var(--c-border);
+            border-radius: var(--c-radius);
+            overflow: hidden;
+        }
+
+        .empty-state-demo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <c-navbar brand="Component Galerisi" home="../index.html"></c-navbar>
+    <c-sidebar active="empty-state" base="./"></c-sidebar>
+
+    <main class="page">
+        <div class="page-inner">
+            <c-breadcrumb items="Component Galerisi|../index.html>Empty State"></c-breadcrumb>
+
+            <h1>Empty State</h1>
+            <p>
+                Boş liste, sonuçsuz arama veya henüz içerik girilmemiş durumlar için yer tutucu bileşeni.
+                Varsayılan SVG ikon, emoji ya da özel içerikle kullanılabilir.
+            </p>
+
+            <h2>Varsayılan</h2>
+            <div class="empty-state-demo-box">
+                <c-empty-state></c-empty-state>
+            </div>
+
+            <h2>Başlık ve Açıklama</h2>
+            <div class="empty-state-demo-box">
+                <c-empty-state
+                    title="Henüz bileşen yok"
+                    description="Yeni bir bileşen eklemek için sağ üst köşedeki butonu kullanın.">
+                </c-empty-state>
+            </div>
+
+            <h2>Emoji İkon</h2>
+            <div class="empty-state-demo-grid">
+                <div class="empty-state-demo-box">
+                    <c-empty-state
+                        icon="🔍"
+                        title="Sonuç bulunamadı"
+                        description="Farklı bir arama terimi deneyin.">
+                    </c-empty-state>
+                </div>
+                <div class="empty-state-demo-box">
+                    <c-empty-state
+                        icon="📭"
+                        title="Gelen kutusu boş"
+                        description="Yeni mesajlar burada görünecek.">
+                    </c-empty-state>
+                </div>
+            </div>
+
+            <h2>Aksiyon Butonu</h2>
+            <div class="empty-state-demo-box">
+                <c-empty-state
+                    icon="📁"
+                    title="Proje bulunamadı"
+                    description="Henüz hiç proje oluşturmadınız.">
+                    <button slot="action" class="btn">Yeni Proje Oluştur</button>
+                </c-empty-state>
+            </div>
+
+            <h2>Boyutlar</h2>
+            <div class="empty-state-demo-grid">
+                <div class="empty-state-demo-box">
+                    <c-empty-state size="sm" title="Küçük (sm)" description="Kompakt alan için."></c-empty-state>
+                </div>
+                <div class="empty-state-demo-box">
+                    <c-empty-state size="md" title="Orta (md)" description="Varsayılan boyut."></c-empty-state>
+                </div>
+                <div class="empty-state-demo-box">
+                    <c-empty-state size="lg" title="Büyük (lg)" description="Tam sayfa için."></c-empty-state>
+                </div>
+            </div>
+
+            <h2>Kod</h2>
+
+            <c-code-block lang="html">&lt;!-- Varsayılan --&gt;
+&lt;c-empty-state&gt;&lt;/c-empty-state&gt;
+
+&lt;!-- Emoji ikon + açıklama --&gt;
+&lt;c-empty-state
+    icon="🔍"
+    title="Sonuç bulunamadı"
+    description="Farklı bir arama terimi deneyin."&gt;
+&lt;/c-empty-state&gt;
+
+&lt;!-- Aksiyon butonu --&gt;
+&lt;c-empty-state
+    icon="📁"
+    title="Proje bulunamadı"
+    description="Henüz proje oluşturmadınız."&gt;
+    &lt;button slot="action"&gt;Yeni Proje&lt;/button&gt;
+&lt;/c-empty-state&gt;</c-code-block>
+
+            <h2>Attribute'lar</h2>
+            <table>
+                <thead><tr><th>Attribute</th><th>Tip</th><th>Varsayılan</th><th>Açıklama</th></tr></thead>
+                <tbody>
+                    <tr><td><code>icon</code></td><td>string</td><td>SVG</td><td>Emoji veya kısa metin; verilmezse varsayılan SVG gösterilir</td></tr>
+                    <tr><td><code>title</code></td><td>string</td><td><code>İçerik bulunamadı</code></td><td>Başlık metni</td></tr>
+                    <tr><td><code>description</code></td><td>string</td><td>—</td><td>İkincil açıklama metni</td></tr>
+                    <tr><td><code>size</code></td><td>string</td><td><code>md</code></td><td><code>sm | md | lg</code></td></tr>
+                </tbody>
+            </table>
+
+            <h2>Slot'lar</h2>
+            <table>
+                <thead><tr><th>Slot</th><th>Açıklama</th></tr></thead>
+                <tbody>
+                    <tr><td><code>action</code></td><td>İsteğe bağlı aksiyon butonu veya bağlantı</td></tr>
+                </tbody>
+            </table>
+
+            <c-pagination-nav prev-href="skeleton.html" prev-label="Skeleton Loader" next-href="steps.html" next-label="Steps"></c-pagination-nav>
+        </div>
+    </main>
+
+    <script src="../assets/vendor/js/prism.min.js"></script>
+    <script src="../assets/vendor/js/prism-languages.min.js"></script>
+    <script src="../assets/js/project.js"></script>
+    <script src="../components/c-theme-toggle/c-theme-toggle.js"></script>
+    <script src="../components/c-navbar/c-navbar.js"></script>
+    <script src="../components/c-sidebar/c-sidebar.js"></script>
+    <script src="../components/c-breadcrumb/c-breadcrumb.js"></script>
+    <script src="../components/c-code-block/c-code-block.js"></script>
+    <script src="../components/c-empty-state/c-empty-state.js"></script>
+    <script src="../components/c-pagination-nav/c-pagination-nav.js"></script>
+</body>
+
+</html>

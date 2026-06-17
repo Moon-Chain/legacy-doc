@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toast — Component Galerisi</title>
+
+    <link rel="stylesheet" href="../assets/vendor/css/prism-vscode_dark.min.css">
+    <link rel="stylesheet" href="../assets/css/tokens.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../components/c-button/c-button.css">
+
+    <link rel="stylesheet" href="../components/c-theme-toggle/c-theme-toggle.css">
+    <link rel="stylesheet" href="../components/c-navbar/c-navbar.css">
+    <link rel="stylesheet" href="../components/c-sidebar/c-sidebar.css">
+    <link rel="stylesheet" href="../components/c-breadcrumb/c-breadcrumb.css">
+    <link rel="stylesheet" href="../components/c-code-block/c-code-block.css">
+    <link rel="stylesheet" href="../components/c-toast/c-toast.css">
+    <link rel="stylesheet" href="../components/c-pagination-nav/c-pagination-nav.css">
+
+    <style>
+        .demo-btn-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <c-navbar brand="Component Galerisi" home="../index.html"></c-navbar>
+    <c-sidebar active="toast" base="./"></c-sidebar>
+
+    <main class="page">
+        <div class="page-inner">
+            <c-breadcrumb items="Component Galerisi|../index.html>Toast"></c-breadcrumb>
+
+            <h1>Toast</h1>
+            <p>
+                Geçici bildirim mesajları. Sağ alt köşede yığılarak görünür, belirli süre sonra
+                otomatik kapanır. Statik <code>CToast.show()</code> yöntemiyle JS'den tetiklenir.
+            </p>
+
+            <h2>Varyantlar</h2>
+
+            <div class="demo-btn-row">
+                <button class="btn" onclick="CToast.show('Bilgi mesajı gösteriliyor.', { variant: 'info' })">Info</button>
+                <button class="btn btn--success" onclick="CToast.show('İşlem başarıyla tamamlandı.', { variant: 'success' })">Success</button>
+                <button class="btn btn--outline btn--secondary" onclick="CToast.show('Dikkat edilmesi gereken bir durum var.', { variant: 'warning' })">Warning</button>
+                <button class="btn btn--danger" onclick="CToast.show('Bir hata meydana geldi.', { variant: 'danger' })">Danger</button>
+            </div>
+
+            <h2>Kalıcı Toast</h2>
+            <p><code>duration: 0</code> ayarlanırsa toast otomatik kapanmaz; kullanıcı × butonuna basmalıdır.</p>
+
+            <div class="demo-btn-row">
+                <button class="btn btn--outline btn--primary" onclick="CToast.show('Bu toast kalıcıdır, × ile kapatın.', { variant: 'info', duration: 0 })">Kalıcı Toast</button>
+            </div>
+
+            <h2>Kullanım</h2>
+
+            <c-code-block lang="javascript">// Temel kullanım
+CToast.show('Kaydedildi!');
+
+// Varyant ve süre
+CToast.show('Hata oluştu.', { variant: 'danger', duration: 5000 });
+
+// Kalıcı (kullanıcı kapatana kadar açık)
+CToast.show('Güncelleme mevcut.', { variant: 'info', duration: 0 });</c-code-block>
+
+            <c-code-block lang="html">&lt;!-- HTML element olarak kullanmak için --&gt;
+&lt;c-toast id="t" variant="success" message="Kaydedildi!"&gt;&lt;/c-toast&gt;</c-code-block>
+
+            <c-code-block lang="javascript">// Element formu
+document.getElementById('t').show();</c-code-block>
+
+            <h2>Attribute'lar (element formu)</h2>
+            <table>
+                <thead><tr><th>Attribute</th><th>Tip</th><th>Varsayılan</th><th>Açıklama</th></tr></thead>
+                <tbody>
+                    <tr><td><code>variant</code></td><td>string</td><td><code>info</code></td><td><code>info | success | warning | danger</code></td></tr>
+                    <tr><td><code>message</code></td><td>string</td><td>—</td><td>Gösterilecek metin (ya da element içeriği)</td></tr>
+                    <tr><td><code>duration</code></td><td>number</td><td><code>3500</code></td><td>ms cinsinden süre; <code>0</code> = kalıcı</td></tr>
+                </tbody>
+            </table>
+
+            <h2>CToast.show() Parametreleri</h2>
+            <table>
+                <thead><tr><th>Parametre</th><th>Tip</th><th>Varsayılan</th><th>Açıklama</th></tr></thead>
+                <tbody>
+                    <tr><td><code>message</code></td><td>string</td><td>—</td><td>Bildirim metni</td></tr>
+                    <tr><td><code>variant</code></td><td>string</td><td><code>info</code></td><td><code>info | success | warning | danger</code></td></tr>
+                    <tr><td><code>duration</code></td><td>number</td><td><code>3500</code></td><td>ms cinsinden gösterim süresi; <code>0</code> = kalıcı</td></tr>
+                </tbody>
+            </table>
+
+            <c-pagination-nav prev-href="feedback.html" prev-label="Feedback" next-href="popover.html" next-label="Popover"></c-pagination-nav>
+        </div>
+    </main>
+
+    <script src="../assets/vendor/js/prism.min.js"></script>
+    <script src="../assets/vendor/js/prism-languages.min.js"></script>
+    <script src="../assets/js/project.js"></script>
+    <script src="../components/c-theme-toggle/c-theme-toggle.js"></script>
+    <script src="../components/c-navbar/c-navbar.js"></script>
+    <script src="../components/c-sidebar/c-sidebar.js"></script>
+    <script src="../components/c-breadcrumb/c-breadcrumb.js"></script>
+    <script src="../components/c-code-block/c-code-block.js"></script>
+    <script src="../components/c-toast/c-toast.js"></script>
+    <script src="../components/c-pagination-nav/c-pagination-nav.js"></script>
+</body>
+
+</html>

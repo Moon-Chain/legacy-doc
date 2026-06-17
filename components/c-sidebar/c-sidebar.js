@@ -32,7 +32,7 @@ const NAV_GROUPS = [
         label: 'İçerik',
         items: [
             { id: 'callout',          label: 'Callout',          file: 'callout.html' },
-            { id: 'code-block',       label: 'Code Block',       file: 'code-block.html' },
+            { id: 'button',           label: 'Button',           file: 'button.html' },
             { id: 'card',             label: 'Card',             file: 'card.html' },
             { id: 'badge',            label: 'Badge',            file: 'badge.html' },
             { id: 'alert',            label: 'Alert',            file: 'alert.html' },
@@ -45,6 +45,8 @@ const NAV_GROUPS = [
             { id: 'image-zoom',       label: 'Image Zoom',       file: 'image-zoom.html' },
             { id: 'divider',          label: 'Divider',          file: 'divider.html' },
             { id: 'stat',             label: 'Stat',             file: 'stat.html' },
+            { id: 'skeleton',         label: 'Skeleton Loader',  file: 'skeleton.html' },
+            { id: 'empty-state',      label: 'Empty State',      file: 'empty-state.html' },
         ],
     },
     {
@@ -52,13 +54,20 @@ const NAV_GROUPS = [
         items: [
             { id: 'steps',        label: 'Steps',          file: 'steps.html' },
             { id: 'kbd',          label: 'Keyboard (Kbd)', file: 'kbd.html' },
-            { id: 'terminal',     label: 'Terminal',       file: 'terminal.html' },
             { id: 'file-tree',    label: 'File Tree',      file: 'file-tree.html' },
             { id: 'api-endpoint', label: 'API Endpoint',   file: 'api-endpoint.html' },
             { id: 'changelog',    label: 'Changelog',      file: 'changelog.html' },
-            { id: 'live-demo',    label: 'Live Demo',      file: 'live-demo.html' },
             { id: 'copy-button',  label: 'Copy Button',    file: 'copy-button.html' },
             { id: 'print-button', label: 'Print Button',   file: 'print-button.html' },
+        ],
+    },
+    {
+        label: 'Kod',
+        items: [
+            { id: 'code-block', label: 'Code Block', file: 'code-block.html' },
+            { id: 'terminal',   label: 'Terminal',   file: 'terminal.html' },
+            { id: 'diff',       label: 'Diff View',  file: 'diff.html' },
+            { id: 'live-demo',  label: 'Live Demo',  file: 'live-demo.html' },
         ],
     },
     {
@@ -73,6 +82,10 @@ const NAV_GROUPS = [
             { id: 'heading-anchor', label: 'Heading Anchor',      file: 'heading-anchor.html' },
             { id: 'modal',          label: 'Modal',               file: 'modal.html' },
             { id: 'feedback',       label: 'Feedback',            file: 'feedback.html' },
+            { id: 'toast',             label: 'Toast',             file: 'toast.html' },
+            { id: 'popover',           label: 'Popover',           file: 'popover.html' },
+            { id: 'command-palette',   label: 'Command Palette',   file: 'command-palette.html' },
+            { id: 'banner',            label: 'Banner',            file: 'banner.html' },
         ],
     },
     {

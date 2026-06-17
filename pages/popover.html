@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popover — Component Galerisi</title>
+
+    <link rel="stylesheet" href="../assets/vendor/css/prism-vscode_dark.min.css">
+    <link rel="stylesheet" href="../assets/css/tokens.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../components/c-button/c-button.css">
+
+    <link rel="stylesheet" href="../components/c-theme-toggle/c-theme-toggle.css">
+    <link rel="stylesheet" href="../components/c-navbar/c-navbar.css">
+    <link rel="stylesheet" href="../components/c-sidebar/c-sidebar.css">
+    <link rel="stylesheet" href="../components/c-breadcrumb/c-breadcrumb.css">
+    <link rel="stylesheet" href="../components/c-code-block/c-code-block.css">
+    <link rel="stylesheet" href="../components/c-popover/c-popover.css">
+    <link rel="stylesheet" href="../components/c-pagination-nav/c-pagination-nav.css">
+
+    <style>
+        .demo-popover-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3rem;
+            align-items: center;
+            padding: 2rem 0;
+        }
+
+        .popover-demo-content {
+            display: flex;
+            flex-direction: column;
+            gap: 0.375rem;
+        }
+
+        .popover-demo-content__title {
+            font-weight: 600;
+            font-size: var(--c-font-size-sm);
+            color: var(--c-text);
+            margin: 0;
+        }
+
+        .popover-demo-content__text {
+            font-size: var(--c-font-size-sm);
+            color: var(--c-text-muted);
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .popover-demo-content__divider {
+            height: 1px;
+            background: var(--c-border);
+            margin: 0.25rem 0;
+        }
+
+        .popover-demo-content__action {
+            font-size: var(--c-font-size-sm);
+            color: var(--c-primary);
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            text-align: left;
+        }
+
+        .popover-demo-content__action:hover {
+            text-decoration: underline;
+        }
+
+        .popover-user-card {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .popover-user-card__avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--c-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: 700;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+
+        .popover-user-card__info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.125rem;
+        }
+
+        .popover-user-card__name {
+            font-weight: 600;
+            font-size: var(--c-font-size-sm);
+            color: var(--c-text);
+        }
+
+        .popover-user-card__role {
+            font-size: 0.75rem;
+            color: var(--c-text-muted);
+        }
+    </style>
+</head>
+
+<body>
+
+    <c-navbar brand="Component Galerisi" home="../index.html"></c-navbar>
+    <c-sidebar active="popover" base="./"></c-sidebar>
+
+    <main class="page">
+        <div class="page-inner">
+            <c-breadcrumb items="Component Galerisi|../index.html>Popover"></c-breadcrumb>
+
+            <h1>Popover</h1>
+            <p>
+                Tıklamayla açılan zengin içerik balonu. Tooltip'ten farklı olarak her türlü HTML
+                barındırabilir. Dışarıya tıklandığında veya <kbd>Esc</kbd> tuşuna basıldığında kapanır.
+            </p>
+
+            <h2>Konumlar</h2>
+
+            <div class="demo-popover-row">
+                <c-popover position="bottom">
+                    <button class="btn btn--primary" slot="trigger">Aşağı (bottom)</button>
+                    <div slot="content">
+                        <div class="popover-demo-content">
+                            <p class="popover-demo-content__title">Bilgi</p>
+                            <p class="popover-demo-content__text">Bu popover aşağı açılır.</p>
+                        </div>
+                    </div>
+                </c-popover>
+
+                <c-popover position="top">
+                    <button class="btn btn--primary" slot="trigger">Yukarı (top)</button>
+                    <div slot="content">
+                        <div class="popover-demo-content">
+                            <p class="popover-demo-content__title">Bilgi</p>
+                            <p class="popover-demo-content__text">Bu popover yukarı açılır.</p>
+                        </div>
+                    </div>
+                </c-popover>
+
+                <c-popover position="right">
+                    <button class="btn btn--primary" slot="trigger">Sağa (right)</button>
+                    <div slot="content">
+                        <div class="popover-demo-content">
+                            <p class="popover-demo-content__title">Bilgi</p>
+                            <p class="popover-demo-content__text">Bu popover sağa açılır.</p>
+                        </div>
+                    </div>
+                </c-popover>
+
+                <c-popover position="left">
+                    <button class="btn btn--primary" slot="trigger">Sola (left)</button>
+                    <div slot="content">
+                        <div class="popover-demo-content">
+                            <p class="popover-demo-content__title">Bilgi</p>
+                            <p class="popover-demo-content__text">Bu popover sola açılır.</p>
+                        </div>
+                    </div>
+                </c-popover>
+            </div>
+
+            <h2>Zengin İçerik</h2>
+            <p>İçerik slotuna herhangi bir HTML yerleştirilebilir.</p>
+
+            <div class="demo-popover-row">
+                <c-popover position="bottom">
+                    <button class="btn btn--secondary" slot="trigger">Kullanıcı Kartı</button>
+                    <div slot="content">
+                        <div class="popover-user-card">
+                            <div class="popover-user-card__avatar">B</div>
+                            <div class="popover-user-card__info">
+                                <span class="popover-user-card__name">Berkay Ölçe</span>
+                                <span class="popover-user-card__role">Frontend Developer</span>
+                            </div>
+                        </div>
+                    </div>
+                </c-popover>
+
+                <c-popover position="bottom">
+                    <button class="btn btn--ghost" slot="trigger">Menü</button>
+                    <div slot="content">
+                        <div class="popover-demo-content">
+                            <button class="popover-demo-content__action">Profili Görüntüle</button>
+                            <button class="popover-demo-content__action">Ayarlar</button>
+                            <div class="popover-demo-content__divider"></div>
+                            <button class="popover-demo-content__action">Çıkış Yap</button>
+                        </div>
+                    </div>
+                </c-popover>
+            </div>
+
+            <h2>Kod</h2>
+
+            <c-code-block lang="html">&lt;c-popover position="bottom"&gt;
+    &lt;button slot="trigger"&gt;Aç&lt;/button&gt;
+    &lt;div slot="content"&gt;
+        &lt;strong&gt;Başlık&lt;/strong&gt;
+        &lt;p&gt;Popover içeriği buraya gelir.&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/c-popover&gt;</c-code-block>
+
+            <h2>Attribute'lar</h2>
+            <table>
+                <thead><tr><th>Attribute</th><th>Tip</th><th>Varsayılan</th><th>Açıklama</th></tr></thead>
+                <tbody>
+                    <tr><td><code>position</code></td><td>string</td><td><code>bottom</code></td><td><code>top | bottom | left | right</code></td></tr>
+                </tbody>
+            </table>
+
+            <h2>Slot'lar</h2>
+            <table>
+                <thead><tr><th>Slot</th><th>Açıklama</th></tr></thead>
+                <tbody>
+                    <tr><td><code>trigger</code></td><td>Tıklanınca popover'ı açan element (buton, ikon vb.)</td></tr>
+                    <tr><td><code>content</code></td><td>Panel içeriği — herhangi bir HTML barındırabilir</td></tr>
+                </tbody>
+            </table>
+
+            <c-pagination-nav prev-href="toast.html" prev-label="Toast" next-href="command-palette.html" next-label="Command Palette"></c-pagination-nav>
+        </div>
+    </main>
+
+    <script src="../assets/vendor/js/prism.min.js"></script>
+    <script src="../assets/vendor/js/prism-languages.min.js"></script>
+    <script src="../assets/js/project.js"></script>
+    <script src="../components/c-theme-toggle/c-theme-toggle.js"></script>
+    <script src="../components/c-navbar/c-navbar.js"></script>
+    <script src="../components/c-sidebar/c-sidebar.js"></script>
+    <script src="../components/c-breadcrumb/c-breadcrumb.js"></script>
+    <script src="../components/c-code-block/c-code-block.js"></script>
+    <script src="../components/c-popover/c-popover.js"></script>
+    <script src="../components/c-pagination-nav/c-pagination-nav.js"></script>
+</body>
+
+</html>

@@ -9,6 +9,7 @@
 
     <link rel="stylesheet" href="assets/css/tokens.css">
     <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="components/c-button/c-button.css">
 
     <link rel="stylesheet" href="components/c-theme-toggle/c-theme-toggle.css">
     <link rel="stylesheet" href="components/c-navbar/c-navbar.css">
@@ -72,9 +73,9 @@
                     <div slot="footer"><a href="pages/callout.html">İncele &rarr;</a></div>
                 </c-card>
                 <c-card class="c-index-card">
-                    <div slot="header">Code Block</div>
-                    <p>Prism söz dizimi vurgulama ve kopyala butonu.</p>
-                    <div slot="footer"><a href="pages/code-block.html">İncele &rarr;</a></div>
+                    <div slot="header">Button</div>
+                    <p>Varyant, outline ve boyut destekli temel düğme stilleri.</p>
+                    <div slot="footer"><a href="pages/button.html">İncele &rarr;</a></div>
                 </c-card>
                 <c-card class="c-index-card">
                     <div slot="header">Card</div>
@@ -136,6 +137,16 @@
                     <p>Vurgulanmış büyük sayı / metrik kartı.</p>
                     <div slot="footer"><a href="pages/stat.html">İncele &rarr;</a></div>
                 </c-card>
+                <c-card class="c-index-card">
+                    <div slot="header">Skeleton Loader</div>
+                    <p>Shimmer animasyonlu içerik yükleniyor placeholder'ı.</p>
+                    <div slot="footer"><a href="pages/skeleton.html">İncele &rarr;</a></div>
+                </c-card>
+                <c-card class="c-index-card">
+                    <div slot="header">Empty State</div>
+                    <p>Boş liste ve sonuçsuz arama durumları için merkezi placeholder.</p>
+                    <div slot="footer"><a href="pages/empty-state.html">İncele &rarr;</a></div>
+                </c-card>
             </div>
 
             <h2>Docs</h2>
@@ -149,11 +160,6 @@
                     <div slot="header">Keyboard (Kbd)</div>
                     <p>Klavye kısayolu gösterimi.</p>
                     <div slot="footer"><a href="pages/kbd.html">İncele &rarr;</a></div>
-                </c-card>
-                <c-card class="c-index-card">
-                    <div slot="header">Terminal</div>
-                    <p>Retro sahte terminal penceresi.</p>
-                    <div slot="footer"><a href="pages/terminal.html">İncele &rarr;</a></div>
                 </c-card>
                 <c-card class="c-index-card">
                     <div slot="header">File Tree</div>
@@ -171,11 +177,6 @@
                     <div slot="footer"><a href="pages/changelog.html">İncele &rarr;</a></div>
                 </c-card>
                 <c-card class="c-index-card">
-                    <div slot="header">Live Demo</div>
-                    <p>Düzenlenebilir kod ve canlı önizleme.</p>
-                    <div slot="footer"><a href="pages/live-demo.html">İncele &rarr;</a></div>
-                </c-card>
-                <c-card class="c-index-card">
                     <div slot="header">Copy Button</div>
                     <p>Tek tıkla içerik kopyalama.</p>
                     <div slot="footer"><a href="pages/copy-button.html">İncele &rarr;</a></div>
@@ -184,6 +185,30 @@
                     <div slot="header">Print Button</div>
                     <p>Sayfa yazdırma butonu.</p>
                     <div slot="footer"><a href="pages/print-button.html">İncele &rarr;</a></div>
+                </c-card>
+            </div>
+
+            <h2>Kod</h2>
+            <div class="c-grid">
+                <c-card class="c-index-card">
+                    <div slot="header">Code Block</div>
+                    <p>Prism söz dizimi vurgulama ve kopyala butonu.</p>
+                    <div slot="footer"><a href="pages/code-block.html">İncele &rarr;</a></div>
+                </c-card>
+                <c-card class="c-index-card">
+                    <div slot="header">Terminal</div>
+                    <p>Retro sahte terminal penceresi.</p>
+                    <div slot="footer"><a href="pages/terminal.html">İncele &rarr;</a></div>
+                </c-card>
+                <c-card class="c-index-card">
+                    <div slot="header">Diff View</div>
+                    <p>LCS tabanlı satır farkı görüntüleyici, söz dizimi vurgulama ile.</p>
+                    <div slot="footer"><a href="pages/diff.html">İncele &rarr;</a></div>
+                </c-card>
+                <c-card class="c-index-card">
+                    <div slot="header">Live Demo</div>
+                    <p>Düzenlenebilir kod ve canlı önizleme.</p>
+                    <div slot="footer"><a href="pages/live-demo.html">İncele &rarr;</a></div>
                 </c-card>
             </div>
 
@@ -233,6 +258,26 @@
                     <div slot="header">Feedback</div>
                     <p>Sayfa için geri bildirim butonu.</p>
                     <div slot="footer"><a href="pages/feedback.html">İncele &rarr;</a></div>
+                </c-card>
+                <c-card class="c-index-card">
+                    <div slot="header">Toast</div>
+                    <p>Sağ alt köşede beliren geçici bildirim mesajları.</p>
+                    <div slot="footer"><a href="pages/toast.html">İncele &rarr;</a></div>
+                </c-card>
+                <c-card class="c-index-card">
+                    <div slot="header">Popover</div>
+                    <p>Tıklamayla açılan, zengin HTML içerebilen içerik balonu.</p>
+                    <div slot="footer"><a href="pages/popover.html">İncele &rarr;</a></div>
+                </c-card>
+                <c-card class="c-index-card">
+                    <div slot="header">Command Palette</div>
+                    <p>Ctrl+K ile açılan klavye-driven bileşen arama overlay'i.</p>
+                    <div slot="footer"><a href="pages/command-palette.html">İncele &rarr;</a></div>
+                </c-card>
+                <c-card class="c-index-card">
+                    <div slot="header">Banner</div>
+                    <p>Deprecation, beta ve breaking change uyarıları için sayfa üstü duyuru çubuğu.</p>
+                    <div slot="footer"><a href="pages/banner.html">İncele &rarr;</a></div>
                 </c-card>
             </div>
 

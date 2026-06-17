@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skeleton Loader — Component Galerisi</title>
+
+    <link rel="stylesheet" href="../assets/vendor/css/prism-vscode_dark.min.css">
+    <link rel="stylesheet" href="../assets/css/tokens.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../components/c-button/c-button.css">
+
+    <link rel="stylesheet" href="../components/c-theme-toggle/c-theme-toggle.css">
+    <link rel="stylesheet" href="../components/c-navbar/c-navbar.css">
+    <link rel="stylesheet" href="../components/c-sidebar/c-sidebar.css">
+    <link rel="stylesheet" href="../components/c-breadcrumb/c-breadcrumb.css">
+    <link rel="stylesheet" href="../components/c-code-block/c-code-block.css">
+    <link rel="stylesheet" href="../components/c-skeleton/c-skeleton.css">
+    <link rel="stylesheet" href="../components/c-pagination-nav/c-pagination-nav.css">
+
+    <style>
+        .skeleton-demo-card {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1.25rem;
+            border: 1px solid var(--c-border);
+            border-radius: var(--c-radius);
+            max-width: 400px;
+        }
+        .skeleton-demo-card__body {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .skeleton-demo-row {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            align-items: flex-end;
+            margin: 1rem 0;
+        }
+        .skeleton-demo-block {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+            align-items: center;
+        }
+        .skeleton-demo-block small {
+            font-size: 0.75rem;
+            color: var(--c-text-muted);
+            margin-top: 0.5rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <c-navbar brand="Component Galerisi" home="../index.html"></c-navbar>
+    <c-sidebar active="skeleton" base="./"></c-sidebar>
+
+    <main class="page">
+        <div class="page-inner">
+            <c-breadcrumb items="Component Galerisi|../index.html>Skeleton Loader"></c-breadcrumb>
+
+            <h1>Skeleton Loader</h1>
+            <p>
+                İçerik yüklenirken gösterilen shimmer animasyonlu yer tutucu. Beyaz veya boş ekran yerine
+                sayfa düzenini korur, kullanıcı deneyimini iyileştirir.
+            </p>
+
+            <h2>Rect (Dikdörtgen)</h2>
+            <p>Varsayılan varyanttır. Resim, kart veya genel blokları temsil eder.</p>
+
+            <div class="skeleton-demo-row">
+                <div class="skeleton-demo-block">
+                    <c-skeleton width="200px" height="120px"></c-skeleton>
+                    <small>200×120</small>
+                </div>
+                <div class="skeleton-demo-block">
+                    <c-skeleton width="100px" height="100px"></c-skeleton>
+                    <small>100×100</small>
+                </div>
+                <div class="skeleton-demo-block">
+                    <c-skeleton width="160px" height="2rem"></c-skeleton>
+                    <small>başlık satırı</small>
+                </div>
+            </div>
+
+            <h2>Circle (Daire)</h2>
+            <p>Avatar ve profil fotoğrafı yer tutucuları için.</p>
+
+            <div class="skeleton-demo-row">
+                <div class="skeleton-demo-block">
+                    <c-skeleton variant="circle" size="32px"></c-skeleton>
+                    <small>32px</small>
+                </div>
+                <div class="skeleton-demo-block">
+                    <c-skeleton variant="circle" size="48px"></c-skeleton>
+                    <small>48px</small>
+                </div>
+                <div class="skeleton-demo-block">
+                    <c-skeleton variant="circle" size="64px"></c-skeleton>
+                    <small>64px</small>
+                </div>
+                <div class="skeleton-demo-block">
+                    <c-skeleton variant="circle" size="96px"></c-skeleton>
+                    <small>96px</small>
+                </div>
+            </div>
+
+            <h2>Text (Metin Satırları)</h2>
+            <p>Metin paragraflarını taklit eder. Son satır otomatik olarak kısaltılır.</p>
+
+            <div style="max-width: 360px; margin: 1rem 0;">
+                <c-skeleton variant="text" lines="4"></c-skeleton>
+            </div>
+
+            <h2>Kart Şablonu</h2>
+            <p>Birden fazla varyantı birleştirerek gerçekçi içerik iskeletleri oluşturulabilir.</p>
+
+            <div class="skeleton-demo-card">
+                <c-skeleton variant="circle" size="48px"></c-skeleton>
+                <div class="skeleton-demo-card__body">
+                    <c-skeleton width="140px" height="1rem"></c-skeleton>
+                    <c-skeleton variant="text" lines="2"></c-skeleton>
+                </div>
+            </div>
+
+            <h2>Kod</h2>
+
+            <c-code-block lang="html">&lt;!-- Dikdörtgen --&gt;
+&lt;c-skeleton width="200px" height="120px"&gt;&lt;/c-skeleton&gt;
+
+&lt;!-- Daire (avatar) --&gt;
+&lt;c-skeleton variant="circle" size="48px"&gt;&lt;/c-skeleton&gt;
+
+&lt;!-- Metin satırları --&gt;
+&lt;c-skeleton variant="text" lines="3"&gt;&lt;/c-skeleton&gt;</c-code-block>
+
+            <h2>Attribute'lar</h2>
+            <table>
+                <thead><tr><th>Attribute</th><th>Tip</th><th>Varsayılan</th><th>Açıklama</th></tr></thead>
+                <tbody>
+                    <tr><td><code>variant</code></td><td>string</td><td><code>rect</code></td><td><code>rect | circle | text</code></td></tr>
+                    <tr><td><code>width</code></td><td>CSS değeri</td><td>—</td><td>Genişlik (rect için, ör. <code>200px</code>, <code>60%</code>)</td></tr>
+                    <tr><td><code>height</code></td><td>CSS değeri</td><td><code>1rem</code></td><td>Yükseklik (rect için)</td></tr>
+                    <tr><td><code>size</code></td><td>CSS değeri</td><td><code>48px</code></td><td>Çap (circle için, ör. <code>64px</code>)</td></tr>
+                    <tr><td><code>lines</code></td><td>number</td><td><code>3</code></td><td>Satır sayısı (text için)</td></tr>
+                </tbody>
+            </table>
+
+            <c-pagination-nav prev-href="stat.html" prev-label="Stat" next-href="empty-state.html" next-label="Empty State"></c-pagination-nav>
+        </div>
+    </main>
+
+    <script src="../assets/vendor/js/prism.min.js"></script>
+    <script src="../assets/vendor/js/prism-languages.min.js"></script>
+    <script src="../assets/js/project.js"></script>
+    <script src="../components/c-theme-toggle/c-theme-toggle.js"></script>
+    <script src="../components/c-navbar/c-navbar.js"></script>
+    <script src="../components/c-sidebar/c-sidebar.js"></script>
+    <script src="../components/c-breadcrumb/c-breadcrumb.js"></script>
+    <script src="../components/c-code-block/c-code-block.js"></script>
+    <script src="../components/c-skeleton/c-skeleton.js"></script>
+    <script src="../components/c-pagination-nav/c-pagination-nav.js"></script>
+</body>
+
+</html>

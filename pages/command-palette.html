@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Command Palette — Component Galerisi</title>
+
+    <link rel="stylesheet" href="../assets/vendor/css/prism-vscode_dark.min.css">
+    <link rel="stylesheet" href="../assets/css/tokens.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../components/c-button/c-button.css">
+
+    <link rel="stylesheet" href="../components/c-theme-toggle/c-theme-toggle.css">
+    <link rel="stylesheet" href="../components/c-navbar/c-navbar.css">
+    <link rel="stylesheet" href="../components/c-sidebar/c-sidebar.css">
+    <link rel="stylesheet" href="../components/c-breadcrumb/c-breadcrumb.css">
+    <link rel="stylesheet" href="../components/c-code-block/c-code-block.css">
+    <link rel="stylesheet" href="../components/c-command-palette/c-command-palette.css">
+    <link rel="stylesheet" href="../components/c-kbd/c-kbd.css">
+    <link rel="stylesheet" href="../components/c-pagination-nav/c-pagination-nav.css">
+</head>
+
+<body>
+
+    <c-navbar brand="Component Galerisi" home="../index.html"></c-navbar>
+    <c-sidebar active="command-palette" base="./"></c-sidebar>
+
+    <!-- Paleti bu sayfada etkinleştir; Ctrl+K / ⌘K çalışır -->
+    <c-command-palette base="./"></c-command-palette>
+
+    <main class="page">
+        <div class="page-inner">
+            <c-breadcrumb items="Component Galerisi|../index.html>Command Palette"></c-breadcrumb>
+
+            <h1>Command Palette</h1>
+            <p>
+                <kbd>Ctrl</kbd>+<kbd>K</kbd> (Mac'te <kbd>⌘</kbd>+<kbd>K</kbd>) kısayoluyla açılan klavye-driven
+                bileşen arama overlay'i. Tüm bileşen sayfalarını anlık filtreler; ok tuşlarıyla gezilir,
+                <kbd>Enter</kbd> ile hedef sayfaya yönlendirir.
+            </p>
+
+            <h2>Deneme</h2>
+            <p>Aşağıdaki butona tıkla veya <kbd>Ctrl</kbd>+<kbd>K</kbd> kısayolunu kullan.</p>
+            <button class="btn btn--primary" id="cmdpal-open-btn">Command Palette Aç</button>
+
+            <h2>Özellikler</h2>
+            <ul>
+                <li>Tüm bileşen sayfalarını arar (49 sayfa)</li>
+                <li>Yazarken anlık filtreler — başlık ve grup adına göre</li>
+                <li><kbd>↑</kbd> / <kbd>↓</kbd> ok tuşlarıyla gezinme</li>
+                <li><kbd>Enter</kbd> ile seçili sayfaya git</li>
+                <li>Dışarı tıklama veya <kbd>Esc</kbd> ile kapat</li>
+                <li>Açık/koyu tema desteği</li>
+            </ul>
+
+            <h2>Kullanım</h2>
+            <p>
+                <code>&lt;c-command-palette&gt;</code> elementini sayfanın herhangi bir yerine ekle.
+                Script yüklendiğinde global <kbd>Ctrl</kbd>+<kbd>K</kbd> kısayolunu otomatik dinlemeye başlar.
+            </p>
+
+            <c-code-block lang="html">&lt;!-- CSS --&gt;
+&lt;link rel="stylesheet" href="components/c-command-palette/c-command-palette.css"&gt;
+
+&lt;!-- Element (body'nin herhangi bir yerine) --&gt;
+&lt;c-command-palette base="./"&gt;&lt;/c-command-palette&gt;
+
+&lt;!-- Script --&gt;
+&lt;script src="components/c-command-palette/c-command-palette.js"&gt;&lt;/script&gt;
+
+&lt;!-- Programatik açma --&gt;
+&lt;script&gt;
+  document.querySelector('c-command-palette').open();
+&lt;/script&gt;</c-code-block>
+
+            <h2>Attribute'lar</h2>
+            <table>
+                <thead>
+                    <tr><th>Attribute</th><th>Tip</th><th>Varsayılan</th><th>Açıklama</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>base</code></td>
+                        <td>string</td>
+                        <td><code>./</code></td>
+                        <td>
+                            Sayfa URL'leri için prefix.
+                            <code>pages/</code> klasöründeyken <code>./</code>,
+                            kök dizindeyken <code>pages/</code> kullan.
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>JS API</h2>
+            <table>
+                <thead>
+                    <tr><th>Metod</th><th>Açıklama</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><code>el.open()</code></td><td>Paleti programatik olarak açar.</td></tr>
+                    <tr><td><code>el.close()</code></td><td>Paleti kapatır.</td></tr>
+                </tbody>
+            </table>
+
+            <h2>Klavye Kısayolları</h2>
+            <table>
+                <thead>
+                    <tr><th>Kısayol</th><th>İşlev</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><kbd>Ctrl</kbd>+<kbd>K</kbd> / <kbd>⌘</kbd>+<kbd>K</kbd></td><td>Paleti aç / kapat</td></tr>
+                    <tr><td><kbd>↑</kbd> / <kbd>↓</kbd></td><td>Sonuçlarda gezin</td></tr>
+                    <tr><td><kbd>Enter</kbd></td><td>Seçili sayfaya git</td></tr>
+                    <tr><td><kbd>Esc</kbd></td><td>Paleti kapat</td></tr>
+                </tbody>
+            </table>
+
+            <c-pagination-nav
+                prev-href="popover.html"       prev-label="Popover"
+                next-href="banner.html"         next-label="Banner">
+            </c-pagination-nav>
+        </div>
+    </main>
+
+    <script src="../assets/vendor/js/prism.min.js"></script>
+    <script src="../assets/vendor/js/prism-languages.min.js"></script>
+    <script src="../assets/js/project.js"></script>
+    <script src="../components/c-theme-toggle/c-theme-toggle.js"></script>
+    <script src="../components/c-navbar/c-navbar.js"></script>
+    <script src="../components/c-sidebar/c-sidebar.js"></script>
+    <script src="../components/c-breadcrumb/c-breadcrumb.js"></script>
+    <script src="../components/c-code-block/c-code-block.js"></script>
+    <script src="../components/c-kbd/c-kbd.js"></script>
+    <script src="../components/c-command-palette/c-command-palette.js"></script>
+    <script src="../components/c-pagination-nav/c-pagination-nav.js"></script>
+    <script>
+        document.getElementById('cmdpal-open-btn').addEventListener('click', () => {
+            document.querySelector('c-command-palette').open();
+        });
+    </script>
+</body>
+
+</html>

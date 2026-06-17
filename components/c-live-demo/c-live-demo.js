@@ -22,6 +22,7 @@ class CLiveDemo extends HTMLElement {
 
         const scriptEl = this.querySelector('script[type="text/plain"]');
         const code = scriptEl ? scriptEl.textContent.trim() : '';
+        const lang = this.getAttribute('lang') || 'markup';
 
         this.innerHTML = '';
         this.classList.add('c-live-demo');
@@ -49,10 +50,22 @@ class CLiveDemo extends HTMLElement {
         toolbar.appendChild(label);
         toolbar.appendChild(copyBtn);
 
-        /* ── Sol panel: düzenlenebilir textarea ── */
+        /* ── Sol panel: highlight pre + transparan textarea üst üste ── */
         const codePanel = document.createElement('div');
         codePanel.className = 'c-live-demo__code-panel';
 
+        const editor = document.createElement('div');
+        editor.className = 'c-live-demo__editor';
+
+        /* Highlight katmanı (arka planda, pointer-events yok) */
+        const pre = document.createElement('pre');
+        pre.className = 'c-live-demo__highlight';
+        pre.setAttribute('aria-hidden', 'true');
+        const codeEl = document.createElement('code');
+        codeEl.className = `language-${lang}`;
+        pre.appendChild(codeEl);
+
+        /* Düzenlenebilir katman (üstte, transparan) */
         const textarea = document.createElement('textarea');
         textarea.className = 'c-live-demo__textarea';
         textarea.value = code;
@@ -61,17 +74,9 @@ class CLiveDemo extends HTMLElement {
         textarea.autocorrect = 'off';
         textarea.autocapitalize = 'off';
 
-        /* Tab → 2 boşluk (focus kaybolmaz) */
-        textarea.addEventListener('keydown', e => {
-            if (e.key !== 'Tab') return;
-            e.preventDefault();
-            const s = textarea.selectionStart;
-            const val = textarea.value;
-            textarea.value = val.slice(0, s) + '  ' + val.slice(textarea.selectionEnd);
-            textarea.selectionStart = textarea.selectionEnd = s + 2;
-        });
-
-        codePanel.appendChild(textarea);
+        editor.appendChild(pre);
+        editor.appendChild(textarea);
+        codePanel.appendChild(editor);
 
         /* ── Sağ panel: iframe önizleme ── */
         const previewPanel = document.createElement('div');
@@ -90,12 +95,43 @@ class CLiveDemo extends HTMLElement {
         this.appendChild(toolbar);
         this.appendChild(panels);
 
+        /* Highlight fn — Prism yoksa düz metin */
+        const highlight = text => {
+            if (window.Prism) {
+                const grammar = Prism.languages[lang] || Prism.languages.markup;
+                codeEl.innerHTML = Prism.highlight(text, grammar, lang) + '\n';
+            } else {
+                codeEl.textContent = text + '\n';
+            }
+        };
+
+        /* Scroll sync: textarea → pre */
+        textarea.addEventListener('scroll', () => {
+            pre.scrollTop  = textarea.scrollTop;
+            pre.scrollLeft = textarea.scrollLeft;
+        });
+
+        /* Tab → 2 boşluk */
+        textarea.addEventListener('keydown', e => {
+            if (e.key !== 'Tab') return;
+            e.preventDefault();
+            const s = textarea.selectionStart;
+            const val = textarea.value;
+            textarea.value = val.slice(0, s) + '  ' + val.slice(textarea.selectionEnd);
+            textarea.selectionStart = textarea.selectionEnd = s + 2;
+            highlight(textarea.value);
+        });
+
         /* İlk render */
-        requestAnimationFrame(() => this._fillIframe(iframe, code));
+        requestAnimationFrame(() => {
+            highlight(code);
+            this._fillIframe(iframe, code);
+        });
 
         /* Debounced canlı güncelleme */
         let timer = null;
         textarea.addEventListener('input', () => {
+            highlight(textarea.value);
             clearTimeout(timer);
             timer = setTimeout(() => this._fillIframe(iframe, textarea.value), 400);
         });

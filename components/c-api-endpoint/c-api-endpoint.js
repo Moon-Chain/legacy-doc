@@ -113,8 +113,15 @@ class CApiEndpoint extends HTMLElement {
             body.appendChild(label);
 
             const pre = document.createElement('pre');
-            pre.className = 'c-api-endpoint__code';
-            pre.textContent = request;
+            pre.className = 'c-api-endpoint__code language-json';
+            const codeReq = document.createElement('code');
+            codeReq.className = 'language-json';
+            if (window.Prism && Prism.languages.json) {
+                codeReq.innerHTML = Prism.highlight(request, Prism.languages.json, 'json');
+            } else {
+                codeReq.textContent = request;
+            }
+            pre.appendChild(codeReq);
             body.appendChild(pre);
         }
 
@@ -125,8 +132,15 @@ class CApiEndpoint extends HTMLElement {
             body.appendChild(label);
 
             const pre = document.createElement('pre');
-            pre.className = 'c-api-endpoint__code';
-            pre.textContent = response;
+            pre.className = 'c-api-endpoint__code language-json';
+            const codeRes = document.createElement('code');
+            codeRes.className = 'language-json';
+            if (window.Prism && Prism.languages.json) {
+                codeRes.innerHTML = Prism.highlight(response, Prism.languages.json, 'json');
+            } else {
+                codeRes.textContent = response;
+            }
+            pre.appendChild(codeRes);
             body.appendChild(pre);
         }
 
