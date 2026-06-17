@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Swatch — Component Galerisi</title>
+
+    <link rel="stylesheet" href="../assets/vendor/css/prism-vscode_dark.min.css">
+    <link rel="stylesheet" href="../assets/css/tokens.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+
+    <link rel="stylesheet" href="../components/c-theme-toggle/c-theme-toggle.css">
+    <link rel="stylesheet" href="../components/c-navbar/c-navbar.css">
+    <link rel="stylesheet" href="../components/c-sidebar/c-sidebar.css">
+    <link rel="stylesheet" href="../components/c-breadcrumb/c-breadcrumb.css">
+    <link rel="stylesheet" href="../components/c-code-block/c-code-block.css">
+    <link rel="stylesheet" href="../components/c-color-swatch/c-color-swatch.css">
+    <link rel="stylesheet" href="../components/c-pagination-nav/c-pagination-nav.css">
+</head>
+
+<body>
+
+    <c-navbar brand="Component Galerisi" home="../index.html"></c-navbar>
+    <c-sidebar active="color-swatch" base="./"></c-sidebar>
+
+    <main class="page">
+        <div class="page-inner">
+            <c-breadcrumb items="Component Galerisi|../index.html>Color Swatch"></c-breadcrumb>
+
+            <h1>Color Swatch</h1>
+            <p>
+                CSS renk token'larını görselleştiren bileşen. <code>tokens.css</code> içindeki
+                değişkenleri otomatik okuyarak hesaplanmış renk değerini, değişken adını ve etiketi
+                bir arada gösterir. Tıklanınca değeri panoya kopyalar.
+            </p>
+
+            <h2>Temel Kullanım</h2>
+
+            <div class="c-swatch-grid">
+                <c-color-swatch var="--c-primary"   label="Primary"></c-color-swatch>
+                <c-color-swatch var="--c-secondary" label="Secondary"></c-color-swatch>
+                <c-color-swatch var="--c-success"   label="Success"></c-color-swatch>
+                <c-color-swatch var="--c-danger"    label="Danger"></c-color-swatch>
+                <c-color-swatch var="--c-warning"   label="Warning"></c-color-swatch>
+                <c-color-swatch var="--c-info"      label="Info"></c-color-swatch>
+                <c-color-swatch var="--c-dark"      label="Dark"></c-color-swatch>
+            </div>
+
+            <h2>Tema Renkleri</h2>
+            <p>Aktif temaya göre değişen semantik token'lar. Karanlık modda geçiş yaparak farkı görebilirsin.</p>
+
+            <div class="c-swatch-grid">
+                <c-color-swatch var="--c-bg"          label="Background"></c-color-swatch>
+                <c-color-swatch var="--c-bg-elevated"  label="Background Elevated"></c-color-swatch>
+                <c-color-swatch var="--c-bg-subtle"    label="Background Subtle"></c-color-swatch>
+                <c-color-swatch var="--c-border"       label="Border"></c-color-swatch>
+                <c-color-swatch var="--c-accent-bg"    label="Accent Background"></c-color-swatch>
+                <c-color-swatch var="--c-link"         label="Link"></c-color-swatch>
+            </div>
+
+            <h2>Block Varyantı</h2>
+            <p>Renk bloğu üstte, bilgi altta. Büyük palet gösterimlerinde kullanılır.</p>
+
+            <div class="c-swatch-palette">
+                <c-color-swatch var="--c-primary"   label="Primary"   variant="block"></c-color-swatch>
+                <c-color-swatch var="--c-secondary" label="Secondary" variant="block"></c-color-swatch>
+                <c-color-swatch var="--c-success"   label="Success"   variant="block"></c-color-swatch>
+                <c-color-swatch var="--c-danger"    label="Danger"    variant="block"></c-color-swatch>
+                <c-color-swatch var="--c-warning"   label="Warning"   variant="block"></c-color-swatch>
+                <c-color-swatch var="--c-info"      label="Info"      variant="block"></c-color-swatch>
+            </div>
+
+            <h2>Kod</h2>
+            <c-code-block lang="markup">&lt;!-- Tek swatch --&gt;
+&lt;c-color-swatch var="--c-primary" label="Primary"&gt;&lt;/c-color-swatch&gt;
+
+&lt;!-- Block varyantı --&gt;
+&lt;c-color-swatch var="--c-success" label="Success" variant="block"&gt;&lt;/c-color-swatch&gt;
+
+&lt;!-- Yatay grid --&gt;
+&lt;div class="c-swatch-grid"&gt;
+    &lt;c-color-swatch var="--c-primary"   label="Primary"&gt;&lt;/c-color-swatch&gt;
+    &lt;c-color-swatch var="--c-secondary" label="Secondary"&gt;&lt;/c-color-swatch&gt;
+    &lt;c-color-swatch var="--c-success"   label="Success"&gt;&lt;/c-color-swatch&gt;
+&lt;/div&gt;
+
+&lt;!-- Blok palet --&gt;
+&lt;div class="c-swatch-palette"&gt;
+    &lt;c-color-swatch var="--c-primary" label="Primary" variant="block"&gt;&lt;/c-color-swatch&gt;
+    &lt;c-color-swatch var="--c-danger"  label="Danger"  variant="block"&gt;&lt;/c-color-swatch&gt;
+&lt;/div&gt;</c-code-block>
+
+            <h2>Attribute'lar</h2>
+            <table>
+                <thead>
+                    <tr><th>Attribute</th><th>Tip</th><th>Varsayılan</th><th>Açıklama</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>var</code></td>
+                        <td>string</td>
+                        <td>—</td>
+                        <td>CSS değişken adı. <code>--c-primary</code> gibi tam adla verilmeli.</td>
+                    </tr>
+                    <tr>
+                        <td><code>label</code></td>
+                        <td>string</td>
+                        <td><em>var değeri</em></td>
+                        <td>Gösterilecek başlık. Verilmezse değişken adı kullanılır.</td>
+                    </tr>
+                    <tr>
+                        <td><code>variant</code></td>
+                        <td>string</td>
+                        <td>—</td>
+                        <td><code>block</code>: renk bloğu üstte, bilgi altta büyük palet görünümü.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>CSS Sınıfları</h2>
+            <table>
+                <thead>
+                    <tr><th>Sınıf</th><th>Açıklama</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><code>.c-swatch-grid</code></td><td>Yatay otomatik sütun grid'i (min 210px).</td></tr>
+                    <tr><td><code>.c-swatch-palette</code></td><td>Kompakt blok palet grid'i (min 130px).</td></tr>
+                </tbody>
+            </table>
+
+            <c-pagination-nav
+                prev-href="read-progress.html" prev-label="Read Progress"
+                next-href="font-scale.html" next-label="Font Scale">
+            </c-pagination-nav>
+        </div>
+    </main>
+
+    <script src="../assets/vendor/js/prism.min.js"></script>
+    <script src="../assets/js/project.js"></script>
+    <script src="../components/c-theme-toggle/c-theme-toggle.js"></script>
+    <script src="../components/c-navbar/c-navbar.js"></script>
+    <script src="../components/c-sidebar/c-sidebar.js"></script>
+    <script src="../components/c-breadcrumb/c-breadcrumb.js"></script>
+    <script src="../components/c-code-block/c-code-block.js"></script>
+    <script src="../components/c-color-swatch/c-color-swatch.js"></script>
+    <script src="../components/c-pagination-nav/c-pagination-nav.js"></script>
+</body>
+
+</html>

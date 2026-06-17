@@ -47,6 +47,24 @@ class CSearchBox extends HTMLElement {
             }
         });
 
+        const groupSelector = this.getAttribute('group');
+        if (groupSelector) {
+            document.querySelectorAll(groupSelector).forEach(group => {
+                const hasVisible = Array.from(group.querySelectorAll(this.targetSelector))
+                    .some(item => item.style.display !== 'none');
+                group.style.display = hasVisible ? '' : 'none';
+
+                let prev = group.previousElementSibling;
+                while (prev) {
+                    if (/^H[1-6]$/.test(prev.tagName)) {
+                        prev.style.display = hasVisible ? '' : 'none';
+                        break;
+                    }
+                    prev = prev.previousElementSibling;
+                }
+            });
+        }
+
         this.emptyMessage.classList.toggle('c-search-box__empty--visible', items.length > 0 && visibleCount === 0);
     }
 }

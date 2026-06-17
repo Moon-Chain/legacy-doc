@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Read Progress — Component Galerisi</title>
+
+    <link rel="stylesheet" href="../assets/vendor/css/prism-vscode_dark.min.css">
+    <link rel="stylesheet" href="../assets/css/tokens.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+
+    <link rel="stylesheet" href="../components/c-theme-toggle/c-theme-toggle.css">
+    <link rel="stylesheet" href="../components/c-navbar/c-navbar.css">
+    <link rel="stylesheet" href="../components/c-sidebar/c-sidebar.css">
+    <link rel="stylesheet" href="../components/c-breadcrumb/c-breadcrumb.css">
+    <link rel="stylesheet" href="../components/c-code-block/c-code-block.css">
+    <link rel="stylesheet" href="../components/c-read-progress/c-read-progress.css">
+    <link rel="stylesheet" href="../components/c-pagination-nav/c-pagination-nav.css">
+</head>
+
+<body>
+
+    <c-navbar brand="Component Galerisi" home="../index.html"></c-navbar>
+    <c-sidebar active="read-progress" base="./"></c-sidebar>
+
+    <c-read-progress></c-read-progress>
+
+    <main class="page">
+        <div class="page-inner">
+            <c-breadcrumb items="Component Galerisi|../index.html>Read Progress"></c-breadcrumb>
+
+            <h1>Read Progress</h1>
+            <p>
+                Sayfanın en üstünde, scroll konumuna göre genişleyen 3px'lik ince ilerleme çubuğu.
+                Uzun makaleler ve dokümantasyon sayfaları için okuma konumunu gösterir.
+            </p>
+
+            <h2>Demo</h2>
+            <p>Sayfayı aşağı kaydırın — en üstteki mavi çubuğun ilerlediğini göreceksiniz.</p>
+
+            <!-- Sayfayı uzatmak için içerik -->
+            <h2>Özellikler</h2>
+            <p>Sayfaya tek satırla eklenir. Scroll yüzdesini anlık hesaplar ve çubuğu günceller.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula.</p>
+            <p>Curabitur aliquet quam id dui posuere blandit. Vivamus magna. Fusce dui leo, imperdiet in, aliquam sit amet, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet.</p>
+
+            <h2>Teknik Detay</h2>
+            <p>Scroll hesabı: <code>(scrollY / (documentHeight - windowHeight)) * 100</code></p>
+            <p>Sayfa yüksekliği değişirse (akordeon açılma, içerik yüklenme gibi) otomatik adapte olur çünkü her scroll olayında taze değer hesaplanır.</p>
+            <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+            <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.</p>
+            <p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.</p>
+            <p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae.</p>
+
+            <h2>Navbar ile Katman Sırası</h2>
+            <p>Bileşen <code>z-index: 999</code> kullanır — navbar ve sidebar'ın üzerinde kalır ve sayfanın en tepesinde gözükür.</p>
+            <p>Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Curabitur aliquet quam id dui posuere blandit. Vivamus magna. Fusce dui leo, imperdiet in, aliquam sit amet, feugiat a, tellus.</p>
+
+            <h2>Kod</h2>
+            <c-code-block lang="markup">&lt;!-- body'nin hemen içine ekle --&gt;
+&lt;c-read-progress&gt;&lt;/c-read-progress&gt;</c-code-block>
+
+            <h2>Attribute'lar</h2>
+            <p>Bu bileşenin konfigürasyon attribute'u yoktur. Renk <code>--c-primary</code> CSS değişkeni üzerinden özelleştirilebilir.</p>
+
+            <c-pagination-nav prev-href="back-to-top.html" prev-label="Back to Top"></c-pagination-nav>
+        </div>
+    </main>
+
+    <script src="../assets/vendor/js/prism.min.js"></script>
+    <script src="../assets/js/project.js"></script>
+    <script src="../components/c-theme-toggle/c-theme-toggle.js"></script>
+    <script src="../components/c-navbar/c-navbar.js"></script>
+    <script src="../components/c-sidebar/c-sidebar.js"></script>
+    <script src="../components/c-breadcrumb/c-breadcrumb.js"></script>
+    <script src="../components/c-code-block/c-code-block.js"></script>
+    <script src="../components/c-read-progress/c-read-progress.js"></script>
+    <script src="../components/c-pagination-nav/c-pagination-nav.js"></script>
+</body>
+
+</html>

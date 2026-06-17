@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divider — Component Galerisi</title>
+
+    <link rel="stylesheet" href="../assets/vendor/css/prism-vscode_dark.min.css">
+    <link rel="stylesheet" href="../assets/css/tokens.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+
+    <link rel="stylesheet" href="../components/c-theme-toggle/c-theme-toggle.css">
+    <link rel="stylesheet" href="../components/c-navbar/c-navbar.css">
+    <link rel="stylesheet" href="../components/c-sidebar/c-sidebar.css">
+    <link rel="stylesheet" href="../components/c-breadcrumb/c-breadcrumb.css">
+    <link rel="stylesheet" href="../components/c-code-block/c-code-block.css">
+    <link rel="stylesheet" href="../components/c-divider/c-divider.css">
+    <link rel="stylesheet" href="../components/c-pagination-nav/c-pagination-nav.css">
+</head>
+
+<body>
+
+    <c-navbar brand="Component Galerisi" home="../index.html"></c-navbar>
+    <c-sidebar active="divider" base="./"></c-sidebar>
+
+    <main class="page">
+        <div class="page-inner">
+            <c-breadcrumb items="Component Galerisi|../index.html>Divider"></c-breadcrumb>
+
+            <h1>Divider</h1>
+            <p>
+                Etiketli veya düz yatay ayırıcı çizgi. Form bölümleri, içerik grupları
+                ve "veya" gibi alternatif seçenekleri ayırmak için kullanılır.
+            </p>
+
+            <h2>Düz Çizgi</h2>
+
+            <p>Üst içerik bloğu.</p>
+            <c-divider></c-divider>
+            <p>Alt içerik bloğu.</p>
+
+            <h2>Etiketli</h2>
+
+            <p>E-posta ile giriş formu alanı.</p>
+            <c-divider label="veya"></c-divider>
+            <p>OAuth sağlayıcı butonları.</p>
+
+            <h2>Farklı Etiketler</h2>
+
+            <c-divider label="BÖLÜM 1"></c-divider>
+            <p>İlk bölüm içeriği.</p>
+            <c-divider label="BÖLÜM 2"></c-divider>
+            <p>İkinci bölüm içeriği.</p>
+            <c-divider label="Son"></c-divider>
+
+            <h2>Kod</h2>
+            <c-code-block lang="markup">&lt;!-- Düz çizgi --&gt;
+&lt;c-divider&gt;&lt;/c-divider&gt;
+
+&lt;!-- Etiketli --&gt;
+&lt;c-divider label="veya"&gt;&lt;/c-divider&gt;
+&lt;c-divider label="BÖLÜM 2"&gt;&lt;/c-divider&gt;</c-code-block>
+
+            <h2>Attribute'lar</h2>
+            <table>
+                <thead><tr><th>Attribute</th><th>Tip</th><th>Varsayılan</th><th>Açıklama</th></tr></thead>
+                <tbody>
+                    <tr><td><code>label</code></td><td>string</td><td>—</td><td>Ortadaki metin; yoksa düz çizgi gösterilir</td></tr>
+                </tbody>
+            </table>
+
+            <c-pagination-nav prev-href="modal.html" prev-label="Modal" next-href="stat.html" next-label="Stat"></c-pagination-nav>
+        </div>
+    </main>
+
+    <script src="../assets/vendor/js/prism.min.js"></script>
+    <script src="../assets/js/project.js"></script>
+    <script src="../components/c-theme-toggle/c-theme-toggle.js"></script>
+    <script src="../components/c-navbar/c-navbar.js"></script>
+    <script src="../components/c-sidebar/c-sidebar.js"></script>
+    <script src="../components/c-breadcrumb/c-breadcrumb.js"></script>
+    <script src="../components/c-code-block/c-code-block.js"></script>
+    <script src="../components/c-divider/c-divider.js"></script>
+    <script src="../components/c-pagination-nav/c-pagination-nav.js"></script>
+</body>
+
+</html>

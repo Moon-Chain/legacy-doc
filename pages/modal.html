@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal — Component Galerisi</title>
+
+    <link rel="stylesheet" href="../assets/vendor/css/prism-vscode_dark.min.css">
+    <link rel="stylesheet" href="../assets/css/tokens.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+
+    <link rel="stylesheet" href="../components/c-theme-toggle/c-theme-toggle.css">
+    <link rel="stylesheet" href="../components/c-navbar/c-navbar.css">
+    <link rel="stylesheet" href="../components/c-sidebar/c-sidebar.css">
+    <link rel="stylesheet" href="../components/c-breadcrumb/c-breadcrumb.css">
+    <link rel="stylesheet" href="../components/c-code-block/c-code-block.css">
+    <link rel="stylesheet" href="../components/c-callout/c-callout.css">
+    <link rel="stylesheet" href="../components/c-modal/c-modal.css">
+    <link rel="stylesheet" href="../components/c-pagination-nav/c-pagination-nav.css">
+
+    <style>
+        .demo-btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.4rem 1rem;
+            border: 1px solid var(--c-border);
+            background: var(--c-bg-elevated);
+            color: var(--c-text);
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .demo-btn:hover { background: var(--c-bg-subtle); }
+        .demo-btn--danger { border-color: #dc2626; color: #dc2626; }
+        .demo-btn--danger:hover { background: #fef2f2; }
+        [data-theme="dark"] .demo-btn--danger:hover { background: #2d1515; }
+    </style>
+</head>
+
+<body>
+
+    <c-navbar brand="Component Galerisi" home="../index.html"></c-navbar>
+    <c-sidebar active="modal" base="./"></c-sidebar>
+
+    <main class="page">
+        <div class="page-inner">
+            <c-breadcrumb items="Component Galerisi|../index.html>Modal"></c-breadcrumb>
+
+            <h1>Modal</h1>
+            <p>
+                Overlay diyalog kutusu. <code>element.open()</code> ile açılır;
+                × butonu, ESC tuşu veya arka plana tıklama ile kapatılır.
+            </p>
+
+            <h2>Basit Modal</h2>
+
+            <button class="demo-btn" onclick="document.getElementById('modal-basic').open()">Modal Aç</button>
+
+            <c-modal id="modal-basic" title="Örnek Modal">
+                <p>Bu bir modal içeriğidir. Metinler, formlar veya herhangi bir HTML içeriği buraya yerleştirilebilir.</p>
+                <p>ESC tuşuna basarak veya arka plana tıklayarak da kapatabilirsiniz.</p>
+            </c-modal>
+
+            <h2>Onay Diyaloğu</h2>
+
+            <button class="demo-btn demo-btn--danger" onclick="document.getElementById('modal-confirm').open()">Kaydı Sil</button>
+
+            <c-modal id="modal-confirm" title="Emin misiniz?">
+                <p>Bu işlem geri alınamaz. Kaydı kalıcı olarak silmek istiyor musunuz?</p>
+                <div style="display:flex;gap:.5rem;justify-content:flex-end;margin-top:1.25rem">
+                    <button class="demo-btn" onclick="document.getElementById('modal-confirm').close()">İptal</button>
+                    <button class="demo-btn demo-btn--danger" onclick="document.getElementById('modal-confirm').close()">Evet, Sil</button>
+                </div>
+            </c-modal>
+
+            <h2>Geniş Modal</h2>
+
+            <button class="demo-btn" onclick="document.getElementById('modal-wide').open()">Geniş Modal Aç</button>
+
+            <c-modal id="modal-wide" title="Detaylar" width="720px">
+                <p>Bu modal <code>width="720px"</code> attribute'u ile daha geniş tanımlanmıştır.</p>
+                <p>Uzun formlar, tablo içerikleri veya detaylı bilgi gösterimi için uygundur.</p>
+            </c-modal>
+
+            <h2>Kod</h2>
+            <c-code-block lang="markup">&lt;!-- Modal tanımı --&gt;
+&lt;c-modal id="my-modal" title="Başlık"&gt;
+    &lt;p&gt;Modal içeriği buraya.&lt;/p&gt;
+&lt;/c-modal&gt;
+
+&lt;!-- Tetikleyici --&gt;
+&lt;button onclick="document.getElementById('my-modal').open()"&gt;Aç&lt;/button&gt;
+
+&lt;!-- JS ile kontrol --&gt;
+&lt;script&gt;
+    const modal = document.getElementById('my-modal');
+    modal.open();   // açar
+    modal.close();  // kapatır
+&lt;/script&gt;</c-code-block>
+
+            <h2>Attribute'lar</h2>
+            <table>
+                <thead><tr><th>Attribute</th><th>Tip</th><th>Varsayılan</th><th>Açıklama</th></tr></thead>
+                <tbody>
+                    <tr><td><code>title</code></td><td>string</td><td>—</td><td>Başlık çubuğundaki metin</td></tr>
+                    <tr><td><code>width</code></td><td>string</td><td><code>520px</code></td><td>Diyaloğun max genişliği</td></tr>
+                    <tr><td><code>open</code></td><td>boolean</td><td>—</td><td>Attribute varlığı modalı açık tutar</td></tr>
+                </tbody>
+            </table>
+
+            <h2>Metodlar</h2>
+            <table>
+                <thead><tr><th>Metod</th><th>Açıklama</th></tr></thead>
+                <tbody>
+                    <tr><td><code>open()</code></td><td>Modalı açar, body scroll'unu kilitler</td></tr>
+                    <tr><td><code>close()</code></td><td>Modalı kapatır, scroll'u serbest bırakır</td></tr>
+                </tbody>
+            </table>
+
+            <c-pagination-nav prev-href="live-demo.html" prev-label="Live Demo" next-href="divider.html" next-label="Divider"></c-pagination-nav>
+        </div>
+    </main>
+
+    <script src="../assets/vendor/js/prism.min.js"></script>
+    <script src="../assets/js/project.js"></script>
+    <script src="../components/c-theme-toggle/c-theme-toggle.js"></script>
+    <script src="../components/c-navbar/c-navbar.js"></script>
+    <script src="../components/c-sidebar/c-sidebar.js"></script>
+    <script src="../components/c-breadcrumb/c-breadcrumb.js"></script>
+    <script src="../components/c-code-block/c-code-block.js"></script>
+    <script src="../components/c-callout/c-callout.js"></script>
+    <script src="../components/c-modal/c-modal.js"></script>
+    <script src="../components/c-pagination-nav/c-pagination-nav.js"></script>
+</body>
+
+</html>

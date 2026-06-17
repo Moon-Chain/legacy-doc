@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stat — Component Galerisi</title>
+
+    <link rel="stylesheet" href="../assets/vendor/css/prism-vscode_dark.min.css">
+    <link rel="stylesheet" href="../assets/css/tokens.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+
+    <link rel="stylesheet" href="../components/c-theme-toggle/c-theme-toggle.css">
+    <link rel="stylesheet" href="../components/c-navbar/c-navbar.css">
+    <link rel="stylesheet" href="../components/c-sidebar/c-sidebar.css">
+    <link rel="stylesheet" href="../components/c-breadcrumb/c-breadcrumb.css">
+    <link rel="stylesheet" href="../components/c-code-block/c-code-block.css">
+    <link rel="stylesheet" href="../components/c-stat/c-stat.css">
+    <link rel="stylesheet" href="../components/c-pagination-nav/c-pagination-nav.css">
+</head>
+
+<body>
+
+    <c-navbar brand="Component Galerisi" home="../index.html"></c-navbar>
+    <c-sidebar active="stat" base="./"></c-sidebar>
+
+    <main class="page">
+        <div class="page-inner">
+            <c-breadcrumb items="Component Galerisi|../index.html>Stat"></c-breadcrumb>
+
+            <h1>Stat</h1>
+            <p>
+                Büyük sayı / metrik kartı. "15 bileşen", "0 bağımlılık" gibi vurgulanmış
+                değerler için. Ana sayfa, landing sayfası veya proje özeti bölümlerinde kullanılır.
+            </p>
+
+            <h2>Temel Kullanım</h2>
+
+            <div class="c-stat-grid">
+                <c-stat value="33" label="bileşen"></c-stat>
+                <c-stat value="0" label="bağımlılık" variant="accent"></c-stat>
+                <c-stat value="100" suffix="%" label="dosya uyumluluğu"></c-stat>
+            </div>
+
+            <h2>Prefix / Suffix</h2>
+
+            <div class="c-stat-grid">
+                <c-stat value="4.9" prefix="v" label="sürüm"></c-stat>
+                <c-stat value="12" suffix="ms" label="ortalama yükleme"></c-stat>
+                <c-stat value="8" suffix="KB" label="toplam boyut"></c-stat>
+                <c-stat value="MIT" label="lisans"></c-stat>
+            </div>
+
+            <h2>Accent Varyantı</h2>
+
+            <div class="c-stat-grid">
+                <c-stat value="33" label="bileşen" variant="accent"></c-stat>
+                <c-stat value="0" label="bağımlılık" variant="accent"></c-stat>
+                <c-stat value="5" label="kategori" variant="accent"></c-stat>
+            </div>
+
+            <h2>Kod</h2>
+            <c-code-block lang="markup">&lt;!-- Tek stat --&gt;
+&lt;c-stat value="15" label="bileşen"&gt;&lt;/c-stat&gt;
+
+&lt;!-- Accent varyantı --&gt;
+&lt;c-stat value="0" label="bağımlılık" variant="accent"&gt;&lt;/c-stat&gt;
+
+&lt;!-- Prefix ve suffix --&gt;
+&lt;c-stat value="4.9" prefix="v" label="sürüm"&gt;&lt;/c-stat&gt;
+&lt;c-stat value="100" suffix="%" label="uyumluluk"&gt;&lt;/c-stat&gt;
+
+&lt;!-- Grid'de yan yana --&gt;
+&lt;div class="c-stat-grid"&gt;
+    &lt;c-stat value="15" label="bileşen"&gt;&lt;/c-stat&gt;
+    &lt;c-stat value="0" label="bağımlılık" variant="accent"&gt;&lt;/c-stat&gt;
+&lt;/div&gt;</c-code-block>
+
+            <h2>Attribute'lar</h2>
+            <table>
+                <thead><tr><th>Attribute</th><th>Tip</th><th>Varsayılan</th><th>Açıklama</th></tr></thead>
+                <tbody>
+                    <tr><td><code>value</code></td><td>string</td><td><code>0</code></td><td>Gösterilecek değer</td></tr>
+                    <tr><td><code>label</code></td><td>string</td><td>—</td><td>Değerin altındaki açıklama metni</td></tr>
+                    <tr><td><code>prefix</code></td><td>string</td><td>—</td><td>Değerden önce eklenen metin (ör. <code>v</code>, <code>$</code>)</td></tr>
+                    <tr><td><code>suffix</code></td><td>string</td><td>—</td><td>Değerden sonra eklenen metin (ör. <code>+</code>, <code>ms</code>)</td></tr>
+                    <tr><td><code>variant</code></td><td>string</td><td>—</td><td><code>accent</code>: değeri primary rengiyle vurgular</td></tr>
+                </tbody>
+            </table>
+
+            <c-pagination-nav prev-href="divider.html" prev-label="Divider" next-href="back-to-top.html" next-label="Back to Top"></c-pagination-nav>
+        </div>
+    </main>
+
+    <script src="../assets/vendor/js/prism.min.js"></script>
+    <script src="../assets/js/project.js"></script>
+    <script src="../components/c-theme-toggle/c-theme-toggle.js"></script>
+    <script src="../components/c-navbar/c-navbar.js"></script>
+    <script src="../components/c-sidebar/c-sidebar.js"></script>
+    <script src="../components/c-breadcrumb/c-breadcrumb.js"></script>
+    <script src="../components/c-code-block/c-code-block.js"></script>
+    <script src="../components/c-stat/c-stat.js"></script>
+    <script src="../components/c-pagination-nav/c-pagination-nav.js"></script>
+</body>
+
+</html>

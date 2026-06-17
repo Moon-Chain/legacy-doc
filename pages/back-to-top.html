@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Back to Top — Component Galerisi</title>
+
+    <link rel="stylesheet" href="../assets/vendor/css/prism-vscode_dark.min.css">
+    <link rel="stylesheet" href="../assets/css/tokens.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+
+    <link rel="stylesheet" href="../components/c-theme-toggle/c-theme-toggle.css">
+    <link rel="stylesheet" href="../components/c-navbar/c-navbar.css">
+    <link rel="stylesheet" href="../components/c-sidebar/c-sidebar.css">
+    <link rel="stylesheet" href="../components/c-breadcrumb/c-breadcrumb.css">
+    <link rel="stylesheet" href="../components/c-code-block/c-code-block.css">
+    <link rel="stylesheet" href="../components/c-callout/c-callout.css">
+    <link rel="stylesheet" href="../components/c-back-to-top/c-back-to-top.css">
+    <link rel="stylesheet" href="../components/c-pagination-nav/c-pagination-nav.css">
+</head>
+
+<body>
+
+    <c-navbar brand="Component Galerisi" home="../index.html"></c-navbar>
+    <c-sidebar active="back-to-top" base="./"></c-sidebar>
+
+    <c-back-to-top></c-back-to-top>
+
+    <main class="page">
+        <div class="page-inner">
+            <c-breadcrumb items="Component Galerisi|../index.html>Back to Top"></c-breadcrumb>
+
+            <h1>Back to Top</h1>
+            <p>
+                Sayfa 300px aşağı kaydırıldığında sağ alt köşede beliren "başa dön" butonu.
+                Uzun dokümantasyon sayfalarında okuma deneyimini iyileştirir.
+            </p>
+
+            <c-callout variant="info" title="Demo">
+                Bu sayfada sağ alt köşede buton zaten aktif. Aşağı kaydırınca görebilirsiniz.
+            </c-callout>
+
+            <h2>Özellikler</h2>
+            <ul>
+                <li>300px (özelleştirilebilir) sonra belirir</li>
+                <li>Tıklanınca smooth scroll ile sayfanın başına döner</li>
+                <li>Mobilde de çalışır — pozisyon ve boyut token bazlı</li>
+                <li>Sayfada tek satır: <code>&lt;c-back-to-top&gt;&lt;/c-back-to-top&gt;</code></li>
+            </ul>
+
+            <!-- Sayfayı kaydırılabilir yapmak için içerik -->
+            <h2>Uzun İçerik</h2>
+            <p>Butonu tetiklemek için sayfayı aşağı kaydırın.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+            <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.</p>
+            <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.</p>
+            <p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.</p>
+            <p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae itaque earum rerum hic tenetur a sapiente delectus.</p>
+
+            <h2>Kod</h2>
+            <c-code-block lang="markup">&lt;!-- Sayfaya bir kez ekle, genellikle body'nin başına --&gt;
+&lt;c-back-to-top&gt;&lt;/c-back-to-top&gt;
+
+&lt;!-- Özel eşik değeri --&gt;
+&lt;c-back-to-top threshold="500"&gt;&lt;/c-back-to-top&gt;</c-code-block>
+
+            <h2>Attribute'lar</h2>
+            <table>
+                <thead><tr><th>Attribute</th><th>Tip</th><th>Varsayılan</th><th>Açıklama</th></tr></thead>
+                <tbody>
+                    <tr><td><code>threshold</code></td><td>number</td><td><code>300</code></td><td>Butonun görüneceği scroll mesafesi (px)</td></tr>
+                </tbody>
+            </table>
+
+            <c-pagination-nav prev-href="stat.html" prev-label="Stat" next-href="read-progress.html" next-label="Read Progress"></c-pagination-nav>
+        </div>
+    </main>
+
+    <script src="../assets/vendor/js/prism.min.js"></script>
+    <script src="../assets/js/project.js"></script>
+    <script src="../components/c-theme-toggle/c-theme-toggle.js"></script>
+    <script src="../components/c-navbar/c-navbar.js"></script>
+    <script src="../components/c-sidebar/c-sidebar.js"></script>
+    <script src="../components/c-breadcrumb/c-breadcrumb.js"></script>
+    <script src="../components/c-code-block/c-code-block.js"></script>
+    <script src="../components/c-callout/c-callout.js"></script>
+    <script src="../components/c-back-to-top/c-back-to-top.js"></script>
+    <script src="../components/c-pagination-nav/c-pagination-nav.js"></script>
+</body>
+
+</html>

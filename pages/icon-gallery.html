@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Icon Gallery — Component Galerisi</title>
+
+    <link rel="stylesheet" href="../assets/vendor/css/prism-vscode_dark.min.css">
+    <link rel="stylesheet" href="../assets/css/tokens.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+
+    <link rel="stylesheet" href="../components/c-theme-toggle/c-theme-toggle.css">
+    <link rel="stylesheet" href="../components/c-navbar/c-navbar.css">
+    <link rel="stylesheet" href="../components/c-sidebar/c-sidebar.css">
+    <link rel="stylesheet" href="../components/c-breadcrumb/c-breadcrumb.css">
+    <link rel="stylesheet" href="../components/c-code-block/c-code-block.css">
+    <link rel="stylesheet" href="../components/c-icon-gallery/c-icon-gallery.css">
+    <link rel="stylesheet" href="../components/c-pagination-nav/c-pagination-nav.css">
+</head>
+
+<body>
+
+    <c-navbar brand="Component Galerisi" home="../index.html"></c-navbar>
+    <c-sidebar active="icon-gallery" base="./"></c-sidebar>
+
+    <main class="page">
+        <div class="page-inner">
+            <c-breadcrumb items="Component Galerisi|../index.html>Icon Gallery"></c-breadcrumb>
+
+            <h1>Icon Gallery</h1>
+            <p>
+                SVG ikon grid'i. JSON manifest dosyasından ikonları yükler ve bir grid'de gösterir.
+                Her ikona tıkladığında tam <code>&lt;svg&gt;</code> kodu panoya kopyalanır.
+                İkonlar <code>currentColor</code> kullandığından otomatik olarak temaya uyum sağlar.
+            </p>
+
+            <h2>Galeri</h2>
+            <p>Bir ikona tıkla, SVG kodu kopyalanır.</p>
+
+            <c-icon-gallery src="../assets/icons/icons.json"></c-icon-gallery>
+
+            <h2>Büyük Boyut</h2>
+
+            <c-icon-gallery src="../assets/icons/icons.json" size="32"></c-icon-gallery>
+
+            <h2>Kod</h2>
+            <c-code-block lang="markup">&lt;!-- Varsayılan (24px) --&gt;
+&lt;c-icon-gallery src="../assets/icons/icons.json"&gt;&lt;/c-icon-gallery&gt;
+
+&lt;!-- Büyük boyut --&gt;
+&lt;c-icon-gallery src="../assets/icons/icons.json" size="32"&gt;&lt;/c-icon-gallery&gt;</c-code-block>
+
+            <h2>icons.json Formatı</h2>
+            <c-code-block lang="json">[
+  {
+    "name": "arrow-left",
+    "inner": "&lt;path d=\"M19 12H5M12 5l-7 7 7 7\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/&gt;"
+  },
+  {
+    "name": "check",
+    "inner": "&lt;path d=\"M20 6L9 17l-5-5\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/&gt;"
+  }
+]</c-code-block>
+
+            <h2>Attribute'lar</h2>
+            <table>
+                <thead>
+                    <tr><th>Attribute</th><th>Tip</th><th>Varsayılan</th><th>Açıklama</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>src</code></td>
+                        <td>string</td>
+                        <td>—</td>
+                        <td>icons.json dosyasının yolu. Bileşen fetch ile yükler.</td>
+                    </tr>
+                    <tr>
+                        <td><code>size</code></td>
+                        <td>number</td>
+                        <td><code>24</code></td>
+                        <td>İkon SVG'sinin <code>width</code> ve <code>height</code> değeri (px).</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>Kopyalanan Çıktı Örneği</h2>
+            <c-code-block lang="markup">&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"&gt;
+  &lt;path d="M19 12H5M12 5l-7 7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/&gt;
+&lt;/svg&gt;</c-code-block>
+
+            <c-pagination-nav
+                prev-href="spacing-scale.html" prev-label="Spacing Scale">
+            </c-pagination-nav>
+        </div>
+    </main>
+
+    <script src="../assets/vendor/js/prism.min.js"></script>
+    <script src="../assets/js/project.js"></script>
+    <script src="../components/c-theme-toggle/c-theme-toggle.js"></script>
+    <script src="../components/c-navbar/c-navbar.js"></script>
+    <script src="../components/c-sidebar/c-sidebar.js"></script>
+    <script src="../components/c-breadcrumb/c-breadcrumb.js"></script>
+    <script src="../components/c-code-block/c-code-block.js"></script>
+    <script src="../components/c-icon-gallery/c-icon-gallery.js"></script>
+    <script src="../components/c-pagination-nav/c-pagination-nav.js"></script>
+</body>
+
+</html>

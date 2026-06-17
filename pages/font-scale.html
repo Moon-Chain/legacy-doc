@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Font Scale — Component Galerisi</title>
+
+    <link rel="stylesheet" href="../assets/vendor/css/prism-vscode_dark.min.css">
+    <link rel="stylesheet" href="../assets/css/tokens.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+
+    <link rel="stylesheet" href="../components/c-theme-toggle/c-theme-toggle.css">
+    <link rel="stylesheet" href="../components/c-navbar/c-navbar.css">
+    <link rel="stylesheet" href="../components/c-sidebar/c-sidebar.css">
+    <link rel="stylesheet" href="../components/c-breadcrumb/c-breadcrumb.css">
+    <link rel="stylesheet" href="../components/c-code-block/c-code-block.css">
+    <link rel="stylesheet" href="../components/c-font-scale/c-font-scale.css">
+    <link rel="stylesheet" href="../components/c-pagination-nav/c-pagination-nav.css">
+</head>
+
+<body>
+
+    <c-navbar brand="Component Galerisi" home="../index.html"></c-navbar>
+    <c-sidebar active="font-scale" base="./"></c-sidebar>
+
+    <main class="page">
+        <div class="page-inner">
+            <c-breadcrumb items="Component Galerisi|../index.html>Font Scale"></c-breadcrumb>
+
+            <h1>Font Scale</h1>
+            <p>
+                Tipografi ölçeği görselleştiricisi. <code>tokens.css</code> içindeki
+                <code>--c-font-size-*</code> token'larını otomatik okuyup büyükten küçüğe
+                sıralar. Her satırda örnek metin, token adı ve değeri gösterilir.
+            </p>
+
+            <h2>Ölçek</h2>
+
+            <c-font-scale></c-font-scale>
+
+            <h2>Kod</h2>
+            <c-code-block lang="markup">&lt;!-- Bileşen otomatik okur, attribute gerekmez --&gt;
+&lt;c-font-scale&gt;&lt;/c-font-scale&gt;</c-code-block>
+
+            <h2>Token Listesi</h2>
+            <table>
+                <thead>
+                    <tr><th>Token</th><th>Değer</th><th>px</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><code>--c-font-size-4xl</code></td><td>2.25rem</td><td>36px</td></tr>
+                    <tr><td><code>--c-font-size-3xl</code></td><td>1.875rem</td><td>30px</td></tr>
+                    <tr><td><code>--c-font-size-2xl</code></td><td>1.5rem</td><td>24px</td></tr>
+                    <tr><td><code>--c-font-size-xl</code></td><td>1.25rem</td><td>20px</td></tr>
+                    <tr><td><code>--c-font-size-lg</code></td><td>1.125rem</td><td>18px</td></tr>
+                    <tr><td><code>--c-font-size-base</code></td><td>1rem</td><td>16px</td></tr>
+                    <tr><td><code>--c-font-size-sm</code></td><td>0.875rem</td><td>14px</td></tr>
+                    <tr><td><code>--c-font-size-xs</code></td><td>0.75rem</td><td>12px</td></tr>
+                </tbody>
+            </table>
+
+            <h2>Nasıl Çalışır?</h2>
+            <p>
+                Bileşen, sayfaya yüklü tüm style sheet'leri tarayarak <code>:root</code> seçicisindeki
+                <code>--c-font-size-</code> ile başlayan CSS değişkenlerini bulur. Bulamazsa dahili
+                bir fallback listesi kullanır. Token'ların hesaplanmış değerleri <code>getComputedStyle</code>
+                ile okunduğundan aktif tema (light/dark) yansıtılır.
+            </p>
+
+            <c-pagination-nav
+                prev-href="color-swatch.html" prev-label="Color Swatch"
+                next-href="spacing-scale.html" next-label="Spacing Scale">
+            </c-pagination-nav>
+        </div>
+    </main>
+
+    <script src="../assets/vendor/js/prism.min.js"></script>
+    <script src="../assets/js/project.js"></script>
+    <script src="../components/c-theme-toggle/c-theme-toggle.js"></script>
+    <script src="../components/c-navbar/c-navbar.js"></script>
+    <script src="../components/c-sidebar/c-sidebar.js"></script>
+    <script src="../components/c-breadcrumb/c-breadcrumb.js"></script>
+    <script src="../components/c-code-block/c-code-block.js"></script>
+    <script src="../components/c-font-scale/c-font-scale.js"></script>
+    <script src="../components/c-pagination-nav/c-pagination-nav.js"></script>
+</body>
+
+</html>

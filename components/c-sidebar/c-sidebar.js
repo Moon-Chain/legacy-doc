@@ -20,27 +20,31 @@ const NAV_GROUPS = [
     {
         label: 'Layout',
         items: [
-            { id: 'navbar', label: 'Navbar', file: 'navbar.html' },
-            { id: 'sidebar', label: 'Sidebar', file: 'sidebar.html' },
-            { id: 'breadcrumb', label: 'Breadcrumb', file: 'breadcrumb.html' },
-            { id: 'theme-toggle', label: 'Theme Toggle', file: 'theme-toggle.html' },
+            { id: 'navbar',        label: 'Navbar',        file: 'navbar.html' },
+            { id: 'sidebar',       label: 'Sidebar',       file: 'sidebar.html' },
+            { id: 'breadcrumb',    label: 'Breadcrumb',    file: 'breadcrumb.html' },
+            { id: 'theme-toggle',  label: 'Theme Toggle',  file: 'theme-toggle.html' },
+            { id: 'back-to-top',   label: 'Back to Top',   file: 'back-to-top.html' },
+            { id: 'read-progress', label: 'Read Progress', file: 'read-progress.html' },
         ],
     },
     {
         label: 'İçerik',
         items: [
-            { id: 'callout', label: 'Callout', file: 'callout.html' },
-            { id: 'code-block', label: 'Code Block', file: 'code-block.html' },
-            { id: 'card', label: 'Card', file: 'card.html' },
-            { id: 'badge', label: 'Badge', file: 'badge.html' },
-            { id: 'alert', label: 'Alert', file: 'alert.html' },
-            { id: 'prop-table', label: 'Prop Table', file: 'prop-table.html' },
-            { id: 'comparison', label: 'Comparison', file: 'comparison.html' },
-            { id: 'table', label: 'Table', file: 'table.html' },
+            { id: 'callout',          label: 'Callout',          file: 'callout.html' },
+            { id: 'code-block',       label: 'Code Block',       file: 'code-block.html' },
+            { id: 'card',             label: 'Card',             file: 'card.html' },
+            { id: 'badge',            label: 'Badge',            file: 'badge.html' },
+            { id: 'alert',            label: 'Alert',            file: 'alert.html' },
+            { id: 'prop-table',       label: 'Prop Table',       file: 'prop-table.html' },
+            { id: 'comparison',       label: 'Comparison',       file: 'comparison.html' },
+            { id: 'table',            label: 'Table',            file: 'table.html' },
             { id: 'method-signature', label: 'Method Signature', file: 'method-signature.html' },
-            { id: 'timeline', label: 'Timeline', file: 'timeline.html' },
-            { id: 'tooltip', label: 'Tooltip', file: 'tooltip.html' },
-            { id: 'image-zoom', label: 'Image Zoom', file: 'image-zoom.html' },
+            { id: 'timeline',         label: 'Timeline',         file: 'timeline.html' },
+            { id: 'tooltip',          label: 'Tooltip',          file: 'tooltip.html' },
+            { id: 'image-zoom',       label: 'Image Zoom',       file: 'image-zoom.html' },
+            { id: 'divider',          label: 'Divider',          file: 'divider.html' },
+            { id: 'stat',             label: 'Stat',             file: 'stat.html' },
         ],
     },
     {
@@ -53,26 +57,31 @@ const NAV_GROUPS = [
             { id: 'api-endpoint', label: 'API Endpoint',   file: 'api-endpoint.html' },
             { id: 'changelog',    label: 'Changelog',      file: 'changelog.html' },
             { id: 'live-demo',    label: 'Live Demo',      file: 'live-demo.html' },
+            { id: 'copy-button',  label: 'Copy Button',    file: 'copy-button.html' },
+            { id: 'print-button', label: 'Print Button',   file: 'print-button.html' },
         ],
     },
     {
         label: 'Etkileşimli',
         items: [
-            { id: 'tabs', label: 'Tabs', file: 'tabs.html' },
-            { id: 'accordion', label: 'Accordion', file: 'accordion.html' },
-            { id: 'toc', label: 'İçindekiler (TOC)', file: 'toc.html' },
-            { id: 'pagination-nav', label: 'Pagination Nav', file: 'pagination-nav.html' },
-            { id: 'search-box', label: 'Search Box', file: 'search-box.html' },
-            { id: 'blueprint', label: 'Blueprint', file: 'blueprint.html' },
-            { id: 'heading-anchor', label: 'Heading Anchor', file: 'heading-anchor.html' },
+            { id: 'tabs',           label: 'Tabs',                file: 'tabs.html' },
+            { id: 'accordion',      label: 'Accordion',           file: 'accordion.html' },
+            { id: 'toc',            label: 'İçindekiler (TOC)',   file: 'toc.html' },
+            { id: 'pagination-nav', label: 'Pagination Nav',      file: 'pagination-nav.html' },
+            { id: 'search-box',     label: 'Search Box',          file: 'search-box.html' },
+            { id: 'blueprint',      label: 'Blueprint',           file: 'blueprint.html' },
+            { id: 'heading-anchor', label: 'Heading Anchor',      file: 'heading-anchor.html' },
+            { id: 'modal',          label: 'Modal',               file: 'modal.html' },
+            { id: 'feedback',       label: 'Feedback',            file: 'feedback.html' },
         ],
     },
     {
-        label: 'Yardımcı',
+        label: 'Design System',
         items: [
-            { id: 'feedback', label: 'Feedback', file: 'feedback.html' },
-            { id: 'copy-button', label: 'Copy Button', file: 'copy-button.html' },
-            { id: 'print-button', label: 'Print Button', file: 'print-button.html' },
+            { id: 'color-swatch',  label: 'Color Swatch',  file: 'color-swatch.html' },
+            { id: 'font-scale',    label: 'Font Scale',    file: 'font-scale.html' },
+            { id: 'spacing-scale', label: 'Spacing Scale', file: 'spacing-scale.html' },
+            { id: 'icon-gallery',  label: 'Icon Gallery',  file: 'icon-gallery.html' },
         ],
     },
 ];
@@ -126,6 +135,20 @@ class CSidebar extends HTMLElement {
                 <div class="c-sidebar__footer">${window.PROJECT?.name ?? 'legacy-doc'} — v${window.PROJECT?.version ?? '?'}</div>
             </nav>
         `;
+
+        /* Scroll pozisyonunu geri yükle — rAF olmadan layout hazır olmadan sıfırlanır */
+        const body = this.querySelector('.c-sidebar__body');
+        const savedScroll = sessionStorage.getItem('c-sidebar-scroll');
+        if (body && savedScroll !== null) {
+            requestAnimationFrame(() => { body.scrollTop = parseInt(savedScroll, 10); });
+        }
+
+        /* Linklere tıklanınca scroll pozisyonunu kaydet */
+        this.querySelectorAll('.c-sidebar__link').forEach(a => {
+            a.addEventListener('click', () => {
+                if (body) sessionStorage.setItem('c-sidebar-scroll', body.scrollTop);
+            });
+        });
 
         /* Toggle tıklamaları */
         this.querySelectorAll('.c-sidebar__group-toggle').forEach(btn => {

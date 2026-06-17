@@ -27,7 +27,7 @@
             <h1>Component Galerisi</h1>
             <p>Sıfır bağımlılıklı <code>&lt;c-*&gt;</code> Web Component'leri. Her bileşen kendi <code>.js</code> ve <code>.css</code> dosyasında; istediğini dahil et, gerisini bırak.</p>
 
-            <c-search-box target=".c-index-card" placeholder="Bileşen ara..."
+            <c-search-box target=".c-index-card" group=".c-grid" placeholder="Bileşen ara..."
                 empty-text="Eşleşen bileşen bulunamadı."></c-search-box>
 
             <h2>Layout</h2>
@@ -51,6 +51,16 @@
                     <div slot="header">Theme Toggle</div>
                     <p>Açık/koyu tema anahtarı, tercih kaydeder.</p>
                     <div slot="footer"><a href="pages/theme-toggle.html">İncele &rarr;</a></div>
+                </c-card>
+                <c-card class="c-index-card">
+                    <div slot="header">Back to Top</div>
+                    <p>Scroll sonrası beliren yukarı çık butonu.</p>
+                    <div slot="footer"><a href="pages/back-to-top.html">İncele &rarr;</a></div>
+                </c-card>
+                <c-card class="c-index-card">
+                    <div slot="header">Read Progress</div>
+                    <p>Sayfa tepesinde scroll bazlı okuma ilerleme çubuğu.</p>
+                    <div slot="footer"><a href="pages/read-progress.html">İncele &rarr;</a></div>
                 </c-card>
             </div>
 
@@ -116,6 +126,16 @@
                     <p>Tıklayınca tam ekran açılan görsel.</p>
                     <div slot="footer"><a href="pages/image-zoom.html">İncele &rarr;</a></div>
                 </c-card>
+                <c-card class="c-index-card">
+                    <div slot="header">Divider</div>
+                    <p>Etiketli veya düz yatay ayırıcı çizgi.</p>
+                    <div slot="footer"><a href="pages/divider.html">İncele &rarr;</a></div>
+                </c-card>
+                <c-card class="c-index-card">
+                    <div slot="header">Stat</div>
+                    <p>Vurgulanmış büyük sayı / metrik kartı.</p>
+                    <div slot="footer"><a href="pages/stat.html">İncele &rarr;</a></div>
+                </c-card>
             </div>
 
             <h2>Docs</h2>
@@ -154,6 +174,16 @@
                     <div slot="header">Live Demo</div>
                     <p>Düzenlenebilir kod ve canlı önizleme.</p>
                     <div slot="footer"><a href="pages/live-demo.html">İncele &rarr;</a></div>
+                </c-card>
+                <c-card class="c-index-card">
+                    <div slot="header">Copy Button</div>
+                    <p>Tek tıkla içerik kopyalama.</p>
+                    <div slot="footer"><a href="pages/copy-button.html">İncele &rarr;</a></div>
+                </c-card>
+                <c-card class="c-index-card">
+                    <div slot="header">Print Button</div>
+                    <p>Sayfa yazdırma butonu.</p>
+                    <div slot="footer"><a href="pages/print-button.html">İncele &rarr;</a></div>
                 </c-card>
             </div>
 
@@ -194,24 +224,39 @@
                     <p>Başlıklara kopyalanabilir bağlantı ikonu.</p>
                     <div slot="footer"><a href="pages/heading-anchor.html">İncele &rarr;</a></div>
                 </c-card>
-            </div>
-
-            <h2>Yardımcı</h2>
-            <div class="c-grid">
+                <c-card class="c-index-card">
+                    <div slot="header">Modal</div>
+                    <p>Overlay diyalog kutusu, ESC + dışına tıklama ile kapanır.</p>
+                    <div slot="footer"><a href="pages/modal.html">İncele &rarr;</a></div>
+                </c-card>
                 <c-card class="c-index-card">
                     <div slot="header">Feedback</div>
                     <p>Sayfa için geri bildirim butonu.</p>
                     <div slot="footer"><a href="pages/feedback.html">İncele &rarr;</a></div>
                 </c-card>
+            </div>
+
+            <h2>Design System</h2>
+            <div class="c-grid">
                 <c-card class="c-index-card">
-                    <div slot="header">Copy Button</div>
-                    <p>Tek tıkla içerik kopyalama.</p>
-                    <div slot="footer"><a href="pages/copy-button.html">İncele &rarr;</a></div>
+                    <div slot="header">Color Swatch</div>
+                    <p>CSS renk token'larını görselleştiren, tıkla-kopyala destekli palet bileşeni.</p>
+                    <div slot="footer"><a href="pages/color-swatch.html">İncele &rarr;</a></div>
                 </c-card>
                 <c-card class="c-index-card">
-                    <div slot="header">Print Button</div>
-                    <p>Sayfa yazdırma butonu.</p>
-                    <div slot="footer"><a href="pages/print-button.html">İncele &rarr;</a></div>
+                    <div slot="header">Font Scale</div>
+                    <p>Tipografi token'larını büyükten küçüğe sıralayan ölçek görselleştiricisi.</p>
+                    <div slot="footer"><a href="pages/font-scale.html">İncele &rarr;</a></div>
+                </c-card>
+                <c-card class="c-index-card">
+                    <div slot="header">Spacing Scale</div>
+                    <p>Spacing token'larını gerçek boyut ve oransal barlarla gösteren bileşen.</p>
+                    <div slot="footer"><a href="pages/spacing-scale.html">İncele &rarr;</a></div>
+                </c-card>
+                <c-card class="c-index-card">
+                    <div slot="header">Icon Gallery</div>
+                    <p>SVG ikon grid'i. JSON manifest'ten yükler, tıklanınca kodu kopyalar.</p>
+                    <div slot="footer"><a href="pages/icon-gallery.html">İncele &rarr;</a></div>
                 </c-card>
             </div>
         </div>
