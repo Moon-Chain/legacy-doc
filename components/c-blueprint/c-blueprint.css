@@ -173,6 +173,53 @@
     user-select: none;
 }
 
+/* ── Export paneli ── */
+.c-blueprint__export-panel {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: min(480px, calc(100% - 16px));
+    background: var(--c-bg-elevated);
+    border: 1px solid var(--c-border);
+    border-radius: var(--c-radius);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12), var(--c-shadow);
+    z-index: 30;
+    display: none;
+    flex-direction: column;
+    font-family: var(--c-font-family);
+}
+
+.c-blueprint__export-panel.is-open { display: flex; }
+
+.c-blueprint__export-hd {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 7px 8px 7px 12px;
+    border-bottom: 1px solid var(--c-border);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--c-text-muted);
+}
+
+.c-blueprint__export-hd > span { flex: 1; }
+
+.c-blueprint__export-pre {
+    margin: 0;
+    padding: 10px 14px;
+    font-size: 11px;
+    line-height: 1.55;
+    max-height: 300px;
+    overflow: auto;
+    color: var(--c-text);
+    background: var(--c-bg-subtle);
+    border-radius: 0 0 var(--c-radius) var(--c-radius);
+    white-space: pre;
+    tab-size: 2;
+}
+
 /* ── Tam ekran ── */
 .c-blueprint:fullscreen {
     border-radius: 0;

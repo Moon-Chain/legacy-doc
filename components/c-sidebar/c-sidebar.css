@@ -1,5 +1,10 @@
 /* c-sidebar: sol gezinme menüsü */
 
+.c-sidebar,
+.c-sidebar * {
+    user-select: none;
+}
+
 .c-sidebar {
     position: fixed;
     top: var(--c-navbar-height);
@@ -41,18 +46,26 @@
 }
 
 .c-sidebar__group {
-    margin-bottom: var(--c-space-3);
+    margin-bottom: var(--c-space-2);
 }
 
+/*
+   Group başlıkları full-width:
+   body'nin 1rem sol/sağ padding'inden negatif margin ile çıkar,
+   padding ile aynı değer eklenerek tam kenara oturur.
+*/
 .c-sidebar__group-toggle {
     display: flex;
     align-items: center;
     gap: 5px;
-    width: 100%;
-    background: none;
+    width: calc(100% + 2 * var(--c-space-3));
+    margin-left: calc(-1 * var(--c-space-3));
+    background-color: var(--c-bg-subtle);
     border: none;
+    border-top: 1px solid var(--c-border);
+    border-radius: 0;
     cursor: pointer;
-    padding: 0.25rem var(--c-space-2);
+    padding: 0.45rem var(--c-space-3);
     margin-bottom: var(--c-space-1);
     font-size: 0.72rem;
     font-weight: 700;
@@ -60,14 +73,17 @@
     letter-spacing: .07em;
     color: var(--c-text);
     font-family: var(--c-font-family);
-    border-radius: var(--c-radius-sm);
-    opacity: 0.65;
-    transition: opacity 0.15s;
+    opacity: 1;
+    transition: background-color 0.15s;
+}
+
+/* İlk grup home linkinin border-bottom'ına bitişik — ayrı çizgiye gerek yok */
+.c-sidebar__group:first-child .c-sidebar__group-toggle {
+    border-top: none;
 }
 
 .c-sidebar__group-toggle:hover {
-    opacity: 1;
-    background-color: var(--c-bg-subtle);
+    background-color: var(--c-border);
 }
 
 .c-sidebar__group-arrow {
@@ -76,13 +92,13 @@
     height: 10px;
     flex-shrink: 0;
     transition: transform 0.2s ease;
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='rgba(0,0,0,.4)' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e");
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='rgba(0,0,0,.55)' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e");
     background-repeat: no-repeat;
     background-position: center;
 }
 
 [data-theme="dark"] .c-sidebar__group-arrow {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='rgba(255,255,255,.4)' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e");
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='rgba(255,255,255,.6)' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e");
 }
 
 .c-sidebar__group-toggle[aria-expanded="true"] .c-sidebar__group-arrow {
@@ -111,7 +127,7 @@
 .c-sidebar__link {
     display: block;
     padding: 0.25rem 0.5rem;
-    border-radius: var(--c-radius);
+    border-radius: 0;
     color: var(--c-text-muted) !important;
     font-weight: 600;
     font-size: 0.9rem;
@@ -142,7 +158,7 @@
 .c-sidebar__sublink {
     display: block;
     padding: 0.18rem 0.5rem;
-    border-radius: var(--c-radius-sm);
+    border-radius: 0;
     font-size: 0.82rem;
     color: var(--c-text-muted) !important;
     line-height: 1.4;

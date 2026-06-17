@@ -6,7 +6,7 @@
 
 window.PROJECT = {
     name:    'legacy-doc',
-    version: '1.1.1',
+    version: '1.1.9',
     brand:   'Component Galerisi',
     github:  'https://github.com/Moon-Chain/legacy-doc',
 };

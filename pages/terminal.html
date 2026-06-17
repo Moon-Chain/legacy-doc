@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terminal — Component Galerisi</title>
+
+    <link rel="stylesheet" href="../assets/vendor/css/prism-vscode_dark.min.css">
+    <link rel="stylesheet" href="../assets/css/tokens.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+
+    <link rel="stylesheet" href="../components/c-theme-toggle/c-theme-toggle.css">
+    <link rel="stylesheet" href="../components/c-navbar/c-navbar.css">
+    <link rel="stylesheet" href="../components/c-sidebar/c-sidebar.css">
+    <link rel="stylesheet" href="../components/c-breadcrumb/c-breadcrumb.css">
+    <link rel="stylesheet" href="../components/c-code-block/c-code-block.css">
+    <link rel="stylesheet" href="../components/c-terminal/c-terminal.css">
+    <link rel="stylesheet" href="../components/c-pagination-nav/c-pagination-nav.css">
+</head>
+
+<body>
+
+    <c-navbar brand="Component Galerisi" home="../index.html"></c-navbar>
+    <c-sidebar active="terminal" base="./"></c-sidebar>
+
+    <main class="page">
+        <div class="page-inner">
+            <c-breadcrumb items="Component Galerisi|../index.html>Terminal"></c-breadcrumb>
+
+            <h1>Terminal</h1>
+            <p>
+                Sahte terminal penceresi. Prompt + komut + çıktı satırlarını satır türüne göre
+                renklendirir. <code>c-code-block</code>'tan farkı: etkileşimli bir terminal
+                oturumunu görsel olarak simüle eder.
+            </p>
+
+            <h2>Kurulum Örneği</h2>
+
+            <c-terminal title="Kurulum" prompt="$">
+                <c-terminal-line type="comment"># Repoyu klonla</c-terminal-line>
+                <c-terminal-line type="input">git clone https://github.com/example/legacy-doc.git</c-terminal-line>
+                <c-terminal-line type="output">Cloning into 'legacy-doc'...</c-terminal-line>
+                <c-terminal-line type="output">remote: Enumerating objects: 214, done.</c-terminal-line>
+                <c-terminal-line type="input">cd legacy-doc && npm install</c-terminal-line>
+                <c-terminal-line type="output">added 42 packages in 1.4s</c-terminal-line>
+                <c-terminal-line type="input">npm start</c-terminal-line>
+                <c-terminal-line type="output">Server running on http://localhost:3000</c-terminal-line>
+            </c-terminal>
+
+            <h2>Hata Örneği</h2>
+
+            <c-terminal title="Hata Senaryosu" prompt="~$">
+                <c-terminal-line type="input">npm install --global some-package</c-terminal-line>
+                <c-terminal-line type="error">npm ERR! Error: EACCES: permission denied, mkdir '/usr/local/lib/node_modules'</c-terminal-line>
+                <c-terminal-line type="error">npm ERR! Please try running this command again as root/Administrator.</c-terminal-line>
+                <c-terminal-line type="comment"># sudo ile tekrar dene</c-terminal-line>
+                <c-terminal-line type="input">sudo npm install --global some-package</c-terminal-line>
+                <c-terminal-line type="output">added 1 package in 0.8s</c-terminal-line>
+            </c-terminal>
+
+            <h2>Kod</h2>
+            <c-code-block lang="markup">&lt;c-terminal title="Kurulum" prompt="$"&gt;
+    &lt;c-terminal-line type="comment"&gt;# Repoyu klonla&lt;/c-terminal-line&gt;
+    &lt;c-terminal-line type="input"&gt;git clone https://github.com/example/repo.git&lt;/c-terminal-line&gt;
+    &lt;c-terminal-line type="output"&gt;Cloning into 'repo'...&lt;/c-terminal-line&gt;
+    &lt;c-terminal-line type="error"&gt;Error: ENOENT: no such file or directory&lt;/c-terminal-line&gt;
+&lt;/c-terminal&gt;</c-code-block>
+
+            <h2>Attribute'lar</h2>
+            <table>
+                <thead><tr><th>Element</th><th>Attribute</th><th>Açıklama</th></tr></thead>
+                <tbody>
+                    <tr><td><code>c-terminal</code></td><td><code>title</code></td><td>Başlık çubuğu metni (varsayılan: <code>bash</code>)</td></tr>
+                    <tr><td><code>c-terminal</code></td><td><code>prompt</code></td><td>Input satırlarındaki prompt sembolü (varsayılan: <code>$</code>)</td></tr>
+                    <tr><td><code>c-terminal-line</code></td><td><code>type</code></td><td><code>input</code> | <code>output</code> | <code>error</code> | <code>comment</code> (varsayılan: düz beyaz)</td></tr>
+                </tbody>
+            </table>
+
+            <h2>Satır Türleri</h2>
+            <table>
+                <thead><tr><th>type</th><th>Görünüm</th><th>Kullanım</th></tr></thead>
+                <tbody>
+                    <tr><td><code>input</code></td><td>Yeşil prompt + beyaz metin</td><td>Kullanıcının yazdığı komutlar</td></tr>
+                    <tr><td><code>output</code></td><td>Soluk beyaz</td><td>Komut çıktısı, başarılı sonuçlar</td></tr>
+                    <tr><td><code>error</code></td><td>Kırmızı</td><td>Hata mesajları</td></tr>
+                    <tr><td><code>comment</code></td><td>Gri italik</td><td>Açıklama satırları (<code>#...</code>)</td></tr>
+                </tbody>
+            </table>
+
+            <c-pagination-nav prev-href="kbd.html" prev-label="Keyboard (Kbd)" next-href="file-tree.html" next-label="File Tree"></c-pagination-nav>
+        </div>
+    </main>
+
+    <script src="../assets/vendor/js/prism.min.js"></script>
+    <script src="../assets/js/project.js"></script>
+    <script src="../components/c-theme-toggle/c-theme-toggle.js"></script>
+    <script src="../components/c-navbar/c-navbar.js"></script>
+    <script src="../components/c-sidebar/c-sidebar.js"></script>
+    <script src="../components/c-breadcrumb/c-breadcrumb.js"></script>
+    <script src="../components/c-code-block/c-code-block.js"></script>
+    <script src="../components/c-terminal/c-terminal.js"></script>
+    <script src="../components/c-pagination-nav/c-pagination-nav.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Endpoint — Component Galerisi</title>
+
+    <link rel="stylesheet" href="../assets/vendor/css/prism-vscode_dark.min.css">
+    <link rel="stylesheet" href="../assets/css/tokens.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+
+    <link rel="stylesheet" href="../components/c-theme-toggle/c-theme-toggle.css">
+    <link rel="stylesheet" href="../components/c-navbar/c-navbar.css">
+    <link rel="stylesheet" href="../components/c-sidebar/c-sidebar.css">
+    <link rel="stylesheet" href="../components/c-breadcrumb/c-breadcrumb.css">
+    <link rel="stylesheet" href="../components/c-code-block/c-code-block.css">
+    <link rel="stylesheet" href="../components/c-badge/c-badge.css">
+    <link rel="stylesheet" href="../components/c-api-endpoint/c-api-endpoint.css">
+    <link rel="stylesheet" href="../components/c-pagination-nav/c-pagination-nav.css">
+</head>
+
+<body>
+
+    <c-navbar brand="Component Galerisi" home="../index.html"></c-navbar>
+    <c-sidebar active="api-endpoint" base="./"></c-sidebar>
+
+    <main class="page">
+        <div class="page-inner">
+            <c-breadcrumb items="Component Galerisi|../index.html>API Endpoint"></c-breadcrumb>
+
+            <h1>API Endpoint</h1>
+            <p>
+                REST endpoint kartı. Method badge + URL + parametre tablosu + istek/yanıt örneklerini
+                tek açılır/kapanır kart içinde gösterir. Swagger'a gerek kalmadan inline API
+                dokümantasyonu yazmak için uygundur.
+            </p>
+
+            <h2>Örnek — Kullanıcı API</h2>
+
+            <c-api-endpoint method="GET" url="/api/v1/users" summary="Kullanıcı listesini döner">
+                <script type="application/json">
+                {
+                    "params": [
+                        { "name": "page",     "type": "integer", "required": false, "desc": "Sayfa numarası (varsayılan: 1)" },
+                        { "name": "per_page", "type": "integer", "required": false, "desc": "Sayfa başına kayıt (maks. 100)" },
+                        { "name": "search",   "type": "string",  "required": false, "desc": "Ada göre arama" }
+                    ],
+                    "response": "{\n  \"users\": [\n    { \"id\": 1, \"name\": \"Ali Veli\", \"email\": \"ali@example.com\" }\n  ],\n  \"total\": 42,\n  \"page\": 1\n}"
+                }
+                </script>
+            </c-api-endpoint>
+
+            <c-api-endpoint method="POST" url="/api/v1/users" summary="Yeni kullanıcı oluşturur">
+                <script type="application/json">
+                {
+                    "params": [
+                        { "name": "name",     "type": "string",  "required": true,  "desc": "Kullanıcı adı soyadı" },
+                        { "name": "email",    "type": "string",  "required": true,  "desc": "Geçerli e-posta adresi" },
+                        { "name": "role",     "type": "string",  "required": false, "desc": "admin | editor | viewer (varsayılan: viewer)" }
+                    ],
+                    "request":  "{\n  \"name\": \"Ali Veli\",\n  \"email\": \"ali@example.com\",\n  \"role\": \"editor\"\n}",
+                    "response": "{\n  \"id\": 43,\n  \"name\": \"Ali Veli\",\n  \"email\": \"ali@example.com\",\n  \"role\": \"editor\",\n  \"created_at\": \"2025-06-01T12:00:00Z\"\n}"
+                }
+                </script>
+            </c-api-endpoint>
+
+            <c-api-endpoint method="DELETE" url="/api/v1/users/:id" summary="Kullanıcıyı siler">
+                <script type="application/json">
+                {
+                    "params": [
+                        { "name": "id", "type": "integer", "required": true, "desc": "Silinecek kullanıcının ID'si (path param)" }
+                    ],
+                    "response": "{\n  \"deleted\": true,\n  \"id\": 43\n}"
+                }
+                </script>
+            </c-api-endpoint>
+
+            <h2>Kod</h2>
+            <c-code-block lang="markup">&lt;c-api-endpoint method="POST" url="/api/v1/users" summary="Yeni kullanıcı oluşturur"&gt;
+    &lt;script type="application/json"&gt;
+    {
+        "params": [
+            { "name": "name",  "type": "string", "required": true,  "desc": "Kullanıcı adı" },
+            { "name": "email", "type": "string", "required": true,  "desc": "E-posta adresi" },
+            { "name": "role",  "type": "string", "required": false, "desc": "Kullanıcı rolü" }
+        ],
+        "request":  "{ \"name\": \"Ali\", \"email\": \"ali@example.com\" }",
+        "response": "{ \"id\": 1, \"name\": \"Ali\" }"
+    }
+    &lt;/script&gt;
+&lt;/c-api-endpoint&gt;</c-code-block>
+
+            <h2>Attribute'lar</h2>
+            <table>
+                <thead><tr><th>Attribute</th><th>Değer</th><th>Açıklama</th></tr></thead>
+                <tbody>
+                    <tr><td><code>method</code></td><td><code>GET</code> | <code>POST</code> | <code>PUT</code> | <code>PATCH</code> | <code>DELETE</code></td><td>HTTP metodu (varsayılan: GET)</td></tr>
+                    <tr><td><code>url</code></td><td>string</td><td>Endpoint yolu, ör. <code>/api/v1/users</code></td></tr>
+                    <tr><td><code>summary</code></td><td>string</td><td>Kısa açıklama (opsiyonel)</td></tr>
+                </tbody>
+            </table>
+
+            <h2>JSON Veri Alanları</h2>
+            <table>
+                <thead><tr><th>Alan</th><th>Tür</th><th>Açıklama</th></tr></thead>
+                <tbody>
+                    <tr><td><code>params</code></td><td>Param[]</td><td>Parametre listesi (opsiyonel)</td></tr>
+                    <tr><td><code>params[].name</code></td><td>string</td><td>Parametre adı</td></tr>
+                    <tr><td><code>params[].type</code></td><td>string</td><td>Tür açıklaması (ör. <code>integer</code>, <code>string</code>)</td></tr>
+                    <tr><td><code>params[].required</code></td><td>boolean</td><td>Zorunlu mu?</td></tr>
+                    <tr><td><code>params[].desc</code></td><td>string</td><td>Parametre açıklaması</td></tr>
+                    <tr><td><code>request</code></td><td>string</td><td>İstek gövdesi örneği (opsiyonel)</td></tr>
+                    <tr><td><code>response</code></td><td>string</td><td>Yanıt örneği (opsiyonel)</td></tr>
+                </tbody>
+            </table>
+
+            <c-pagination-nav prev-href="file-tree.html" prev-label="File Tree" next-href="changelog.html" next-label="Changelog"></c-pagination-nav>
+        </div>
+    </main>
+
+    <script src="../assets/vendor/js/prism.min.js"></script>
+    <script src="../assets/js/project.js"></script>
+    <script src="../components/c-theme-toggle/c-theme-toggle.js"></script>
+    <script src="../components/c-navbar/c-navbar.js"></script>
+    <script src="../components/c-sidebar/c-sidebar.js"></script>
+    <script src="../components/c-breadcrumb/c-breadcrumb.js"></script>
+    <script src="../components/c-code-block/c-code-block.js"></script>
+    <script src="../components/c-api-endpoint/c-api-endpoint.js"></script>
+    <script src="../components/c-pagination-nav/c-pagination-nav.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Changelog — Component Galerisi</title>
+
+    <link rel="stylesheet" href="../assets/vendor/css/prism-vscode_dark.min.css">
+    <link rel="stylesheet" href="../assets/css/tokens.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+
+    <link rel="stylesheet" href="../components/c-theme-toggle/c-theme-toggle.css">
+    <link rel="stylesheet" href="../components/c-navbar/c-navbar.css">
+    <link rel="stylesheet" href="../components/c-sidebar/c-sidebar.css">
+    <link rel="stylesheet" href="../components/c-breadcrumb/c-breadcrumb.css">
+    <link rel="stylesheet" href="../components/c-code-block/c-code-block.css">
+    <link rel="stylesheet" href="../components/c-changelog/c-changelog.css">
+    <link rel="stylesheet" href="../components/c-pagination-nav/c-pagination-nav.css">
+</head>
+
+<body>
+
+    <c-navbar brand="Component Galerisi" home="../index.html"></c-navbar>
+    <c-sidebar active="changelog" base="./"></c-sidebar>
+
+    <main class="page">
+        <div class="page-inner">
+            <c-breadcrumb items="Component Galerisi|../index.html>Changelog"></c-breadcrumb>
+
+            <h1>Changelog</h1>
+            <p>
+                Tag odaklı kompakt değişiklik günlüğü. <code>c-timeline</code>'dan farkı: semver
+                başlıkları + <em>Added / Changed / Fixed / Removed</em> etiketleriyle satır bazlı,
+                daha sıkışık bir yapı. Birden fazla <code>&lt;c-changelog&gt;</code> üst üste yerleştirilerek
+                tam bir değişiklik geçmişi oluşturulur.
+            </p>
+
+            <h2>Örnek</h2>
+
+            <c-changelog version="v1.2.0" date="2025-06">
+                <c-change type="added">c-steps, c-kbd, c-terminal, c-file-tree, c-api-endpoint, c-changelog, c-live-demo bileşenleri eklendi.</c-change>
+                <c-change type="changed">c-timeline dikey çizgi hizalaması düzeltildi, display: block eklendi.</c-change>
+                <c-change type="fixed">Blueprint port bağlantısında hesaplama hatası giderildi.</c-change>
+            </c-changelog>
+
+            <c-changelog version="v1.1.0" date="2025-03">
+                <c-change type="added">Prop Table bileşeni eklendi.</c-change>
+                <c-change type="added">Comparison bileşeni eklendi.</c-change>
+                <c-change type="fixed">Sidebar mobil kapatma davranışı iyileştirildi.</c-change>
+                <c-change type="changed">Tooltip z-index değeri güncellendi.</c-change>
+            </c-changelog>
+
+            <c-changelog version="v1.0.0" date="2025-01">
+                <c-change type="added">legacy-doc ilk kararlı sürümü yayınlandı.</c-change>
+                <c-change type="added">15 temel bileşen, sıfır bağımlılık, file:// uyumlu.</c-change>
+            </c-changelog>
+
+            <h2>Tüm Tag Türleri</h2>
+
+            <c-changelog version="Etiket Örneği" date="">
+                <c-change type="added">Yeni özellik eklendi.</c-change>
+                <c-change type="changed">Mevcut davranış güncellendi.</c-change>
+                <c-change type="fixed">Hata düzeltildi.</c-change>
+                <c-change type="removed">Eski özellik kaldırıldı.</c-change>
+                <c-change type="deprecated">Bu API yakında kaldırılacak.</c-change>
+                <c-change type="security">Güvenlik açığı giderildi.</c-change>
+            </c-changelog>
+
+            <h2>Kod</h2>
+            <c-code-block lang="markup">&lt;c-changelog version="v1.1.0" date="2025-03"&gt;
+    &lt;c-change type="added"&gt;Yeni özellik eklendi.&lt;/c-change&gt;
+    &lt;c-change type="fixed"&gt;Hata düzeltildi.&lt;/c-change&gt;
+    &lt;c-change type="changed"&gt;Davranış güncellendi.&lt;/c-change&gt;
+    &lt;c-change type="removed"&gt;Eski API kaldırıldı.&lt;/c-change&gt;
+&lt;/c-changelog&gt;</c-code-block>
+
+            <h2>Attribute'lar</h2>
+            <table>
+                <thead><tr><th>Element</th><th>Attribute</th><th>Açıklama</th></tr></thead>
+                <tbody>
+                    <tr><td><code>c-changelog</code></td><td><code>version</code></td><td>Sürüm etiketi, ör. <code>v1.2.0</code> (opsiyonel)</td></tr>
+                    <tr><td><code>c-changelog</code></td><td><code>date</code></td><td>Tarih metni, ör. <code>2025-06</code> (opsiyonel)</td></tr>
+                    <tr><td><code>c-change</code></td><td><code>type</code></td><td><code>added</code> | <code>changed</code> | <code>fixed</code> | <code>removed</code> | <code>deprecated</code> | <code>security</code></td></tr>
+                    <tr><td><code>c-change</code></td><td>textContent</td><td>Değişiklik açıklaması</td></tr>
+                </tbody>
+            </table>
+
+            <c-pagination-nav prev-href="api-endpoint.html" prev-label="API Endpoint" next-href="live-demo.html" next-label="Live Demo"></c-pagination-nav>
+        </div>
+    </main>
+
+    <script src="../assets/vendor/js/prism.min.js"></script>
+    <script src="../assets/js/project.js"></script>
+    <script src="../components/c-theme-toggle/c-theme-toggle.js"></script>
+    <script src="../components/c-navbar/c-navbar.js"></script>
+    <script src="../components/c-sidebar/c-sidebar.js"></script>
+    <script src="../components/c-breadcrumb/c-breadcrumb.js"></script>
+    <script src="../components/c-code-block/c-code-block.js"></script>
+    <script src="../components/c-changelog/c-changelog.js"></script>
+    <script src="../components/c-pagination-nav/c-pagination-nav.js"></script>
+</body>
+
+</html>

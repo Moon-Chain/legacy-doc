@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="tr">
 
 <head>
@@ -15,7 +15,6 @@
     <link rel="stylesheet" href="components/c-sidebar/c-sidebar.css">
     <link rel="stylesheet" href="components/c-search-box/c-search-box.css">
     <link rel="stylesheet" href="components/c-card/c-card.css">
-    <link rel="stylesheet" href="components/c-callout/c-callout.css">
 </head>
 
 <body>
@@ -26,19 +25,7 @@
     <main class="page">
         <div class="page-inner">
             <h1>Component Galerisi</h1>
-            <p>
-                Bu galeri, dokümantasyon sayfaları için hazırlanmış, birbirine bağımlı olmayan
-                <strong>Web Component</strong>'lerin (<code>&lt;c-*&gt;</code>) canlı örneklerini içerir.
-                Her bileşen kendi <code>.js</code> ve <code>.css</code> dosyasında tanımlıdır;
-                bir sayfaya eklemek için ilgili <code>&lt;link&gt;</code> ve <code>&lt;script&gt;</code>
-                etiketlerini eklemen, çıkarmak için silmen yeterlidir.
-            </p>
-
-            <c-callout variant="info" title="Nasıl kullanılır?">
-                Sol menüden bir bileşene tıkla; o sayfada bileşenin canlı önizlemesi, kullanım kodu
-                ve attribute/varyant tablosu yer alır. Kodu kopyalayıp kendi sayfana yapıştırman
-                yeterlidir.
-            </c-callout>
+            <p>Sıfır bağımlılıklı <code>&lt;c-*&gt;</code> Web Component'leri. Her bileşen kendi <code>.js</code> ve <code>.css</code> dosyasında; istediğini dahil et, gerisini bırak.</p>
 
             <c-search-box target=".c-index-card" placeholder="Bileşen ara..."
                 empty-text="Eşleşen bileşen bulunamadı."></c-search-box>
@@ -47,22 +34,22 @@
             <div class="c-grid">
                 <c-card class="c-index-card">
                     <div slot="header">Navbar</div>
-                    <p>Logo, başlık, tema anahtarı, GitHub linki ve mobil menü butonu içeren üst çubuk.</p>
+                    <p>Logo, başlık, tema ve GitHub içeren üst çubuk.</p>
                     <div slot="footer"><a href="pages/navbar.html">İncele &rarr;</a></div>
                 </c-card>
                 <c-card class="c-index-card">
                     <div slot="header">Sidebar</div>
-                    <p>Sayfalar arası gezinmeyi sağlayan, mobilde açılır/kapanır sol menü.</p>
+                    <p>Açılır/kapanır sol navigasyon menüsü.</p>
                     <div slot="footer"><a href="pages/sidebar.html">İncele &rarr;</a></div>
                 </c-card>
                 <c-card class="c-index-card">
                     <div slot="header">Breadcrumb</div>
-                    <p>Sayfa konumunu gösteren basit "kırıntı" navigasyonu.</p>
+                    <p>Sayfa konumu kırıntı navigasyonu.</p>
                     <div slot="footer"><a href="pages/breadcrumb.html">İncele &rarr;</a></div>
                 </c-card>
                 <c-card class="c-index-card">
                     <div slot="header">Theme Toggle</div>
-                    <p>Açık/koyu tema arasında geçiş yapan, tercihi hatırlayan buton.</p>
+                    <p>Açık/koyu tema anahtarı, tercih kaydeder.</p>
                     <div slot="footer"><a href="pages/theme-toggle.html">İncele &rarr;</a></div>
                 </c-card>
             </div>
@@ -71,28 +58,102 @@
             <div class="c-grid">
                 <c-card class="c-index-card">
                     <div slot="header">Callout</div>
-                    <p>7 renk varyantlı dikkat çekme kutusu.</p>
+                    <p>7 varyantlı bilgi/uyarı kutusu.</p>
                     <div slot="footer"><a href="pages/callout.html">İncele &rarr;</a></div>
                 </c-card>
                 <c-card class="c-index-card">
                     <div slot="header">Code Block</div>
-                    <p>Prism ile söz dizimi vurgulama ve "Kodu Kopyala" butonu.</p>
+                    <p>Prism söz dizimi vurgulama ve kopyala butonu.</p>
                     <div slot="footer"><a href="pages/code-block.html">İncele &rarr;</a></div>
                 </c-card>
                 <c-card class="c-index-card">
                     <div slot="header">Card</div>
-                    <p>Başlık / içerik / footer alanlı, slot tabanlı kart.</p>
+                    <p>Başlık / içerik / footer slot'lu kart.</p>
                     <div slot="footer"><a href="pages/card.html">İncele &rarr;</a></div>
                 </c-card>
                 <c-card class="c-index-card">
                     <div slot="header">Badge</div>
-                    <p>HTTP metodları ve durum etiketleri için küçük rozetler.</p>
+                    <p>HTTP metod ve durum rozeti.</p>
                     <div slot="footer"><a href="pages/badge.html">İncele &rarr;</a></div>
                 </c-card>
                 <c-card class="c-index-card">
                     <div slot="header">Alert</div>
-                    <p>Kapatılabilir uyarı/bildirim kutuları.</p>
+                    <p>Kapatılabilir uyarı kutusu.</p>
                     <div slot="footer"><a href="pages/alert.html">İncele &rarr;</a></div>
+                </c-card>
+                <c-card class="c-index-card">
+                    <div slot="header">Prop Table</div>
+                    <p>Bileşen attribute dokümantasyon tablosu.</p>
+                    <div slot="footer"><a href="pages/prop-table.html">İncele &rarr;</a></div>
+                </c-card>
+                <c-card class="c-index-card">
+                    <div slot="header">Comparison</div>
+                    <p>İki seçeneği yan yana karşılaştırma.</p>
+                    <div slot="footer"><a href="pages/comparison.html">İncele &rarr;</a></div>
+                </c-card>
+                <c-card class="c-index-card">
+                    <div slot="header">Table</div>
+                    <p>Sıralanabilir veri tablosu.</p>
+                    <div slot="footer"><a href="pages/table.html">İncele &rarr;</a></div>
+                </c-card>
+                <c-card class="c-index-card">
+                    <div slot="header">Method Signature</div>
+                    <p>Fonksiyon imzası gösterimi.</p>
+                    <div slot="footer"><a href="pages/method-signature.html">İncele &rarr;</a></div>
+                </c-card>
+                <c-card class="c-index-card">
+                    <div slot="header">Timeline</div>
+                    <p>Dikey zaman çizelgesi.</p>
+                    <div slot="footer"><a href="pages/timeline.html">İncele &rarr;</a></div>
+                </c-card>
+                <c-card class="c-index-card">
+                    <div slot="header">Tooltip</div>
+                    <p>Hover ile beliren ipucu balonu.</p>
+                    <div slot="footer"><a href="pages/tooltip.html">İncele &rarr;</a></div>
+                </c-card>
+                <c-card class="c-index-card">
+                    <div slot="header">Image Zoom</div>
+                    <p>Tıklayınca tam ekran açılan görsel.</p>
+                    <div slot="footer"><a href="pages/image-zoom.html">İncele &rarr;</a></div>
+                </c-card>
+            </div>
+
+            <h2>Docs</h2>
+            <div class="c-grid">
+                <c-card class="c-index-card">
+                    <div slot="header">Steps</div>
+                    <p>Numaralı adım adım rehber.</p>
+                    <div slot="footer"><a href="pages/steps.html">İncele &rarr;</a></div>
+                </c-card>
+                <c-card class="c-index-card">
+                    <div slot="header">Keyboard (Kbd)</div>
+                    <p>Klavye kısayolu gösterimi.</p>
+                    <div slot="footer"><a href="pages/kbd.html">İncele &rarr;</a></div>
+                </c-card>
+                <c-card class="c-index-card">
+                    <div slot="header">Terminal</div>
+                    <p>Retro sahte terminal penceresi.</p>
+                    <div slot="footer"><a href="pages/terminal.html">İncele &rarr;</a></div>
+                </c-card>
+                <c-card class="c-index-card">
+                    <div slot="header">File Tree</div>
+                    <p>Açılır/kapanır klasör ağacı.</p>
+                    <div slot="footer"><a href="pages/file-tree.html">İncele &rarr;</a></div>
+                </c-card>
+                <c-card class="c-index-card">
+                    <div slot="header">API Endpoint</div>
+                    <p>REST endpoint inline dokümantasyon kartı.</p>
+                    <div slot="footer"><a href="pages/api-endpoint.html">İncele &rarr;</a></div>
+                </c-card>
+                <c-card class="c-index-card">
+                    <div slot="header">Changelog</div>
+                    <p>Tag'li semver değişiklik günlüğü.</p>
+                    <div slot="footer"><a href="pages/changelog.html">İncele &rarr;</a></div>
+                </c-card>
+                <c-card class="c-index-card">
+                    <div slot="header">Live Demo</div>
+                    <p>Düzenlenebilir kod ve canlı önizleme.</p>
+                    <div slot="footer"><a href="pages/live-demo.html">İncele &rarr;</a></div>
                 </c-card>
             </div>
 
@@ -100,39 +161,68 @@
             <div class="c-grid">
                 <c-card class="c-index-card">
                     <div slot="header">Tabs</div>
-                    <p>Request / Response gibi sekmeli içerik gösterimi.</p>
+                    <p>Sekmeli içerik paneli.</p>
                     <div slot="footer"><a href="pages/tabs.html">İncele &rarr;</a></div>
                 </c-card>
                 <c-card class="c-index-card">
                     <div slot="header">Accordion</div>
-                    <p>SSS veya endpoint detayları için açılır/kapanır liste.</p>
+                    <p>Açılır/kapanır panel listesi.</p>
                     <div slot="footer"><a href="pages/accordion.html">İncele &rarr;</a></div>
                 </c-card>
                 <c-card class="c-index-card">
                     <div slot="header">İçindekiler (TOC)</div>
-                    <p>Sayfa başlıklarından otomatik oluşan, scroll-spy'lı menü.</p>
+                    <p>Scroll-spy'lı sayfa içindekiler.</p>
                     <div slot="footer"><a href="pages/toc.html">İncele &rarr;</a></div>
                 </c-card>
                 <c-card class="c-index-card">
                     <div slot="header">Pagination Nav</div>
-                    <p>Sayfa altı "Önceki / Sonraki" gezinme linkleri.</p>
+                    <p>Önceki / Sonraki sayfa navigasyonu.</p>
                     <div slot="footer"><a href="pages/pagination-nav.html">İncele &rarr;</a></div>
                 </c-card>
                 <c-card class="c-index-card">
                     <div slot="header">Search Box</div>
-                    <p>Sayfa içi öğeleri anlık filtreleyen arama kutusu.</p>
+                    <p>Anlık öğe filtreleme arama kutusu.</p>
                     <div slot="footer"><a href="pages/search-box.html">İncele &rarr;</a></div>
+                </c-card>
+                <c-card class="c-index-card">
+                    <div slot="header">Blueprint</div>
+                    <p>Sürüklenebilir node diyagramı.</p>
+                    <div slot="footer"><a href="pages/blueprint.html">İncele &rarr;</a></div>
+                </c-card>
+                <c-card class="c-index-card">
+                    <div slot="header">Heading Anchor</div>
+                    <p>Başlıklara kopyalanabilir bağlantı ikonu.</p>
+                    <div slot="footer"><a href="pages/heading-anchor.html">İncele &rarr;</a></div>
+                </c-card>
+            </div>
+
+            <h2>Yardımcı</h2>
+            <div class="c-grid">
+                <c-card class="c-index-card">
+                    <div slot="header">Feedback</div>
+                    <p>Sayfa için geri bildirim butonu.</p>
+                    <div slot="footer"><a href="pages/feedback.html">İncele &rarr;</a></div>
+                </c-card>
+                <c-card class="c-index-card">
+                    <div slot="header">Copy Button</div>
+                    <p>Tek tıkla içerik kopyalama.</p>
+                    <div slot="footer"><a href="pages/copy-button.html">İncele &rarr;</a></div>
+                </c-card>
+                <c-card class="c-index-card">
+                    <div slot="header">Print Button</div>
+                    <p>Sayfa yazdırma butonu.</p>
+                    <div slot="footer"><a href="pages/print-button.html">İncele &rarr;</a></div>
                 </c-card>
             </div>
         </div>
     </main>
 
-    <script src="assets/js/project.js"></script><script src="components/c-theme-toggle/c-theme-toggle.js"></script>
+    <script src="assets/js/project.js"></script>
+    <script src="components/c-theme-toggle/c-theme-toggle.js"></script>
     <script src="components/c-navbar/c-navbar.js"></script>
     <script src="components/c-sidebar/c-sidebar.js"></script>
     <script src="components/c-search-box/c-search-box.js"></script>
     <script src="components/c-card/c-card.js"></script>
-    <script src="components/c-callout/c-callout.js"></script>
 </body>
 
 </html>

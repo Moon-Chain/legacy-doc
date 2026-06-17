@@ -44,6 +44,18 @@ const NAV_GROUPS = [
         ],
     },
     {
+        label: 'Docs',
+        items: [
+            { id: 'steps',        label: 'Steps',          file: 'steps.html' },
+            { id: 'kbd',          label: 'Keyboard (Kbd)', file: 'kbd.html' },
+            { id: 'terminal',     label: 'Terminal',       file: 'terminal.html' },
+            { id: 'file-tree',    label: 'File Tree',      file: 'file-tree.html' },
+            { id: 'api-endpoint', label: 'API Endpoint',   file: 'api-endpoint.html' },
+            { id: 'changelog',    label: 'Changelog',      file: 'changelog.html' },
+            { id: 'live-demo',    label: 'Live Demo',      file: 'live-demo.html' },
+        ],
+    },
+    {
         label: 'Etkileşimli',
         items: [
             { id: 'tabs', label: 'Tabs', file: 'tabs.html' },
@@ -134,6 +146,8 @@ class CSidebar extends HTMLElement {
         if (active) {
             this._buildSubLinks();
         }
+
+        this.addEventListener('dragstart', e => e.preventDefault());
 
         document.addEventListener('c-sidebar-toggle', () => {
             this.querySelector('.c-sidebar').classList.toggle('c-sidebar--open');

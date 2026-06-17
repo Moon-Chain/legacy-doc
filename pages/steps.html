@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Steps — Component Galerisi</title>
+
+    <link rel="stylesheet" href="../assets/vendor/css/prism-vscode_dark.min.css">
+    <link rel="stylesheet" href="../assets/css/tokens.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+
+    <link rel="stylesheet" href="../components/c-theme-toggle/c-theme-toggle.css">
+    <link rel="stylesheet" href="../components/c-navbar/c-navbar.css">
+    <link rel="stylesheet" href="../components/c-sidebar/c-sidebar.css">
+    <link rel="stylesheet" href="../components/c-breadcrumb/c-breadcrumb.css">
+    <link rel="stylesheet" href="../components/c-code-block/c-code-block.css">
+    <link rel="stylesheet" href="../components/c-steps/c-steps.css">
+    <link rel="stylesheet" href="../components/c-pagination-nav/c-pagination-nav.css">
+</head>
+
+<body>
+
+    <c-navbar brand="Component Galerisi" home="../index.html"></c-navbar>
+    <c-sidebar active="steps" base="./"></c-sidebar>
+
+    <main class="page">
+        <div class="page-inner">
+            <c-breadcrumb items="Component Galerisi|../index.html>Steps"></c-breadcrumb>
+
+            <h1>Steps</h1>
+            <p>
+                Numaralı adım rehberi. "3 adımda kurulum" gibi sıralı süreçleri
+                görsel olarak düzenlemek için kullanılır.
+            </p>
+
+            <h2>Kurulum Örneği</h2>
+
+            <c-steps>
+                <c-step title="Repoyu Klonla">
+                    <p>Projeyi yerel ortamına indirmek için:</p>
+                    <p><code>git clone https://github.com/example/legacy-doc.git</code></p>
+                </c-step>
+                <c-step title="Bağımlılıkları Yükle">
+                    <p>Proje kök dizininde aşağıdaki komutu çalıştır:</p>
+                    <p><code>npm install</code></p>
+                </c-step>
+                <c-step title="Geliştirme Sunucusunu Başlat">
+                    <p>Uygulamayı yerel olarak çalıştır:</p>
+                    <p><code>npm start</code></p>
+                    <p>Tarayıcıda <code>http://localhost:3000</code> adresine git.</p>
+                </c-step>
+                <c-step title="Kullanmaya Başla">
+                    <p>İstediğin <code>&lt;c-*&gt;</code> elementlerini sayfana ekle — sunucu gerekmez, <code>file://</code> uyumludur.</p>
+                </c-step>
+            </c-steps>
+
+            <h2>Kod</h2>
+            <c-code-block lang="markup">&lt;c-steps&gt;
+    &lt;c-step title="Repoyu Klonla"&gt;
+        &lt;p&gt;&lt;code&gt;git clone https://github.com/example/repo.git&lt;/code&gt;&lt;/p&gt;
+    &lt;/c-step&gt;
+    &lt;c-step title="Bağımlılıkları Yükle"&gt;
+        &lt;p&gt;&lt;code&gt;npm install&lt;/code&gt;&lt;/p&gt;
+    &lt;/c-step&gt;
+    &lt;c-step title="Başlat"&gt;
+        &lt;p&gt;&lt;code&gt;npm start&lt;/code&gt;&lt;/p&gt;
+    &lt;/c-step&gt;
+&lt;/c-steps&gt;</c-code-block>
+
+            <h2>Attribute'lar</h2>
+            <table>
+                <thead><tr><th>Element</th><th>Attribute</th><th>Açıklama</th></tr></thead>
+                <tbody>
+                    <tr><td><code>c-step</code></td><td><code>title</code></td><td>Adım başlığı (opsiyonel)</td></tr>
+                    <tr><td><code>c-step</code></td><td>innerHTML</td><td>Adım açıklama içeriği — herhangi bir HTML</td></tr>
+                </tbody>
+            </table>
+
+            <c-pagination-nav prev-href="blueprint.html" prev-label="Blueprint" next-href="kbd.html" next-label="Keyboard (Kbd)"></c-pagination-nav>
+        </div>
+    </main>
+
+    <script src="../assets/vendor/js/prism.min.js"></script>
+    <script src="../assets/js/project.js"></script>
+    <script src="../components/c-theme-toggle/c-theme-toggle.js"></script>
+    <script src="../components/c-navbar/c-navbar.js"></script>
+    <script src="../components/c-sidebar/c-sidebar.js"></script>
+    <script src="../components/c-breadcrumb/c-breadcrumb.js"></script>
+    <script src="../components/c-code-block/c-code-block.js"></script>
+    <script src="../components/c-steps/c-steps.js"></script>
+    <script src="../components/c-pagination-nav/c-pagination-nav.js"></script>
+</body>
+
+</html>

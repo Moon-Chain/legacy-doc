@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyboard (Kbd) — Component Galerisi</title>
+
+    <link rel="stylesheet" href="../assets/vendor/css/prism-vscode_dark.min.css">
+    <link rel="stylesheet" href="../assets/css/tokens.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+
+    <link rel="stylesheet" href="../components/c-theme-toggle/c-theme-toggle.css">
+    <link rel="stylesheet" href="../components/c-navbar/c-navbar.css">
+    <link rel="stylesheet" href="../components/c-sidebar/c-sidebar.css">
+    <link rel="stylesheet" href="../components/c-breadcrumb/c-breadcrumb.css">
+    <link rel="stylesheet" href="../components/c-code-block/c-code-block.css">
+    <link rel="stylesheet" href="../components/c-kbd/c-kbd.css">
+    <link rel="stylesheet" href="../components/c-pagination-nav/c-pagination-nav.css">
+</head>
+
+<body>
+
+    <c-navbar brand="Component Galerisi" home="../index.html"></c-navbar>
+    <c-sidebar active="kbd" base="./"></c-sidebar>
+
+    <main class="page">
+        <div class="page-inner">
+            <c-breadcrumb items="Component Galerisi|../index.html>Keyboard (Kbd)"></c-breadcrumb>
+
+            <h1>Keyboard (Kbd)</h1>
+            <p>
+                Klavye kısayollarını görsel olarak göstermek için kullanılan inline elementtir.
+                <code>+</code> karakteriyle ayrılmış tuşları otomatik olarak ayrı anahtarlara böler.
+            </p>
+
+            <h2>Örnekler</h2>
+            <p>
+                Dosyayı kaydetmek için <c-kbd>Ctrl+S</c-kbd> tuşuna basın.
+                Komut paletini açmak için <c-kbd>⌘+Shift+P</c-kbd> kullanın.
+                Değişikliği geri almak için <c-kbd>Ctrl+Z</c-kbd>,
+                yeniden uygulamak için <c-kbd>Ctrl+Y</c-kbd>.
+            </p>
+            <p>
+                Tek tuş: <c-kbd>Enter</c-kbd>, <c-kbd>Esc</c-kbd>, <c-kbd>Tab</c-kbd>,
+                <c-kbd>F5</c-kbd>, <c-kbd>Delete</c-kbd>.
+            </p>
+            <p>
+                Üçlü kombinasyon: <c-kbd>Ctrl+Alt+Delete</c-kbd>.
+            </p>
+
+            <h2>Kod</h2>
+            <c-code-block lang="markup">&lt;p&gt;
+    Dosyayı kaydetmek için &lt;c-kbd&gt;Ctrl+S&lt;/c-kbd&gt; tuşuna basın.
+    Komut paletini açmak için &lt;c-kbd&gt;⌘+Shift+P&lt;/c-kbd&gt; kullanın.
+    Tek tuş: &lt;c-kbd&gt;Enter&lt;/c-kbd&gt;, &lt;c-kbd&gt;Esc&lt;/c-kbd&gt;.
+&lt;/p&gt;</c-code-block>
+
+            <h2>Attribute'lar</h2>
+            <table>
+                <thead><tr><th>Element</th><th>İçerik</th><th>Açıklama</th></tr></thead>
+                <tbody>
+                    <tr>
+                        <td><code>c-kbd</code></td>
+                        <td>textContent</td>
+                        <td>Kısayol metni. <code>+</code> ile ayrılmış tuşlar ayrı anahtarlara bölünür (ör. <code>Ctrl+K</code>).</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <c-pagination-nav prev-href="steps.html" prev-label="Steps" next-href="terminal.html" next-label="Terminal"></c-pagination-nav>
+        </div>
+    </main>
+
+    <script src="../assets/vendor/js/prism.min.js"></script>
+    <script src="../assets/js/project.js"></script>
+    <script src="../components/c-theme-toggle/c-theme-toggle.js"></script>
+    <script src="../components/c-navbar/c-navbar.js"></script>
+    <script src="../components/c-sidebar/c-sidebar.js"></script>
+    <script src="../components/c-breadcrumb/c-breadcrumb.js"></script>
+    <script src="../components/c-code-block/c-code-block.js"></script>
+    <script src="../components/c-kbd/c-kbd.js"></script>
+    <script src="../components/c-pagination-nav/c-pagination-nav.js"></script>
+</body>
+
+</html>

@@ -33,6 +33,8 @@ class CBlueprint extends HTMLElement {
     }
 
     _build(data) {
+        this._data = data;
+
         /* x/y verilmemiş düğümlere otomatik konum ata */
         const nodes = data.nodes || [];
         if (nodes.some(n => n.x == null || n.y == null)) {
@@ -76,12 +78,16 @@ class CBlueprint extends HTMLElement {
         const ctrl = document.createElement('div');
         ctrl.className = 'c-blueprint__controls';
         ctrl.innerHTML = `
-            <button class="c-blueprint__btn" data-a="reset" title="Düzeni sıfırla">↺</button>
-            <button class="c-blueprint__btn" data-a="zi"    title="Yakınlaş">+</button>
-            <button class="c-blueprint__btn" data-a="zo"    title="Uzaklaş">−</button>
-            <button class="c-blueprint__btn" data-a="fs"    title="Tam ekran">⛶</button>`;
+            <button class="c-blueprint__btn" data-a="reset"  title="Düzeni sıfırla">↺</button>
+            <button class="c-blueprint__btn" data-a="export" title="Konumları dışa aktar">⬇</button>
+            <button class="c-blueprint__btn" data-a="zi"     title="Yakınlaş">+</button>
+            <button class="c-blueprint__btn" data-a="zo"     title="Uzaklaş">−</button>
+            <button class="c-blueprint__btn" data-a="fs"     title="Tam ekran">⛶</button>`;
         wrap.appendChild(ctrl);
         ctrl.addEventListener('click', e => this._onCtrl(e, data));
+
+        /* Export paneli */
+        this._makeExportPanel();
 
         /* İpucu */
         const hint = document.createElement('div');
@@ -300,12 +306,80 @@ class CBlueprint extends HTMLElement {
         return pos;
     }
 
+    /* ── Export paneli ── */
+    _makeExportPanel() {
+        const panel = document.createElement('div');
+        panel.className = 'c-blueprint__export-panel';
+        panel.innerHTML = `
+            <div class="c-blueprint__export-hd">
+                <span>Node Konumları — JSON</span>
+                <button class="c-blueprint__btn" data-a="ecopy"  title="Kopyala">⎘</button>
+                <button class="c-blueprint__btn" data-a="eclose" title="Kapat">✕</button>
+            </div>
+            <pre class="c-blueprint__export-pre"></pre>`;
+        this._wrap.appendChild(panel);
+        this._exportPanel = panel;
+        this._exportPre   = panel.querySelector('.c-blueprint__export-pre');
+
+        panel.addEventListener('click', e => {
+            const a = e.target.closest('[data-a]')?.dataset.a;
+            if (a === 'ecopy')  this._copyExport();
+            if (a === 'eclose') this._closeExport();
+        });
+    }
+
+    _openExport() {
+        const nodes = (this._data.nodes || []).map(nd => {
+            const el = this._nodes[nd.id];
+            const x = el ? Math.round(parseFloat(el.style.left)) : nd.x;
+            const y = el ? Math.round(parseFloat(el.style.top))  : nd.y;
+            return Object.assign({}, nd, { x, y });
+        });
+        const out = Object.assign({}, this._data, { nodes });
+        this._exportPre.textContent = JSON.stringify(out, null, 2);
+        this._exportPanel.classList.add('is-open');
+    }
+
+    _closeExport() {
+        this._exportPanel.classList.remove('is-open');
+    }
+
+    _copyExport() {
+        const text = this._exportPre.textContent;
+        if (!navigator.clipboard) {
+            /* Fallback: geçici textarea */
+            const ta = document.createElement('textarea');
+            ta.value = text;
+            ta.style.cssText = 'position:fixed;opacity:0';
+            document.body.appendChild(ta);
+            ta.select();
+            document.execCommand('copy');
+            document.body.removeChild(ta);
+            this._flashCopyBtn();
+            return;
+        }
+        navigator.clipboard.writeText(text).then(() => this._flashCopyBtn());
+    }
+
+    _flashCopyBtn() {
+        const btn = this._exportPanel.querySelector('[data-a="ecopy"]');
+        if (!btn) return;
+        const orig = btn.textContent;
+        btn.textContent = '✓';
+        btn.style.color = 'var(--c-success)';
+        setTimeout(() => { btn.textContent = orig; btn.style.color = ''; }, 1400);
+    }
+
     /* ── Kontrol butonları ── */
     _onCtrl(e, data) {
         const a = e.target.closest('[data-a]')?.dataset.a;
         if (!a) return;
-        if (a === 'zi')    { this._scale = clamp(this._scale + 0.15, 0.25, 2.5); this._applyTransform(); }
-        if (a === 'zo')    { this._scale = clamp(this._scale - 0.15, 0.25, 2.5); this._applyTransform(); }
+        if (a === 'zi')     { this._scale = clamp(this._scale + 0.15, 0.25, 2.5); this._applyTransform(); }
+        if (a === 'zo')     { this._scale = clamp(this._scale - 0.15, 0.25, 2.5); this._applyTransform(); }
+        if (a === 'export') {
+            if (this._exportPanel.classList.contains('is-open')) this._closeExport();
+            else this._openExport();
+        }
         if (a === 'fs') {
             if (!document.fullscreenElement) {
                 this._wrap.requestFullscreen();
@@ -320,6 +394,7 @@ class CBlueprint extends HTMLElement {
                 if (el) { el.style.left = pos.x + 'px'; el.style.top = pos.y + 'px'; }
             });
             this._applyTransform();
+            this._closeExport();
         }
     }
 }

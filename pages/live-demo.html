@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Demo — Component Galerisi</title>
+
+    <link rel="stylesheet" href="../assets/vendor/css/prism-vscode_dark.min.css">
+    <link rel="stylesheet" href="../assets/css/tokens.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+
+    <link rel="stylesheet" href="../components/c-theme-toggle/c-theme-toggle.css">
+    <link rel="stylesheet" href="../components/c-navbar/c-navbar.css">
+    <link rel="stylesheet" href="../components/c-sidebar/c-sidebar.css">
+    <link rel="stylesheet" href="../components/c-breadcrumb/c-breadcrumb.css">
+    <link rel="stylesheet" href="../components/c-code-block/c-code-block.css">
+    <link rel="stylesheet" href="../components/c-badge/c-badge.css">
+    <link rel="stylesheet" href="../components/c-callout/c-callout.css">
+    <link rel="stylesheet" href="../components/c-live-demo/c-live-demo.css">
+    <link rel="stylesheet" href="../components/c-pagination-nav/c-pagination-nav.css">
+</head>
+
+<body>
+
+    <c-navbar brand="Component Galerisi" home="../index.html"></c-navbar>
+    <c-sidebar active="live-demo" base="./"></c-sidebar>
+
+    <main class="page">
+        <div class="page-inner">
+            <c-breadcrumb items="Component Galerisi|../index.html>Live Demo"></c-breadcrumb>
+
+            <h1>Live Demo</h1>
+            <p>
+                Solda kod, sağda canlı önizleme. İçeriği bir <code>iframe</code> içinde render eder;
+                sayfanın tüm CSS ve JS dosyaları iframe'e aktarılır. <code>file://</code> protokolünde
+                de çalışır.
+            </p>
+
+            <h2>Badge Demosu</h2>
+
+            <c-live-demo>
+                <script type="text/plain">
+<c-badge variant="get">GET</c-badge>
+<c-badge variant="post">POST</c-badge>
+<c-badge variant="put">PUT</c-badge>
+<c-badge variant="patch">PATCH</c-badge>
+<c-badge variant="delete">DELETE</c-badge>
+                </script>
+            </c-live-demo>
+
+            <h2>Callout Demosu</h2>
+
+            <c-live-demo>
+                <script type="text/plain">
+<c-callout variant="info" title="Bilgi">Bu bir bilgilendirme kutusu.</c-callout>
+<c-callout variant="warning" title="Uyarı">Bu bir uyarı kutusu.</c-callout>
+<c-callout variant="success" title="Başarılı">İşlem tamamlandı.</c-callout>
+                </script>
+            </c-live-demo>
+
+            <h2>Kod</h2>
+            <c-code-block lang="markup">&lt;c-live-demo&gt;
+    &lt;script type="text/plain"&gt;
+&lt;c-badge variant="get"&gt;GET&lt;/c-badge&gt;
+&lt;c-badge variant="post"&gt;POST&lt;/c-badge&gt;
+    &lt;/script&gt;
+&lt;/c-live-demo&gt;</c-code-block>
+
+            <c-callout variant="info" title="Nasıl Çalışır?">
+                <p>
+                    <code>&lt;script type="text/plain"&gt;</code> içindeki HTML, iframe'e kopyalanır.
+                    HTML içindeki <code>&lt;</code> <code>&gt;</code> karakterlerini escape etmek
+                    <strong>gerekmez</strong> — içerik ham metin olarak okunur.
+                </p>
+                <p>
+                    Sayfanın tüm stylesheet ve script dosyaları iframe'e aktarıldığı için
+                    <code>&lt;c-*&gt;</code> custom element'ler ve CSS değişkenleri iframe içinde
+                    de çalışır.
+                </p>
+            </c-callout>
+
+            <c-pagination-nav prev-href="changelog.html" prev-label="Changelog"></c-pagination-nav>
+        </div>
+    </main>
+
+    <script src="../assets/vendor/js/prism.min.js"></script>
+    <script src="../assets/js/project.js"></script>
+    <script src="../components/c-theme-toggle/c-theme-toggle.js"></script>
+    <script src="../components/c-navbar/c-navbar.js"></script>
+    <script src="../components/c-sidebar/c-sidebar.js"></script>
+    <script src="../components/c-breadcrumb/c-breadcrumb.js"></script>
+    <script src="../components/c-code-block/c-code-block.js"></script>
+    <script src="../components/c-badge/c-badge.js"></script>
+    <script src="../components/c-callout/c-callout.js"></script>
+    <script src="../components/c-live-demo/c-live-demo.js"></script>
+    <script src="../components/c-pagination-nav/c-pagination-nav.js"></script>
+</body>
+
+</html>

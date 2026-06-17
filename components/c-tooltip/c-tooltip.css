@@ -16,11 +16,13 @@
     background-color: var(--c-dark);
     color: #fff;
     font-size: 0.8rem;
-    line-height: 1.4;
-    padding: 0.3rem 0.6rem;
+    line-height: 1.5;
+    padding: 0.4rem 0.75rem;
     border-radius: var(--c-radius-sm);
-    max-width: 220px;
+    width: max-content;
+    max-width: 280px;
     white-space: normal;
+    word-break: keep-all;
     pointer-events: none;
     opacity: 0;
     visibility: hidden;
@@ -39,28 +41,28 @@
 
 /* top (varsayılan) */
 .c-tooltip--top .c-tooltip__tip {
-    bottom: calc(100% + 6px);
+    bottom: calc(100% + 8px);
     left: 50%;
     transform: translateX(-50%);
 }
 
 /* bottom */
 .c-tooltip--bottom .c-tooltip__tip {
-    top: calc(100% + 6px);
+    top: calc(100% + 8px);
     left: 50%;
     transform: translateX(-50%);
 }
 
 /* left */
 .c-tooltip--left .c-tooltip__tip {
-    right: calc(100% + 6px);
+    right: calc(100% + 8px);
     top: 50%;
     transform: translateY(-50%);
 }
 
 /* right */
 .c-tooltip--right .c-tooltip__tip {
-    left: calc(100% + 6px);
+    left: calc(100% + 8px);
     top: 50%;
     transform: translateY(-50%);
 }

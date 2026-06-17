@@ -13,7 +13,16 @@
     line-height: 1.2;
 }
 
-/* HTTP method varyantları */
+/* HTTP method varyantları — sabit genişlik: en uzun (DELETE) esas alınır */
+.c-badge--get,
+.c-badge--post,
+.c-badge--put,
+.c-badge--patch,
+.c-badge--delete {
+    min-width: 4.6em;
+    justify-content: center;
+}
+
 .c-badge--get {
     background-color: #0d6efd;
 }
